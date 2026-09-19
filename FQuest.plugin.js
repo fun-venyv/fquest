@@ -123,22 +123,22 @@ module.exports = class FQuestLoader {
 
     // ============ CACHE ============
     loadCache() {
-        try {
-            const raw = localStorage.getItem(this.CACHE_KEY);
-            if (!raw) return null;
-            const parsed = JSON.parse(raw);
-            if (!parsed.version || !parsed.modules) return null;
-            return parsed;
-        } catch (_) { return null; }
-    }
+    try {
+        const raw = this.api.Data.load(this.CACHE_KEY);
+        if (!raw) return null;
+        const parsed = typeof raw === 'string' ? JSON.parse(raw) : raw;
+        if (!parsed.version || !parsed.modules) return null;
+        return parsed;
+    } catch (_) { return null; }
+}
 
-    saveCache(data) {
-        try {
-            localStorage.setItem(this.CACHE_KEY, JSON.stringify(data));
-        } catch (e) {
-            this.api.Logger.warn('[FQuest] Не удалось сохранить кэш:', e);
-        }
+saveCache(data) {
+    try {
+        this.api.Data.save(this.CACHE_KEY, data);
+    } catch (e) {
+        this.api.Logger.warn('[FQuest] Не удалось сохранить кэш:', e);
     }
+}
 
     verifyCache(cached, manifest) {
         if (!cached.manifest?.files) return false;
