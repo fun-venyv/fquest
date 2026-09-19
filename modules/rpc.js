@@ -1,5 +1,5 @@
 /* FQuest · modules/rpc.js
- * Discord Rich Presence через BdApi.Webpack */
+ * Discord Rich Presence — подход из AutoStartRichPresence */
 
 module.exports = {
     createRPC(ctx) {
@@ -8,9 +8,9 @@ module.exports = {
         const APP_ID = '1550866409092026489';
 
         const ASSETS = {
-            large: 'fquest',           // имя большой иконки
+            large: 'fquest',        
             largeText: 'FQuest',
-            small: null,                // или имя маленькой иконки
+            small: null,            
             smallText: null,
         };
 
@@ -19,47 +19,52 @@ module.exports = {
         let currentDetails = 'FQuest';
         let currentState = 'Ожидание задач';
 
-        // Кэш модулей (получаем один раз)
-        let _Dispatcher = null;
-        let _ActivityStore = null;
-
+        let _dispatcher = null;
         const getDispatcher = () => {
-            if (_Dispatcher) return _Dispatcher;
+            if (_dispatcher) return _dispatcher;
             try {
-                // BdApi.Webpack — официальный способ
-                _Dispatcher = BdApi.Webpack.getByKeys('dispatch', 'subscribe', 'flushWaitQueue')
-                    || BdApi.Webpack.getByKeys('dispatch', 'subscribe');
-                if (_Dispatcher) api.Logger.info('[RPC] FluxDispatcher найден');
-                else api.Logger.warn('[RPC] FluxDispatcher НЕ найден');
+
+                _dispatcher = api.Webpack.getStore('UserStore')?._dispatcher;
+                if (_dispatcher) {
+                    api.Logger.info('[RPC] Dispatcher получен через UserStore._dispatcher');
+                    return _dispatcher;
+                }
+
+
+                _dispatcher = api.Webpack.getByKeys('dispatch')?.dispatch
+                    ? api.Webpack.getByKeys('dispatch')
+                    : null;
+                if (_dispatcher) {
+                    api.Logger.info('[RPC] Dispatcher получен через getByKeys("dispatch")');
+                    return _dispatcher;
+                }
+
+
+                _dispatcher = api.Webpack.getByKeys('dispatch', 'subscribe', 'flushWaitQueue');
+                if (_dispatcher) {
+                    api.Logger.info('[RPC] Dispatcher получен через FluxDispatcher');
+                    return _dispatcher;
+                }
+
+                api.Logger.warn('[RPC] Не удалось найти dispatcher');
+                return null;
             } catch (e) {
                 api.Logger.warn('[RPC] getDispatcher error:', e);
+                return null;
             }
-            return _Dispatcher;
-        };
-
-        const getActivityStore = () => {
-            if (_ActivityStore) return _ActivityStore;
-            try {
-                _ActivityStore = BdApi.Webpack.getStore('ApplicationStreamingStore')
-                    || BdApi.Webpack.getStore('ActivityStore')
-                    || BdApi.Webpack.getStore('RunningGameStore');
-            } catch (e) {
-                api.Logger.warn('[RPC] getActivityStore error:', e);
-            }
-            return _ActivityStore;
         };
 
         const buildActivity = () => {
             const activity = {
                 application_id: APP_ID,
-                name: 'FQuest',
-                type: 0,                 // 0 = Playing
+                name: 'FQuest',             
+                type: 0,                     
                 details: currentDetails,
                 state: currentState,
-                timestamps: startTime ? { start: startTime } : undefined,
+                flags: 1,                    
+                timestamps: startTime ? { start: Math.floor(startTime) } : undefined,
             };
 
-            // Добавляем assets только если заданы
             if (ASSETS.large) {
                 activity.assets = {
                     large_image: ASSETS.large,
@@ -74,16 +79,17 @@ module.exports = {
             return activity;
         };
 
-        const dispatch = (activity) => {
-            const Dispatcher = getDispatcher();
-            if (!Dispatcher) return false;
+        const setActivity = (activity) => {
+            const dispatcher = getDispatcher();
+            if (!dispatcher?.dispatch) {
+                api.Logger.warn('[RPC] Dispatcher пуст — активность не установлена');
+                return false;
+            }
 
             try {
-                Dispatcher.dispatch({
+                dispatcher.dispatch({
                     type: 'LOCAL_ACTIVITY_UPDATE',
                     activity: activity,
-                    socketId: undefined,
-                    pid: 9999,
                 });
                 return true;
             } catch (e) {
@@ -103,7 +109,7 @@ module.exports = {
                 startTime = Date.now();
                 active = true;
 
-                const ok = dispatch(buildActivity());
+                const ok = setActivity(buildActivity());
                 if (ok) {
                     api.Logger.info('[RPC] Rich Presence включён');
                 } else {
@@ -115,7 +121,7 @@ module.exports = {
             disable() {
                 if (!active) return;
                 try {
-                    dispatch(null);
+                    setActivity({});
                     api.Logger.info('[RPC] Rich Presence выключен');
                 } catch (_) {}
                 active = false;
@@ -126,13 +132,13 @@ module.exports = {
                 if (!active) return;
                 if (details) currentDetails = String(details).slice(0, 128);
                 if (state) currentState = String(state).slice(0, 128);
-                dispatch(buildActivity());
+                setActivity(buildActivity());
             },
 
             setWaiting(isWaiting) {
                 if (!active) return;
                 currentState = isWaiting ? 'Ожидание квестов' : 'В работе';
-                dispatch(buildActivity());
+                setActivity(buildActivity());
             },
 
             isActive() { return active; },
