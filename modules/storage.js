@@ -44,7 +44,16 @@ module.exports = {
         try {
             const raw = api.Data.load(this._key(name));
             if (raw === null || raw === undefined) return fallback;
-            return typeof raw === 'string' ? JSON.parse(raw) : raw;
+
+            // Если это уже объект/число/булево — вернуть как есть
+            if (typeof raw !== 'string') return raw;
+
+            // Попробовать распарсить, но не падать, если не JSON
+            try {
+                return JSON.parse(raw);
+            } catch (_) {
+                return raw; // это просто строка, например "quests"
+            }
         } catch (e) {
             api?.Logger?.warn?.(`[Storage] get(${name}) failed:`, e);
             return fallback;

@@ -303,6 +303,89 @@ module.exports = {
                     document.addEventListener('mouseup', mu);
                 });
             },
+            /**
+             * Кастомный prompt вместо браузерного.
+             * @param {string} label — заголовок
+             * @param {string} defaultValue — значение по умолчанию
+             * @returns {Promise<string|null>}
+             */
+
+            prompt(label, defaultValue = '') {
+                return new Promise((resolve) => {
+                    const ov = document.createElement('div');
+                    ov.className = 'fq-modal-overlay';
+                    ov.innerHTML = `
+                        <div class="fq-modal-box">
+                            <div class="fq-modal-head">${ctx.esc(label)}</div>
+                            <div class="fq-modal-body">
+                                <input type="text" class="fq-modal-input" value="${ctx.esc(defaultValue)}">
+                            </div>
+                            <div class="fq-modal-actions">
+                                <button type="button" class="quest-pick-btn deselect" data-act="cancel">Отмена</button>
+                                <button type="button" class="quest-pick-btn start" data-act="ok">ОК</button>
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(ov);
+
+                    const input = ov.querySelector('.fq-modal-input');
+                    input.focus();
+                    input.select();
+
+                    const finish = (val) => {
+                        document.removeEventListener('keydown', onKey);
+                        ov.remove();
+                        resolve(val);
+                    };
+
+                    const onKey = (e) => {
+                        if (e.key === 'Escape') finish(null);
+                        else if (e.key === 'Enter') finish(input.value.trim() || null);
+                    };
+                    document.addEventListener('keydown', onKey);
+
+                    ov.querySelector('[data-act="cancel"]').addEventListener('click', () => finish(null));
+                    ov.querySelector('[data-act="ok"]').addEventListener('click', () => finish(input.value.trim() || null));
+                    ov.addEventListener('mousedown', (e) => { if (e.target === ov) finish(null); });
+                });
+            },
+
+            /**
+             * @returns {Promise<boolean>}
+             */
+            confirm(message) {
+                return new Promise((resolve) => {
+                    const ov = document.createElement('div');
+                    ov.className = 'fq-modal-overlay';
+                    ov.innerHTML = `
+                        <div class="fq-modal-box">
+                            <div class="fq-modal-head">Подтверждение</div>
+                            <div class="fq-modal-body">${ctx.esc(message)}</div>
+                            <div class="fq-modal-actions">
+                                <button type="button" class="quest-pick-btn deselect" data-act="cancel">Отмена</button>
+                                <button type="button" class="quest-pick-btn start" data-act="ok">Подтвердить</button>
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(ov);
+
+                    const finish = (val) => {
+                        document.removeEventListener('keydown', onKey);
+                        ov.remove();
+                        resolve(val);
+                    };
+
+                    const onKey = (e) => {
+                        if (e.key === 'Escape') finish(false);
+                        else if (e.key === 'Enter') finish(true);
+                    };
+                    document.addEventListener('keydown', onKey);
+
+                    ov.querySelector('[data-act="cancel"]').addEventListener('click', () => finish(false));
+                    ov.querySelector('[data-act="ok"]').addEventListener('click', () => finish(true));
+                    ov.addEventListener('mousedown', (e) => { if (e.target === ov) finish(false); });
+                });
+            },
         };
     },
 };

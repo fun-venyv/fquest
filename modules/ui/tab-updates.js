@@ -36,28 +36,35 @@ module.exports = {
 
                 container.querySelector('#fq-check-updates')?.addEventListener('click', async () => {
                     try {
-                        const url = ctx.api.Native?.getPluginPath ? '' : null;
-                        const manifestUrl = 'https://raw.githubusercontent.com/venyv/fquest/main/manifest.json?t=' + Date.now();
+                        const manifestUrl = 'https://raw.githubusercontent.com/fun-venyv/fquest/main/manifest.json?t=' + Date.now();
                         const res = await fetch(manifestUrl);
-                        const remote = await res.json();
-                        if (remote.version !== manifest.version) {
-                            if (confirm(`Доступна новая версия: ${remote.version}. Перезагрузить плагин?`)) {
-                                localStorage.removeItem('fquest_module_cache_v1');
+                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                        const text = await res.text();
+
+                        if (!text.trim().startsWith('{')) {
+                            throw new Error('Сервер вернул не JSON. Проверь URL и ник в FQuest.plugin.js');
+                        }
+
+                        const remote = JSON.parse(text);
+                        if (remote.version !== ctx.manifest.version) {
+                            const ok = await ctx.UI.confirm(`Доступна новая версия: ${remote.version}. Перезагрузить плагин?`);
+                            if (ok) {
+                                try { ctx.api.Data.delete('fquest_module_cache_v1'); } catch (_) {}
                                 location.reload();
                             }
                         } else {
-                            alert('Установлена последняя версия.');
+                            await ctx.UI.confirm('Установлена последняя версия.');
                         }
                     } catch (e) {
-                        alert('Не удалось проверить: ' + e.message);
+                        await ctx.UI.confirm('Не удалось проверить: ' + e.message);
                     }
                 });
 
-                container.querySelector('#fq-clear-cache')?.addEventListener('click', () => {
-                    if (confirm('Очистить кэш модулей? При следующем запуске они скачаются заново.')) {
-                        localStorage.removeItem('fquest_module_cache_v1');
-                        alert('Кэш очищен. Перезагрузите Discord.');
-                    }
+                container.querySelector('#fq-clear-cache')?.addEventListener('click', async () => {
+                    const ok = await ctx.UI.confirm('Очистить кэш модулей? При следующем запуске они скачаются заново.');
+                    if (!ok) return;
+                    try { ctx.api.Data.delete('fquest_module_cache_v1'); } catch (_) {}
+                    await ctx.UI.confirm('Кэш очищен. Перезагрузите Discord.');
                 });
             },
         };

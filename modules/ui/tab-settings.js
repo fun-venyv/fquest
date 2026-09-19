@@ -104,7 +104,8 @@ module.exports = {
 
                 // profiles
                 container.querySelector('#fq-profile-new')?.addEventListener('click', () => {
-                    const name = prompt('Имя профиля:', `Профиль ${Profiles.getAll().length + 1}`);
+                    const defaultName = `Профиль ${Profiles.getAll().length + 1}`;
+                    const name = ctx.UI.prompt('Имя профиля', defaultName);
                     if (!name) return;
                     Profiles.create(name);
                     this.render(container);
@@ -158,8 +159,9 @@ module.exports = {
                 });
 
                 // reset
-                container.querySelector('#fq-reset')?.addEventListener('click', () => {
-                    if (!confirm('Сбросить все настройки?')) return;
+                container.querySelector('#fq-reset')?.addEventListener('click', async () => {
+                    const ok = await ctx.UI.confirm('Сбросить все настройки?');
+                    if (!ok) return;
                     Storage.reset();
                     ctx.UI.applyTheme(RUNTIME.theme, RUNTIME.accent);
                     this.render(container);
