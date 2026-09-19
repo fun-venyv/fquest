@@ -150,39 +150,48 @@ saveCache(data) {
 
     // ============ BOOTSTRAP ============
     async bootstrap(manifest, moduleSources, css) {
-        const moduleExports = {};
+    const moduleExports = {};
 
-        const requireModule = (name) => {
-            if (moduleExports[name]) return moduleExports[name];
-            const key = 'modules/' + name.replace(/^\.\//, '');
-            const src = moduleSources[key];
-            if (!src) throw new Error(`Модуль не найден: ${name}`);
-            const fn = new Function('module', 'exports', 'require', src + '\n//# sourceURL=fquest/' + key);
-            const mod = { exports: {} };
-            fn(mod, mod.exports, requireModule);
-            moduleExports[name] = mod.exports;
-            return mod.exports;
-        };
+    const requireModule = (name) => {
+        if (moduleExports[name]) return moduleExports[name];
+        const key = 'modules/' + name.replace(/^\.\//, '');
+        const src = moduleSources[key];
+        if (!src) throw new Error(`Модуль не найден: ${name}`);
+        const fn = new Function('module', 'exports', 'require', src + '\n//# sourceURL=fquest/' + key);
+        const mod = { exports: {} };
+        fn(mod, mod.exports, requireModule);
+        moduleExports[name] = mod.exports;
+        return mod.exports;
+    };
 
-        const coreSrc = moduleSources['modules/core.js'];
-        if (!coreSrc) throw new Error('modules/core.js отсутствует в манифесте');
+    const coreSrc = moduleSources['modules/core.js'];
+    if (!coreSrc) throw new Error('modules/core.js отсутствует в манифесте');
 
-        const coreFn = new Function('module', 'exports', 'require',
-            coreSrc + '\n//# sourceURL=fquest/modules/core.js');
-        const coreMod = { exports: {} };
-        coreFn(coreMod, coreMod.exports, requireModule);
+    const coreFn = new Function('module', 'exports', 'require',
+        coreSrc + '\n//# sourceURL=fquest/modules/core.js');
+    const coreMod = { exports: {} };
+    coreFn(coreMod, coreMod.exports, requireModule);
 
-        const FQuestClass = coreMod.exports.default || coreMod.exports;
-        this._instance = new FQuestClass({
-            meta: this.meta,
-            api: this.api,
-            modules: requireModule,
-            css,
-            manifest,
-        });
-        await this._instance.start();
+    const factory = coreMod.exports.default || coreMod.exports;
+    if (typeof factory !== 'function') {
+        throw new Error('core.js не экспортирует фабрику');
     }
 
+    const FQuestClass = factory({
+        meta: this.meta,
+        api: this.api,
+        modules: requireModule,
+        css,
+        manifest,
+    });
+
+    if (typeof FQuestClass !== 'function') {
+        throw new Error('core.js не вернул класс FQuest');
+    }
+
+    this._instance = new FQuestClass();
+    await this._instance.start();
+}
     compareVersions(a, b) {
         const pa = a.split('.').map(Number);
         const pb = b.split('.').map(Number);
