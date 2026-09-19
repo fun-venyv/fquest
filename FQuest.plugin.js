@@ -13,7 +13,7 @@ module.exports = class FQuestLoader {
         this.api = new BdApi(meta.name);
 
         // ⚠️ ЗАМЕНИ на свой ник
-        this.REPO_RAW = 'https://raw.githubusercontent.com/venyv/fquest/main/';
+        this.REPO_RAW = 'https://raw.githubusercontent.com/fun-venyv/fquest/main/';
         this.MANIFEST_URL = this.REPO_RAW + 'manifest.json';
         this.LOADER_VERSION = '5.2.0';
         this.CACHE_KEY = 'fquest_module_cache_v1';
