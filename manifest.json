@@ -1,7 +1,7 @@
 {
   "version": "5.3.0",
   "minLoader": "5.2.0",
-  "updatedAt": "2026-09-19T09:59:14.130Z",
+  "updatedAt": "2026-09-19T10:10:03.079Z",
   "baseUrl": "https://raw.githubusercontent.com/fun-venyv/fquest/main/",
   "files": {
     "FQuest.css": {
@@ -9,64 +9,64 @@
       "size": 19054
     },
     "modules/core.js": {
-      "hash": "sha256-4aOrFjE7LND+0xghXBfOMPkc5TNgw+e60R6HS0+c4fU=",
-      "size": 19078
+      "hash": "sha256-7EbkOcgcOKbO+Qk8XKniED98+wH9xtR72vzMlTjZUoc=",
+      "size": 18686
     },
     "modules/history.js": {
-      "hash": "sha256-qefWkODx0kVeqMywpvgtJ7B8nTAI+PZQWOymSvfJt6U=",
-      "size": 2215
+      "hash": "sha256-mreMVKfahL16oc9Z5DcXR27FeL/B74PyYCR+GsmnzmA=",
+      "size": 2151
     },
     "modules/logger.js": {
-      "hash": "sha256-1GPVpZHNfKL7rsa2hHvhZQDddlxNOZv1iNbSet2SQhw=",
-      "size": 20822
+      "hash": "sha256-2e2zCjYxqt88TYylK5UhYKsSvLMzGjgj2d8Su4K2OZI=",
+      "size": 20464
     },
     "modules/patcher.js": {
-      "hash": "sha256-0QrjturQvH5wJNnEZnhY2lYcRiVRa6gZSDYW47XEpbM=",
-      "size": 3210
+      "hash": "sha256-Op8vPLsS6Nv++dtzbMnA8c9aGe+RRCgUFsWqWXZXP+Y=",
+      "size": 3119
     },
     "modules/profiles.js": {
-      "hash": "sha256-dAepiL1spNf1BLiHnjXAuU7rCO/YpIkrrf4ZjRSPPoQ=",
-      "size": 2501
+      "hash": "sha256-HG1KVfKY6lGCGw4gSrEHnRx9xRwdTGJwVnBesVyPwuE=",
+      "size": 2427
     },
     "modules/rpc.js": {
-      "hash": "sha256-JlounZF3Eyt/wOK2Txckx33NCwr6FxymyuAqayIyIFA=",
-      "size": 2661
+      "hash": "sha256-W9z+R5KxJuU1X20LOXUjXtTwE0qy8o4W7PLDiPXSv8M=",
+      "size": 2591
     },
     "modules/storage.js": {
-      "hash": "sha256-3zNADHKJRWW3QZXxyxaff88xRegCN7rQOd43Eo+0nKY=",
-      "size": 7238
+      "hash": "sha256-8tgjx5gQojJ3qOj+8whnMdpwXibBPfN7gOkLdFAmKfo=",
+      "size": 7045
     },
     "modules/task.js": {
-      "hash": "sha256-bXGs/AmZoWDNsAriZ2lAJ7jyWjqQ8mntId+qqV4XQ9g=",
-      "size": 17662
+      "hash": "sha256-oqiyzZrWHqGIPNmTALhA7aKYnisEMTZ/tvul3zmwQs4=",
+      "size": 17348
     },
     "modules/traffic.js": {
-      "hash": "sha256-6VMblhunNmEuWUIaKb1gkPhORBRJSh0YIUFM3Q5ac5A=",
-      "size": 3824
+      "hash": "sha256-qJVDw1VxvZ92pDKumpOppevF81W/xV7Rvg0RkzmOoI4=",
+      "size": 3740
     },
     "modules/ui/index.js": {
-      "hash": "sha256-oGR0dsuhg2ev35NvS5yhE1gjeZ5wHwX+tstiJWz2Wkc=",
-      "size": 14480
+      "hash": "sha256-UmHfq91YD9ujBC++dKrA7hnc9YcVCYFnZWXsLtpAPTA=",
+      "size": 14173
     },
     "modules/ui/tab-about.js": {
-      "hash": "sha256-lVhuTHvngySMnx4PKqrk9B9KRmGCVD/IlCG93+s9Orw=",
-      "size": 3114
+      "hash": "sha256-XGffyGDeErAwjIu+WmvftOKQYeWPGYQbKrPnmlyzjC4=",
+      "size": 3052
     },
     "modules/ui/tab-quests.js": {
-      "hash": "sha256-7NjYBo3ecwUNLosFs9/rX2CQrnS0uHjNh7JDPOt53lI=",
-      "size": 169
+      "hash": "sha256-noaAdjJtGOHo85bCjSzATUVc4rpD7/YntwHFrucpEwM=",
+      "size": 161
     },
     "modules/ui/tab-settings.js": {
-      "hash": "sha256-vvrk2AhmHjW5BLOUXga2L9kuQP3E3AzAm33nii/K7R0=",
-      "size": 8180
+      "hash": "sha256-I/qzpkJzCKLspG5cGmFDmhknictrgMPesTn6WCbPsaA=",
+      "size": 8011
     },
     "modules/ui/tab-stats.js": {
-      "hash": "sha256-8yaS4u1h636P87qAntw+C9J3jlqWouXuxiLcu37RWUs=",
-      "size": 2712
+      "hash": "sha256-xkPEwRdwDiYhKf91NCiJsmg3t6kK+Cq0N4hhFni0iSM=",
+      "size": 2658
     },
     "modules/ui/tab-updates.js": {
-      "hash": "sha256-xDWUMkRAB90YMU2C9O6wOVbZMHL0HlCPNlbNJa8xEk4=",
-      "size": 3419
+      "hash": "sha256-SOwI4vOH1PcbEWypc4TQ2ik+wqttfRbfa3PYZwt9W+o=",
+      "size": 3355
     }
   }
 }
