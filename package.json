@@ -1,0 +1,8 @@
+{
+    "name": "fquest",
+    "version": "5.3.3",
+    "minLoader": "5.2.0",
+    "scripts": {
+        "build": "node build.js"
+    }
+}
