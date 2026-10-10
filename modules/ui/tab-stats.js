@@ -111,13 +111,7 @@ module.exports = {
                             : ''
                         ).join('');
 
-                    const dots = points.map((p, i) => p.v > 0
-                        ? `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="2.5" 
-                                  fill="#A78BFA" stroke="#0F0F16" stroke-width="1">
-                              <title>${esc(daily[i].date)}: ${p.v} Orbs</title>
-                           </circle>`
-                        : ''
-                    ).join('');
+                    const dots = '';   
 
                     const totalOrbs = daily.reduce((s, d) => s + d.orbs, 0);
                     const totalCount = daily.reduce((s, d) => s + d.count, 0);

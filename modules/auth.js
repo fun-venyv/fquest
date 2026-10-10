@@ -80,7 +80,6 @@ module.exports = {
                 return {
                     'invalid-format':     'Неверный формат ключа. Ожидается XXXX-XXXX-XXXX-XXXX',
                     'invalid':            'Ключ не существует',
-                    'busy':               'Этот ключ уже привязан к другому аккаунту',
                     'not-registered':     'Ключ не зарегистрирован',
                     'already-registered': 'Ваш Discord уже привязан к другому ключу',
                     'banned':             'Ваш аккаунт заблокирован',
