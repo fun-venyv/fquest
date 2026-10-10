@@ -7,10 +7,7 @@ module.exports = {
     createAuth(ctx) {
         const { platform } = ctx;
 
-        // ⚠️ ЗАМЕНИ НА СВОЙ URL
-        const API_URL = 'http://localhost:3000';
-        // Локальный тест:
-        // const API_URL = 'http://localhost:3000';
+        const API_URL = 'http://node4.waifly.com:25074/health';
 
         const TIMEOUT_MS = 10000;
         const KEY_REGEX = /^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/;

@@ -1,14 +1,12 @@
 /* ============================================================
  *  FQuest · modules/ui/components/stats-dashboard.js
- *  React-дашборд статистики Orbs
- *  Без круговой диаграммы, с переключателем периодов
  * ============================================================ */
 
 module.exports = {
     /**
      * @param {object} ctx
-     * @param {object} rt   — react-runtime
-     * @returns {function}  — React-компонент
+     * @param {object} rt   
+     * @returns {function}  
      */
     createStatsDashboard(ctx, rt) {
         const { esc } = ctx;
@@ -20,9 +18,6 @@ module.exports = {
             ACHIEVEMENT: 'Достижения', ACTIVITY: 'Активность',
         };
 
-        // ============================================================
-        //  Анимированный счётчик (для KPI)
-        // ============================================================
         function AnimatedNumber({ value, duration = 800 }) {
             const [display, setDisplay] = useState(value);
             const prevRef = useRef(value);
@@ -48,9 +43,6 @@ module.exports = {
             return React.createElement('span', null, display);
         }
 
-        // ============================================================
-        //  KPI-карточка
-        // ============================================================
         function KpiCard({ icon, value, label, accent }) {
             const h = rt.h;
             return h('div', {
@@ -64,9 +56,6 @@ module.exports = {
             );
         }
 
-        // ============================================================
-        //  Линейный график Orbs + переключатель периода
-        // ============================================================
         function OrbsChart({ dailyAll }) {
             const h = rt.h;
             const [period, setPeriod] = useState('month');
@@ -191,9 +180,6 @@ module.exports = {
             );
         }
 
-        // ============================================================
-        //  Прогресс-бары по типам квестов
-        // ============================================================
         function TypeBars({ byType, total }) {
             const h = rt.h;
             const entries = Object.entries(byType).sort((a, b) => b[1] - a[1]);
@@ -221,9 +207,6 @@ module.exports = {
             );
         }
 
-        // ============================================================
-        //  Топ дней по Orbs
-        // ============================================================
         function TopDays({ topDays }) {
             const h = rt.h;
             return h('div', { className: 'fq-chart-card' },
@@ -243,9 +226,6 @@ module.exports = {
             );
         }
 
-        // ============================================================
-        //  Последние выполненные
-        // ============================================================
         function RecentList({ recent }) {
             const h = rt.h;
             return h('div', { className: 'fq-chart-card' },
@@ -268,9 +248,6 @@ module.exports = {
             );
         }
 
-        // ============================================================
-        //  ГЛАВНЫЙ КОМПОНЕНТ
-        // ============================================================
         return function StatsDashboard({ onClearHistory }) {
             const h = rt.h;
             const [snap, setSnap] = useState(() => ctx.Stats.snapshot());
