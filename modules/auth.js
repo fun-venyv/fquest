@@ -7,7 +7,7 @@ module.exports = {
     createAuth(ctx) {
         const { platform } = ctx;
 
-        const API_URL = 'https://ones-kirk-electronics-api.trycloudflare.com';
+        const API_URL = 'https://associates-despite-sagem-enclosed.trycloudflare.com';
 
         const TIMEOUT_MS = 10000;
         const KEY_REGEX = /^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/;
