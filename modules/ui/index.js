@@ -131,29 +131,17 @@ module.exports = {
                         this.root.style.display = 'flex';
                         this.open = true;
                         this.navBtn?.classList.add('active');
-                        const old = this.root.querySelector('#fquest-splash');
-                        if (old) old.remove();
-                        this._mountSplash();
                         if (this._readyForBootstrap) {
-                            setTimeout(() => this._bootstrap(), 1800);
+                            this._bootstrap();
                         }
-                        afterShow();
                         return;
                     }
                 }
 
-                if (this.root) {
+               if (this.root) {
                     this.root.style.display = 'flex';
                     this.open = true;
                     this.navBtn?.classList.add('active');
-                    const old = this.root.querySelector('#fquest-splash');
-                    if (old) old.remove();
-                    this._mountSplash();
-                    setTimeout(() => {
-                        const s = this.root?.querySelector('#fquest-splash');
-                        if (s) s.remove();
-                    }, 1800);
-                    afterShow();
                     return;
                 }
 
@@ -214,7 +202,6 @@ module.exports = {
                 this.open = true;
                 this.navBtn?.classList.add('active');
 
-                this._mountSplash();
                 this._bindDrag(root.querySelector('#fquest-head'));
 
                 root.querySelector('#fquest-sidebar').addEventListener('click', (e) => {
@@ -249,7 +236,7 @@ module.exports = {
                 this.renderUserCard();
 
                 if (this._readyForBootstrap) {
-                    setTimeout(() => this._bootstrap(), 1800);
+                    this._bootstrap();
                 }
             },
 
@@ -264,7 +251,7 @@ module.exports = {
                     <div class="fq-splash-sub">by venyv · ${CONFIG.VERSION}</div>
                 `;
                 this.root.appendChild(splash);
-                setTimeout(() => { if (splash.parentElement) splash.remove(); }, 1800);
+                // setTimeout(() => { if (splash.parentElement) splash.remove(); }, 1800);
             },
 
             // ============================================================
@@ -377,8 +364,17 @@ module.exports = {
                 }
                 ctx._bootstrapped = true;
 
-                // Снимаем блокировку после успешной авторизации
                 this._setAuthLock(false);
+
+                // === Splash показывается здесь — после авторизации, но перед bootstrap ===
+                this._mountSplash();
+
+                // Даём splash-анимации проиграть
+                await new Promise(r => setTimeout(r, 1800));
+
+                // Убираем splash
+                const splash = this.root?.querySelector('#fquest-splash');
+                if (splash) splash.remove();
 
                 ctx.Logger.init(this.root);
                 if (!ctx.loadModules()) {

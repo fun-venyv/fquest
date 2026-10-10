@@ -345,25 +345,21 @@ module.exports = function FQuestFactory({ meta, api, modules, css, manifest }) {
 
             // === 2. Открываем окно FQuest (в него будет рендериться модалка активации) ===
             ctx.UI.openWindow();
+
             setTimeout(() => {
-                try {
-                    ctx.UI.applyTheme(RUNTIME.theme, RUNTIME.accent);
-                } catch (e) {
-                    platform?.Logger?.warn?.('[Core] applyTheme failed:', e);
-                }
-            }, 150);
-            // === 3. Запускаем авторизацию — модалка появится ВНУТРИ окна ===
+                ctx.UI.applyTheme(RUNTIME.theme, RUNTIME.accent);
+            }, 100);
+
+            // Авторизация
             if (CONFIG.AUTH_REQUIRED) {
                 const authorized = await ctx.UI.runAuthFlow();
                 if (!authorized) {
-                    platform.Logger.warn('[FQuest] Авторизация отклонена — плагин не запущен');
-                    // Оставляем окно открытым, но пустым — пользователь может закрыть
-                    ctx._stopped = true;
-                    RUNTIME.running = false;
+                    // отказ
                     return;
                 }
-                platform.Logger.info('[FQuest] Авторизация успешна');
-                 ctx.UI.renderUserCard();
+                // ✅ Только здесь запускаем bootstrap
+                ctx.UI._readyForBootstrap = true;
+                ctx.UI._bootstrap();
             }
             // Периодический heartbeat — раз в 10 минут
             ctx._heartbeatId = setInterval(async () => {
