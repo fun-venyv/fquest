@@ -1,18 +1,1 @@
-module.exports = {
-    createTab(ctx) {
-        return {
-            render(container) {
-                console.log('[FQuest] tab-quests.render:', {
-                    tasksSize: ctx.Logger.tasks.size,
-                    bodyChildren: container?.children?.length,
-                    activeTab: ctx.RUNTIME.activeTab,
-                });
-                ctx.Logger.render();
-                console.log('[FQuest] after Logger.render:', {
-                    bodyChildren: container?.children?.length,
-                    bodyHTML: container?.innerHTML?.slice(0, 200),
-                });
-            },
-        };
-    },
-};
+module['exports']={'createTab'(_0x4e65ae){return{'render'(_0x575ec){console['log']('[FQuest]\x20tab-quests.render:',{'tasksSize':_0x4e65ae['Logger']['tasks']['size'],'bodyChildren':_0x575ec?.['children']?.['length'],'activeTab':_0x4e65ae['RUNTIME']['activeTab']}),_0x4e65ae['Logger']['render'](),console['log']('[FQuest]\x20after\x20Logger.render:',{'bodyChildren':_0x575ec?.['children']?.['length'],'bodyHTML':_0x575ec?.['innerHTML']?.['slice'](0x0,0xc8)});}};}};

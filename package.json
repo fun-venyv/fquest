@@ -4,5 +4,8 @@
     "minLoader": "5.2.0",
     "scripts": {
         "build": "node build.js"
+    },
+    "devDependencies": {
+        "javascript-obfuscator": "^5.9.0"
     }
 }
