@@ -732,7 +732,6 @@ module.exports = {
                         <div class="fq-modal-body">
                             <div style="margin-bottom:12px;color:var(--fq-muted);font-size:12px;line-height:1.5;">
                                 Введите ключ продукта. Формат: <b style="color:var(--fq-accent);">XXXX-XXXX-XXXX-XXXX</b><br>
-                                <span style="opacity:.7;">Для теста: <b>TEST-0000-0000-0001</b></span>
                             </div>
                             <input type="text" class="fq-modal-input" id="fq-key-input"
                                    placeholder="XXXX-XXXX-XXXX-XXXX" autocomplete="off" spellcheck="false"

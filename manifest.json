@@ -1,7 +1,7 @@
 {
   "version": "6.0.0",
   "minLoader": "5.2.0",
-  "updatedAt": "2026-09-29T12:18:14.090Z",
+  "updatedAt": "2026-10-10T14:35:39.555Z",
   "baseUrl": "https://raw.githubusercontent.com/fun-venyv/test-repo/main/",
   "files": {
     "FQuest.css": {
@@ -9,8 +9,8 @@
       "size": 107306
     },
     "modules/auth.js": {
-      "hash": "sha256-BWaOfgbcZNHqPnKzwB4fEFMdDP7mcV8k5F9sPAmJeyo=",
-      "size": 4089
+      "hash": "sha256-Rwm60XrYWuuqWrvlsF8vAf5+Xpk+Gqv8uCCuR1Zhifg=",
+      "size": 3992
     },
     "modules/consent.js": {
       "hash": "sha256-gnUZH7KaIRtpMEalH9zcg6YmQ0bV3+P68Aln4Vv2xAA=",
@@ -45,8 +45,8 @@
       "size": 5272
     },
     "modules/react-runtime.js": {
-      "hash": "sha256-Pu/5T6bBJMoxFVF6FDKIE0absFRgDHVXvXEFPIpS5O0=",
-      "size": 7601
+      "hash": "sha256-h2fNNkVp+vgQiW7G8VAVYzn0SiU7gUyiJfimzFwEnkc=",
+      "size": 7519
     },
     "modules/rpc.js": {
       "hash": "sha256-gx5PDPYEPRhwXytMRzt+w3rMHex4RLYM2HzPGOB8lRs=",
@@ -65,8 +65,8 @@
       "size": 22062
     },
     "modules/themes.js": {
-      "hash": "sha256-RiWirjl3XE2NffU8ugaXJyyvI108zPCbMcRPw7NA8sc=",
-      "size": 40284
+      "hash": "sha256-lew9VHunoCL6bXsk22D6XQmkNkL7jyA01l3GBdOjzls=",
+      "size": 38958
     },
     "modules/traffic.js": {
       "hash": "sha256-FGcbKc0C6vb9l8NCWTNcj99KGVX71Z+7/jkhd/1BNLA=",
@@ -77,12 +77,12 @@
       "size": 3592
     },
     "modules/ui/components/stats-dashboard.js": {
-      "hash": "sha256-NXMEVqK3Os1BEOm4faAK5yeoO7/QWc1E8sc/hNVKnm4=",
-      "size": 14407
+      "hash": "sha256-DOtx8WcCoZxq55+3zB2jMuoxwVLMlGymjj0rKAQKtP0=",
+      "size": 13017
     },
     "modules/ui/index.js": {
-      "hash": "sha256-f4/vwVIHNpSqnwswN4ZHh+LqC0cwX5XxyyFbbyFKTPU=",
-      "size": 40451
+      "hash": "sha256-MRKp/mwYRPgqjif+Jm16fjxFz1avMWbL0fs0HDj3EpE=",
+      "size": 40348
     },
     "modules/ui/tab-about.js": {
       "hash": "sha256-bcetkOr8KcGDMrNqtx/VofPcbMEExKZiIrMhdv0sKAA=",
