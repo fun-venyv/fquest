@@ -1,1 +1,88 @@
-module['exports']={'createTab'(_0x37d8e2){const {CHANGELOG:_0x4229cb,getTypeLabel:_0x5563d4}=_0x37d8e2['modules']('ui/changelog.js');return{'render'(_0x1a74af){const _0x72fd71=_0x37d8e2['manifest'],_0x2a3dab=Object['keys'](_0x72fd71['files']||{}),_0x3d3cbc=_0x2a3dab['reduce']((_0x37e49e,_0x1961ff)=>_0x37e49e+(_0x72fd71['files'][_0x1961ff]['size']||0x0),0x0),_0x49f3f3=_0x4229cb['map']((_0xa09c59,_0x2c45f5)=>{const _0x235165=_0x2c45f5===0x0,_0x2a6612=_0xa09c59['items']['map'](_0xf81f3d=>'<li>'+_0x37d8e2['esc'](_0xf81f3d)+'</li>')['join']('');return'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-changelog-item\x20'+(_0x235165?'latest':'')+'\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-changelog-head\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fq-changelog-version\x22>'+_0x37d8e2['esc'](_0xa09c59['version'])+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fq-changelog-type\x20'+_0xa09c59['type']+'\x22>'+_0x5563d4(_0xa09c59['type'])+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fq-changelog-date\x22>'+_0x37d8e2['esc'](_0xa09c59['date'])+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul\x20class=\x22fq-changelog-list\x22>'+_0x2a6612+'</ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20';})['join']('');_0x1a74af['innerHTML']='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section-title\x22>Текущая\x20версия</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-option\x22><span>Модули\x20FQuest</span><span>'+_0x37d8e2['esc'](_0x72fd71['version'])+'</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-option\x22><span>Обновлено</span><span>'+new Date(_0x72fd71['updatedAt'])['toLocaleString']('ru-RU')+'</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-option\x22><span>Файлов</span><span>'+_0x2a3dab['length']+'</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-option\x22><span>Общий\x20размер</span><span>'+(_0x3d3cbc/0x400)['toFixed'](0x1)+'\x20КБ</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section-title\x22>Действия</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22quest-pick-btn\x20start\x22\x20id=\x22fq-check-updates\x22>Проверить\x20обновления</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22quest-pick-btn\x20deselect\x22\x20id=\x22fq-clear-cache\x22\x20style=\x22margin-top:8px;\x22>Очистить\x20кэш\x20модулей</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section-title\x22>История\x20обновлений</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-changelog\x22>'+_0x49f3f3+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section-title\x22>Загруженные\x20файлы\x20модулей</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x2a3dab['map'](_0x2da3a9=>'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-option\x22\x20style=\x22font-size:11px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>'+_0x37d8e2['esc'](_0x2da3a9)+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:var(--fq-dim)\x22>'+_0x72fd71['files'][_0x2da3a9]['size']+'\x20b</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20')['join']('')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',_0x1a74af['querySelector']('#fq-check-updates')?.['addEventListener']('click',async()=>{try{const _0x72f6a7='https://raw.githubusercontent.com/fun-venyv/fquest/main/manifest.json?t='+Date['now'](),_0x4791cc=await fetch(_0x72f6a7);if(!_0x4791cc['ok'])throw new Error('HTTP\x20'+_0x4791cc['status']);const _0x33ad32=await _0x4791cc['text']();if(!_0x33ad32['trim']()['startsWith']('{'))throw new Error('Сервер\x20вернул\x20не\x20JSON');const _0x30886d=JSON['parse'](_0x33ad32);if(_0x30886d['version']!==_0x37d8e2['manifest']['version']){const _0x3a373b=await _0x37d8e2['UI']['confirm']('Доступна\x20новая\x20версия:\x20'+_0x30886d['version']+'.\x20Перезагрузить\x20плагин?');if(_0x3a373b){try{_0x37d8e2['api']['Data']['delete']('fquest_module_cache_v1');}catch(_0x671bb1){}location['reload']();}}else await _0x37d8e2['UI']['confirm']('Установлена\x20последняя\x20версия.');}catch(_0x1911c1){await _0x37d8e2['UI']['confirm']('Не\x20удалось\x20проверить:\x20'+_0x1911c1['message']);}}),_0x1a74af['querySelector']('#fq-clear-cache')?.['addEventListener']('click',async()=>{const _0x2b057c=await _0x37d8e2['UI']['confirm']('Очистить\x20кэш\x20модулей?\x20При\x20следующем\x20запуске\x20они\x20скачаются\x20заново.');if(!_0x2b057c)return;try{_0x37d8e2['api']['Data']['delete']('fquest_module_cache_v1');}catch(_0xcd2459){}await _0x37d8e2['UI']['confirm']('Кэш\x20очищен.\x20Перезагрузите\x20Discord.');});}};}};
+module.exports = {
+    createTab(ctx) {
+        const { CHANGELOG, getTypeLabel } = ctx.modules('ui/changelog.js');
+
+        return {
+            render(container) {
+                const manifest = ctx.manifest;
+                const files = Object.keys(manifest.files || {});
+                const totalSize = files.reduce((s, f) => s + (manifest.files[f].size || 0), 0);
+
+                const changesHtml = CHANGELOG.map((rel, idx) => {
+                    const isLatest = idx === 0;
+                    const items = rel.items.map(item => `<li>${ctx.esc(item)}</li>`).join('');
+                    return `
+                        <div class="fq-changelog-item ${isLatest ? 'latest' : ''}">
+                            <div class="fq-changelog-head">
+                                <span class="fq-changelog-version">${ctx.esc(rel.version)}</span>
+                                <span class="fq-changelog-type ${rel.type}">${getTypeLabel(rel.type)}</span>
+                                <span class="fq-changelog-date">${ctx.esc(rel.date)}</span>
+                            </div>
+                            <ul class="fq-changelog-list">${items}</ul>
+                        </div>
+                    `;
+                }).join('');
+
+                container.innerHTML = `
+                    <div class="fq-section">
+                        <div class="fq-section-title">Текущая версия</div>
+                        <div class="fq-option"><span>Модули FQuest</span><span>${ctx.esc(manifest.version)}</span></div>
+                        <div class="fq-option"><span>Обновлено</span><span>${new Date(manifest.updatedAt).toLocaleString('ru-RU')}</span></div>
+                        <div class="fq-option"><span>Файлов</span><span>${files.length}</span></div>
+                        <div class="fq-option"><span>Общий размер</span><span>${(totalSize / 1024).toFixed(1)} КБ</span></div>
+                    </div>
+
+                    <div class="fq-section">
+                        <div class="fq-section-title">Действия</div>
+                        <button class="quest-pick-btn start" id="fq-check-updates">Проверить обновления</button>
+                        <button class="quest-pick-btn deselect" id="fq-clear-cache" style="margin-top:8px;">Очистить кэш модулей</button>
+                    </div>
+
+                    <div class="fq-section">
+                        <div class="fq-section-title">История обновлений</div>
+                        <div class="fq-changelog">${changesHtml}</div>
+                    </div>
+
+                    <div class="fq-section">
+                        <div class="fq-section-title">Загруженные файлы модулей</div>
+                        ${files.map(f => `
+                            <div class="fq-option" style="font-size:11px;">
+                                <span>${ctx.esc(f)}</span>
+                                <span style="color:var(--fq-dim)">${manifest.files[f].size} b</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+
+                container.querySelector('#fq-check-updates')?.addEventListener('click', async () => {
+                    try {
+                        const manifestUrl = 'https://raw.githubusercontent.com/fun-venyv/fquest/main/manifest.json?t=' + Date.now();
+                        const res = await fetch(manifestUrl);
+                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                        const text = await res.text();
+                        if (!text.trim().startsWith('{')) throw new Error('Сервер вернул не JSON');
+                        const remote = JSON.parse(text);
+                        if (remote.version !== ctx.manifest.version) {
+                            const ok = await ctx.UI.confirm(`Доступна новая версия: ${remote.version}. Перезагрузить плагин?`);
+                            if (ok) {
+                                try { ctx.api.Data.delete('fquest_module_cache_v1'); } catch (_) {}
+                                location.reload();
+                            }
+                        } else {
+                            await ctx.UI.confirm('Установлена последняя версия.');
+                        }
+                    } catch (e) {
+                        await ctx.UI.confirm('Не удалось проверить: ' + e.message);
+                    }
+                });
+
+                container.querySelector('#fq-clear-cache')?.addEventListener('click', async () => {
+                    const ok = await ctx.UI.confirm('Очистить кэш модулей? При следующем запуске они скачаются заново.');
+                    if (!ok) return;
+                    try { ctx.api.Data.delete('fquest_module_cache_v1'); } catch (_) {}
+                    await ctx.UI.confirm('Кэш очищен. Перезагрузите Discord.');
+                });
+            },
+        };
+    },
+};

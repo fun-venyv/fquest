@@ -1,1 +1,144 @@
-module['exports']={'createRPC'(_0x589e6b){const {RUNTIME:_0x3b5c0e,api:_0x5ba300}=_0x589e6b,_0x59e542='1550866409092026489',_0x14e565={'large':'ico','largeText':'FQuest.plugin','small':null,'smallText':null};let _0x248306=![],_0x4c82a0=null,_0x4bf470='FQuest',_0x40eb33='Ожидание\x20задач',_0x2824d0=null;const _0x4d4ff0=()=>{if(_0x2824d0)return _0x2824d0;try{_0x2824d0=_0x5ba300['Webpack']['getStore']('UserStore')?.['_dispatcher'];if(_0x2824d0)return _0x5ba300['Logger']['info']('[RPC]\x20Dispatcher\x20получен\x20через\x20UserStore._dispatcher'),_0x2824d0;_0x2824d0=_0x5ba300['Webpack']['getByKeys']('dispatch')?.['dispatch']?_0x5ba300['Webpack']['getByKeys']('dispatch'):null;if(_0x2824d0)return _0x5ba300['Logger']['info']('[RPC]\x20Dispatcher\x20получен\x20через\x20getByKeys(\x22dispatch\x22)'),_0x2824d0;_0x2824d0=_0x5ba300['Webpack']['getByKeys']('dispatch','subscribe','flushWaitQueue');if(_0x2824d0)return _0x5ba300['Logger']['info']('[RPC]\x20Dispatcher\x20получен\x20через\x20FluxDispatcher'),_0x2824d0;return _0x5ba300['Logger']['warn']('[RPC]\x20Не\x20удалось\x20найти\x20dispatcher'),null;}catch(_0x3ab38b){return _0x5ba300['Logger']['warn']('[RPC]\x20getDispatcher\x20error:',_0x3ab38b),null;}},_0x18e088=()=>{const _0xe73882={'application_id':_0x59e542,'name':'FQuest','type':0x0,'details':_0x4bf470,'flags':0x1,'timestamps':_0x4c82a0?{'start':Math['floor'](_0x4c82a0)}:undefined};return _0x14e565['large']&&(_0xe73882['assets']={'large_image':_0x14e565['large'],'large_text':_0x14e565['largeText']||'FQuest'},_0x14e565['small']&&(_0xe73882['assets']['small_image']=_0x14e565['small'],_0xe73882['assets']['small_text']=_0x14e565['smallText']||'')),_0xe73882;},_0xf26006=_0x1e7ee6=>{const _0x3270be=_0x4d4ff0();if(!_0x3270be?.['dispatch'])return _0x5ba300['Logger']['warn']('[RPC]\x20Dispatcher\x20пуст\x20—\x20активность\x20не\x20установлена'),![];try{return _0x3270be['dispatch']({'type':'LOCAL_ACTIVITY_UPDATE','activity':_0x1e7ee6}),!![];}catch(_0xdc776){return _0x5ba300['Logger']['warn']('[RPC]\x20dispatch\x20failed:',_0xdc776),![];}};return{'enable'(){if(_0x248306)return;if(!_0x59e542||!/^\d+$/['test'](_0x59e542)){_0x5ba300['Logger']['warn']('[RPC]\x20Application\x20ID\x20не\x20задан\x20или\x20невалиден');return;}_0x4c82a0=Date['now'](),_0x248306=!![];const _0x52a9b8=_0xf26006(_0x18e088());_0x52a9b8?_0x5ba300['Logger']['info']('[RPC]\x20Rich\x20Presence\x20включён'):(_0x5ba300['Logger']['warn']('[RPC]\x20Не\x20удалось\x20включить\x20Rich\x20Presence'),_0x248306=![]);},'disable'(){if(!_0x248306)return;try{_0xf26006({}),_0x5ba300['Logger']['info']('[RPC]\x20Rich\x20Presence\x20выключен');}catch(_0x14b168){}_0x248306=![],_0x4c82a0=null;},'update'(_0x20237d,_0x303811){if(!_0x248306)return;if(_0x20237d)_0x4bf470=String(_0x20237d)['slice'](0x0,0x80);if(_0x303811)_0x40eb33=String(_0x303811)['slice'](0x0,0x80);_0xf26006(_0x18e088());},'setWaiting'(_0x308fbb){},'isActive'(){return _0x248306;}};}};
+/* FQuest · modules/rpc.js
+ * Discord Rich Presence — подход из AutoStartRichPresence */
+
+module.exports = {
+    createRPC(ctx) {
+        const { RUNTIME, api } = ctx;
+
+        const APP_ID = '1550866409092026489';
+
+        const ASSETS = {
+            large: 'ico',        
+            largeText: 'FQuest.plugin',
+            small: null,            
+            smallText: null,
+        };
+
+        let active = false;
+        let startTime = null;
+        let currentDetails = 'FQuest';
+        let currentState = 'Ожидание задач';
+
+        let _dispatcher = null;
+        const getDispatcher = () => {
+            if (_dispatcher) return _dispatcher;
+            try {
+
+                _dispatcher = api.Webpack.getStore('UserStore')?._dispatcher;
+                if (_dispatcher) {
+                    api.Logger.info('[RPC] Dispatcher получен через UserStore._dispatcher');
+                    return _dispatcher;
+                }
+
+
+                _dispatcher = api.Webpack.getByKeys('dispatch')?.dispatch
+                    ? api.Webpack.getByKeys('dispatch')
+                    : null;
+                if (_dispatcher) {
+                    api.Logger.info('[RPC] Dispatcher получен через getByKeys("dispatch")');
+                    return _dispatcher;
+                }
+
+
+                _dispatcher = api.Webpack.getByKeys('dispatch', 'subscribe', 'flushWaitQueue');
+                if (_dispatcher) {
+                    api.Logger.info('[RPC] Dispatcher получен через FluxDispatcher');
+                    return _dispatcher;
+                }
+
+                api.Logger.warn('[RPC] Не удалось найти dispatcher');
+                return null;
+            } catch (e) {
+                api.Logger.warn('[RPC] getDispatcher error:', e);
+                return null;
+            }
+        };
+
+        const buildActivity = () => {
+            const activity = {
+                application_id: APP_ID,
+                name: 'FQuest',             
+                type: 0,                     
+                details: currentDetails,
+                flags: 1,                    
+                timestamps: startTime ? { start: Math.floor(startTime) } : undefined,
+            };
+
+            if (ASSETS.large) {
+                activity.assets = {
+                    large_image: ASSETS.large,
+                    large_text: ASSETS.largeText || 'FQuest',
+                };
+                if (ASSETS.small) {
+                    activity.assets.small_image = ASSETS.small;
+                    activity.assets.small_text = ASSETS.smallText || '';
+                }
+            }
+
+            return activity;
+        };
+
+        const setActivity = (activity) => {
+            const dispatcher = getDispatcher();
+            if (!dispatcher?.dispatch) {
+                api.Logger.warn('[RPC] Dispatcher пуст — активность не установлена');
+                return false;
+            }
+
+            try {
+                dispatcher.dispatch({
+                    type: 'LOCAL_ACTIVITY_UPDATE',
+                    activity: activity,
+                });
+                return true;
+            } catch (e) {
+                api.Logger.warn('[RPC] dispatch failed:', e);
+                return false;
+            }
+        };
+
+        return {
+            enable() {
+                if (active) return;
+                if (!APP_ID || !/^\d+$/.test(APP_ID)) {
+                    api.Logger.warn('[RPC] Application ID не задан или невалиден');
+                    return;
+                }
+
+                startTime = Date.now();
+                active = true;
+
+                const ok = setActivity(buildActivity());
+                if (ok) {
+                    api.Logger.info('[RPC] Rich Presence включён');
+                } else {
+                    api.Logger.warn('[RPC] Не удалось включить Rich Presence');
+                    active = false;
+                }
+            },
+
+            disable() {
+                if (!active) return;
+                try {
+                    setActivity({});
+                    api.Logger.info('[RPC] Rich Presence выключен');
+                } catch (_) {}
+                active = false;
+                startTime = null;
+            },
+
+            update(details, state) {
+                if (!active) return;
+                if (details) currentDetails = String(details).slice(0, 128);
+                if (state) currentState = String(state).slice(0, 128);
+                setActivity(buildActivity());
+            },
+
+            setWaiting(isWaiting) {
+                // if (!active) return;
+            },
+
+            isActive() { return active; },
+        };
+    },
+};

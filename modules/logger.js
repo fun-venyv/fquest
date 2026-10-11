@@ -1,1 +1,325 @@
-module['exports']={'createLogger'(_0x40b39b){return{'root':null,'tasks':new Map(),'tickerId':null,'init'(_0x9a0675){this['root']=_0x9a0675,this['startTicker']();},'_getPct'(_0x121feb){if(_0x121feb['done'])return 0x64;if(_0x121feb['pending']||_0x121feb['failed']||!_0x121feb['max'])return 0x0;return Math['min'](0x64,_0x121feb['cur']/_0x121feb['max']*0x64);},'startTicker'(){if(this['tickerId'])clearInterval(this['tickerId']);this['tickerId']=setInterval(()=>{if(!_0x40b39b['RUNTIME']['running'])return clearInterval(this['tickerId']);for(const [_0xf51e4d,_0x1e01d6]of this['tasks']['entries']()){if(_0x1e01d6['status']==='RUNNING'&&_0x1e01d6['type']!=='ACHIEVEMENT'){let _0x1ac765=Math['min'](_0x1e01d6['cur']+0x1,_0x1e01d6['max']);this['updateTask'](_0xf51e4d,{'cur':_0x1ac765});}}},0x3e8);},'updateTask'(_0x132190,_0x25cb3f){const _0x1fff15=this['tasks']['get'](_0x132190),_0x449db6=_0x25cb3f['status']==='PENDING'||_0x25cb3f['status']==='QUEUE',_0x3416b0=_0x25cb3f['status']==='COMPLETED'||_0x25cb3f['status']==='CLAIMED',_0xe69f58=_0x25cb3f['status']==='FAILED',_0x199152={..._0x1fff15,..._0x25cb3f,'done':_0x3416b0,'pending':_0x449db6,'failed':_0xe69f58};this['tasks']['set'](_0x132190,_0x199152);if(_0x1fff15&&_0x1fff15['status']===_0x199152['status']&&_0x1fff15['removing']===_0x199152['removing']&&_0x1fff15['claimable']===_0x199152['claimable']&&_0x1fff15['claimState']===_0x199152['claimState']&&_0x1fff15['actionRequired']===_0x199152['actionRequired']){const _0x33016a=document['getElementById']('fquest-task-'+_0x132190);if(_0x33016a){const _0x19e526=this['_getPct'](_0x199152),_0x4e6c50=_0x33016a['querySelector']('.progress-fill');if(_0x4e6c50)_0x4e6c50['style']['width']=_0x19e526+'%';const _0x45d9e6=_0x33016a['querySelector']('.progress-text');if(_0x45d9e6){const _0x147236=_0x199152['type']==='ACHIEVEMENT'?'':'с';_0x45d9e6['textContent']=Math['min'](Math['floor'](_0x199152['cur']),_0x199152['max'])+'\x20/\x20'+_0x199152['max']+_0x147236;}return;}}this['render']();},'removeTask'(_0x4841ad){this['tasks']['has'](_0x4841ad)&&(this['tasks']['get'](_0x4841ad)['removing']=!![],this['render'](),setTimeout(()=>{this['tasks']['delete'](_0x4841ad),this['render']();},0x190));},'log'(_0x29d6ba,_0x3b0e5c='info'){const _0x5d8b38={'info':_0x40b39b['CONFIG']['THEME'],'success':_0x40b39b['CONFIG']['SUCCESS'],'warn':_0x40b39b['CONFIG']['WARN'],'err':_0x40b39b['CONFIG']['ERR'],'debug':'#6B7A94'};console['log']('%c[FQuest]\x20%c'+_0x29d6ba,'color:\x20'+_0x40b39b['CONFIG']['THEME']+';\x20font-weight:\x20bold;','color:\x20'+(_0x5d8b38[_0x3b0e5c]||_0x5d8b38['info']));try{const _0x48bb99=document['getElementById']('fquest-logs');if(_0x48bb99&&_0x3b0e5c!=='debug'){const _0x52a080=document['createElement']('div');_0x52a080['className']='log-item\x20c-'+_0x3b0e5c,_0x52a080['innerHTML']='<span\x20class=\x22log-ts\x22>'+new Date()['toLocaleTimeString']()['split']('\x20')[0x0]+'</span>\x20<span>'+_0x40b39b['esc'](_0x29d6ba)+'</span>',_0x48bb99['appendChild'](_0x52a080),_0x48bb99['scrollTop']=_0x48bb99['scrollHeight'];while(_0x48bb99['children']['length']>_0x40b39b['CONFIG']['MAX_LOG_ITEMS'])_0x48bb99['firstChild']['remove']();}}catch(_0x291da3){}},'render'(){if(document['getElementById']('fquest-picker-form'))return;if(_0x40b39b['RUNTIME']['activeTab']!=='quests')return;const _0x127541=document['getElementById']('fquest-body');if(!_0x127541)return;if(!this['tasks']['size']){_0x127541['innerHTML']='<div\x20class=\x22fq-empty\x22>Ожидание\x20задач...</div>';return;}const _0x3d15b3=[...this['tasks']['entries']()]['sort']((_0x2c360b,_0xc8a5a5)=>{const _0x4d0e55=_0x2c360b[0x1],_0x17c834=_0xc8a5a5[0x1];if(_0x4d0e55['done']!==_0x17c834['done'])return _0x4d0e55['done']?0x1:-0x1;if(_0x4d0e55['failed']!==_0x17c834['failed'])return _0x4d0e55['failed']?0x1:-0x1;if(_0x4d0e55['pending']!==_0x17c834['pending'])return _0x4d0e55['pending']?0x1:-0x1;if(!_0x4d0e55['done']&&!_0x4d0e55['pending']&&!_0x17c834['done']&&!_0x17c834['pending']){const _0x1af84b=_0x4d0e55['max']?_0x4d0e55['cur']/_0x4d0e55['max']:0x0,_0x2fea9a=_0x17c834['max']?_0x17c834['cur']/_0x17c834['max']:0x0;return _0x2fea9a-_0x1af84b;}return 0x0;}),_0x3465a0=_0x3d15b3['map'](([_0x40c9c6,_0x528bcc])=>{const _0x4a64e8=_0x528bcc['pending']||_0x528bcc['failed']?0x0:Math['min'](0x64,_0x528bcc['cur']/_0x528bcc['max']*0x64),_0x4c575d=_0x528bcc['type']==='VIDEO'||_0x528bcc['type']==='WATCH_VIDEO',_0x51961d=_0x528bcc['done']?_0x40b39b['ICONS']['CHECK']:_0x528bcc['failed']?_0x40b39b['ICONS']['STOP']:_0x528bcc['pending']?_0x40b39b['ICONS']['CLOCK']:_0x4c575d?_0x40b39b['ICONS']['VIDEO']:_0x528bcc['type']==='ACHIEVEMENT'?_0x40b39b['ICONS']['ACTIVITY']:_0x528bcc['type']?.['includes']('GAME')?_0x40b39b['ICONS']['GAME']:_0x528bcc['type']?.['includes']('STREAM')?_0x40b39b['ICONS']['STREAM']:_0x40b39b['ICONS']['BOLT'];let _0x3a85c1=_0x528bcc['status']==='CLAIMED'?'ПОЛУЧЕНО':_0x528bcc['done']?'ЗАВЕРШЕН':_0x528bcc['status'],_0x4471b6=_0x528bcc['pending']?'В\x20очереди':_0x528bcc['failed']?'Прервано':'Прогресс';const _0x244340=_0x528bcc['type']==='ACHIEVEMENT'?'':'с';let _0x53d855='';if(_0x528bcc['claimable']){if(_0x528bcc['claimState']==='WAITING')_0x53d855='<button\x20class=\x22claim-btn\x22\x20disabled>ОЖИДАНИЕ...</button>';else{if(_0x528bcc['claimState']==='FAILED')_0x53d855='<button\x20class=\x22claim-btn\x20failed\x22\x20disabled>ТРЕБУЕТСЯ\x20ДЕЙСТВИЕ</button>';else _0x53d855='<button\x20class=\x22claim-btn\x22\x20data-id=\x22'+_0x40c9c6+'\x22>ПОЛУЧИТЬ</button>';}}else{if(!_0x4c575d&&_0x528bcc['actionRequired']==='ENROLL')_0x3a85c1='ТРЕБУЕТСЯ\x20ДЕЙСТВИЕ',_0x4471b6='Примите\x20квест\x20в\x20Discord',_0x53d855='<button\x20class=\x22goto-btn\x22>К\x20КВЕСТАМ</button>';else!_0x4c575d&&_0x528bcc['type']==='ACHIEVEMENT'&&_0x528bcc['status']==='RUNNING'&&(_0x3a85c1='ТРЕБУЕТСЯ\x20ДЕЙСТВИЕ',_0x4471b6='Выполните\x20вручную',_0x53d855='<button\x20class=\x22goto-btn\x22>К\x20КВЕСТАМ</button>');}const _0x40b52c=_0x528bcc['done']?'done':_0x528bcc['failed']?'failed':_0x528bcc['pending']?'pending':'running',_0x1e2e28=_0x528bcc['removing']?'removing':'';return'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22fquest-task-'+_0x40c9c6+'\x22\x20class=\x22task-card\x20'+_0x40b52c+'\x20'+_0x1e2e28+'\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22task-top\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22task-icon\x22>'+_0x51961d+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22task-info\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22task-status\x22>'+_0x3a85c1+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22task-name\x22\x20title=\x22'+_0x40b39b['esc'](_0x528bcc['name'])+'\x22>'+_0x40b39b['esc'](_0x528bcc['name'])+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(!_0x528bcc['done']?'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22task-progress\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>'+_0x4471b6+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x53d855?'':'<span\x20class=\x22progress-text\x22>'+Math['min'](Math['floor'](_0x528bcc['cur']),_0x528bcc['max'])+'\x20/\x20'+_0x528bcc['max']+_0x244340+'</span>')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22progress-bar\x22><div\x20class=\x22progress-fill\x22\x20style=\x22width:\x20'+_0x4a64e8+'%\x22></div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20':'')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x53d855?'<div\x20class=\x22task-actions\x22>'+_0x53d855+'</div>':'')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>';})['join']('');_0x127541['innerHTML']='<div\x20class=\x22fquest-grid\x22>'+_0x3465a0+'</div>',requestAnimationFrame(()=>{_0x127541['querySelectorAll']('.task-card')['forEach']((_0x39b36d,_0x14e17f)=>{_0x39b36d['style']['animationDelay']=_0x14e17f*0x37+'ms';});});},'showQuestPicker'(_0x59919c){return new Promise(_0x560c41=>{const _0x599141=document['getElementById']('fquest-body'),_0xb81037=document['getElementById']('fquest-logs'),_0x3216b3=_0x2c658e=>{if(_0xb81037)_0xb81037['style']['display']='block';_0x599141&&(_0x599141['classList']['remove']('picker-mode'),_0x599141['innerHTML']=''),_0x560c41(_0x2c658e);};if(!_0x599141)return _0x3216b3({'selectedQuests':new Set(),'autoEnroll':![],'autoClaim':![],'playSound':![],'randomDelay':![]});if(_0xb81037)_0xb81037['style']['display']='none';const _0x135370=[],_0x2a2ab6=new Map(),_0x5afc6c=new Set(),_0x31f1a3={0x1:{'label':'В\x20ИГРЕ','color':'#e67e22'},0x3:{'label':'УКРАШЕНИЕ','color':'#a358f2'},0x4:{'label':'СФЕРЫ','color':'#8B5CF6'}},_0x125299={'label':'ДРУГОЕ','color':'#6B7A94'};_0x59919c['forEach'](_0x56bdcd=>{const _0x2539e5=_0x56bdcd['config']?.['taskConfig']??_0x56bdcd['config']?.['taskConfigV2'];if(!_0x2539e5?.['tasks'])return;const _0x4f2c7c=_0x40b39b['Tasks']['detectType'](_0x2539e5,_0x56bdcd['config']?.['application']?.['id']);if(!_0x4f2c7c)return;if(!_0x40b39b['SYS']['IS_DESKTOP']&&(_0x4f2c7c['type']==='GAME'||_0x4f2c7c['type']==='STREAM'))return;const _0xd46f0f=_0x56bdcd['config']?.['rewardsConfig']?.['rewards']?.[0x0],_0x5d6126=_0xd46f0f?.['type']??0x0,_0xb2962e=_0xd46f0f?.['messages']?.['name']??'Неизвестная\x20награда',_0x167734=_0x31f1a3[_0x5d6126]??_0x125299,_0x2cd506=_0x4f2c7c['type']==='WATCH_VIDEO'?'VIDEO':_0x4f2c7c['type'];_0x5afc6c['add'](_0x2cd506);if(!_0x2a2ab6['has'](_0x5d6126))_0x2a2ab6['set'](_0x5d6126,{'label':_0x167734['label'],'count':0x0,'type':_0x5d6126,'color':_0x167734['color']});_0x2a2ab6['get'](_0x5d6126)['count']++,_0x135370['push']({'id':_0x56bdcd['id'],'name':_0x56bdcd['config']?.['messages']?.['questName']??'Неизвестный\x20квест','type':_0x2cd506,'rewardType':_0x5d6126,'rewardText':_0xb2962e,'color':_0x167734['color']});});if(!_0x135370['length'])return _0x3216b3({'selectedQuests':new Set(),'autoEnroll':![],'autoClaim':![],'playSound':![],'randomDelay':![]});const _0x2dbc0f=_0x36d607=>'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20class=\x22quest-pick\x22\x20data-rt=\x22'+_0x36d607['rewardType']+'\x22\x20data-qt=\x22'+_0x36d607['type']+'\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22\x20name=\x22quests\x22\x20value=\x22'+_0x36d607['id']+'\x22\x20class=\x22native-cb\x22\x20checked>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22task-info\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22task-name\x22\x20title=\x22'+_0x40b39b['esc'](_0x36d607['name'])+'\x22>'+_0x40b39b['esc'](_0x36d607['name'])+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22task-progress\x22\x20style=\x22justify-content:flex-start;\x20gap:8px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22text-transform:uppercase;\x20font-size:9px;\x22>'+_0x40b39b['esc'](_0x36d607['type'])+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:'+_0x36d607['color']+';\x20font-size:9px;\x22>'+_0x40b39b['esc'](_0x36d607['rewardText'])+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</label>',_0x49a68b=(_0x117506,_0x3d0ef7,_0x5194d5)=>'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fquest-option\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fquest-option-label\x22>'+_0x3d0ef7+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22\x20name=\x22'+_0x117506+'\x22\x20class=\x22native-toggle\x22\x20'+(_0x5194d5?'checked':'')+'>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>';_0x599141['innerHTML']='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<form\x20id=\x22fquest-picker-form\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22picker-section-title\x22\x20style=\x22margin-bottom:10px;\x22>Доступные\x20квесты</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22fquest-quest-list\x22\x20class=\x22picker-quest-list\x22>'+_0x135370['map'](_0x2dbc0f)['join']('')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22fquest-no-quests\x22\x20class=\x22fq-empty\x22\x20style=\x22display:none;\x20grid-column:1/-1;\x22>Нет\x20доступных\x20квестов</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22picker-actions\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22quest-pick-btn\x20deselect\x22\x20id=\x22select-all-btn\x22>СНЯТЬ\x20ВСЕ</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22submit\x22\x20class=\x22quest-pick-btn\x20start\x22\x20id=\x22start-btn\x22><span\x20id=\x22start-btn-text\x22>СТАРТ\x20('+_0x135370['length']+')</span></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</form>';const _0x19a8c0=document['getElementById']('fquest-picker-form'),_0x56aba9=document['getElementById']('select-all-btn'),_0x1281bb=document['getElementById']('start-btn'),_0x191d33=()=>Array['from'](_0x19a8c0['querySelectorAll']('.quest-pick\x20input[type=\x22checkbox\x22]'))['filter'](_0x434e5e=>!_0x434e5e['closest']('.quest-pick')['classList']['contains']('hidden')),_0x244872=()=>{const _0x3ff323=_0x191d33(),_0x30a275=_0x3ff323['filter'](_0x519f20=>_0x519f20['checked'])['length'],_0x8951b3=document['getElementById']('start-btn-text');if(_0x8951b3)_0x8951b3['textContent']='СТАРТ\x20('+_0x30a275+')';_0x1281bb['disabled']=_0x30a275===0x0;_0x3ff323['length']===0x0?(_0x56aba9['disabled']=!![],_0x56aba9['textContent']='ВЫБРАТЬ\x20ВСЕ'):(_0x56aba9['disabled']=![],_0x56aba9['textContent']=_0x3ff323['every'](_0xad4486=>_0xad4486['checked'])?'СНЯТЬ\x20ВСЕ':'ВЫБРАТЬ\x20ВСЕ');const _0x528217=document['getElementById']('fquest-no-quests');if(_0x528217)_0x528217['style']['display']=_0x3ff323['length']===0x0?'block':'none';};_0x19a8c0['addEventListener']('change',_0x40ecff=>{if(_0x40ecff['target']['name']==='quests')_0x244872();});const _0x3ddea7=new Set([..._0x2a2ab6['keys']()]['map'](String)),_0x1b68b4=new Set([..._0x5afc6c]),_0x9ad652=()=>{_0x19a8c0['querySelectorAll']('.quest-pick')['forEach'](_0x1d12fd=>{const _0x1bd4f0=_0x1d12fd['getAttribute']('data-rt'),_0x4beec0=_0x1d12fd['getAttribute']('data-qt');_0x1d12fd['classList']['toggle']('hidden',!(_0x3ddea7['has'](_0x1bd4f0)&&_0x1b68b4['has'](_0x4beec0)));}),_0x244872();},_0x540eeb=[{'cls':'reward-filter','attr':'data-rt','set':_0x3ddea7},{'cls':'type-filter','attr':'data-qt','set':_0x1b68b4}];_0x19a8c0['addEventListener']('click',_0x578e4a=>{const _0x2c2645=_0x540eeb['find'](_0x169970=>_0x578e4a['target']['classList']['contains'](_0x169970['cls']));if(_0x2c2645){_0x578e4a['preventDefault']();const _0x440629=_0x578e4a['target']['getAttribute'](_0x2c2645['attr']);_0x578e4a['target']['classList']['toggle']('off');if(_0x578e4a['target']['classList']['contains']('off'))_0x2c2645['set']['delete'](_0x440629);else _0x2c2645['set']['add'](_0x440629);_0x9ad652();return;}if(_0x578e4a['target']['id']==='select-all-btn'){_0x578e4a['preventDefault']();const _0x2e5ccc=_0x191d33();if(_0x2e5ccc['length']===0x0)return;const _0x4d2475=!_0x2e5ccc['every'](_0x3d461f=>_0x3d461f['checked']);_0x2e5ccc['forEach'](_0x473ea7=>{_0x473ea7['checked']=_0x4d2475;}),_0x244872();}}),_0x19a8c0['addEventListener']('submit',_0x2bf7d6=>{_0x2bf7d6['preventDefault']();const _0x39fe8f=_0x191d33()['filter'](_0x3de777=>_0x3de777['checked']);if(_0x39fe8f['length']===0x0)return;const _0x438af4=new FormData(_0x19a8c0);_0x3216b3({'selectedQuests':new Set(_0x39fe8f['map'](_0x5883eb=>_0x5883eb['value'])),'autoEnroll':_0x438af4['has']('autoEnroll'),'autoClaim':_0x438af4['has']('autoClaim'),'playSound':_0x438af4['has']('playSound'),'randomDelay':_0x438af4['has']('randomDelay')});}),_0x599141['classList']['add']('picker-mode'),_0x244872(),requestAnimationFrame(()=>{_0x599141['querySelectorAll']('.quest-pick')['forEach']((_0x5b9c6b,_0x4ac221)=>{_0x5b9c6b['style']['animationDelay']=_0x4ac221*0x23+'ms';}),_0x599141['querySelectorAll']('.fquest-option')['forEach']((_0x14eeb4,_0x59869b)=>{_0x14eeb4['style']['animationDelay']=0xc8+_0x59869b*0x37+'ms';});});});}};}};
+module.exports = {
+    createLogger(ctx) {
+        return {
+            root: null, tasks: new Map(), tickerId: null,
+
+            init(rootEl) { this.root = rootEl; this.startTicker(); },
+
+            _getPct(t) {
+                if (t.done) return 100;
+                if (t.pending || t.failed || !t.max) return 0;
+                return Math.min(100, (t.cur / t.max) * 100);
+            },
+
+            startTicker() {
+                if (this.tickerId) clearInterval(this.tickerId);
+                this.tickerId = setInterval(() => {
+                    if (!ctx.RUNTIME.running) return clearInterval(this.tickerId);
+                    for (const [id, task] of this.tasks.entries()) {
+                        if (task.status === "RUNNING" && task.type !== "ACHIEVEMENT") {
+                            let cur = Math.min(task.cur + 1, task.max);
+                            this.updateTask(id, { cur });
+                        }
+                    }
+                }, 1000);
+            },
+
+            updateTask(id, data) {
+                const oldData = this.tasks.get(id);
+                const isPending = data.status === "PENDING" || data.status === "QUEUE";
+                const isDone = data.status === "COMPLETED" || data.status === "CLAIMED";
+                const isFailed = data.status === "FAILED";
+                const newData = { ...oldData, ...data, done: isDone, pending: isPending, failed: isFailed };
+                this.tasks.set(id, newData);
+
+                if (oldData && oldData.status === newData.status && oldData.removing === newData.removing &&
+                    oldData.claimable === newData.claimable && oldData.claimState === newData.claimState &&
+                    oldData.actionRequired === newData.actionRequired) {
+                    const card = document.getElementById(`fquest-task-${id}`);
+                    if (card) {
+                        const pct = this._getPct(newData);
+                        const fill = card.querySelector('.progress-fill');
+                        if (fill) fill.style.width = `${pct}%`;
+                        const pt = card.querySelector('.progress-text');
+                        if (pt) {
+                            const unit = newData.type === 'ACHIEVEMENT' ? '' : 'с';
+                            pt.textContent = `${Math.min(Math.floor(newData.cur), newData.max)} / ${newData.max}${unit}`;
+                        }
+                        return;
+                    }
+                }
+                this.render();
+            },
+
+            removeTask(id) {
+                if (this.tasks.has(id)) {
+                    this.tasks.get(id).removing = true;
+                    this.render();
+                    setTimeout(() => { this.tasks.delete(id); this.render(); }, 400);
+                }
+            },
+
+            log(msg, type = 'info') {
+                const colors = { info: ctx.CONFIG.THEME, success: ctx.CONFIG.SUCCESS, warn: ctx.CONFIG.WARN, err: ctx.CONFIG.ERR, debug: "#6B7A94" };
+                console.log(`%c[FQuest] %c${msg}`, `color: ${ctx.CONFIG.THEME}; font-weight: bold;`, `color: ${colors[type] || colors.info}`);
+                try {
+                    const box = document.getElementById('fquest-logs');
+                    if (box && type !== 'debug') {
+                        const el = document.createElement('div');
+                        el.className = `log-item c-${type}`;
+                        el.innerHTML = `<span class="log-ts">${new Date().toLocaleTimeString().split(' ')[0]}</span> <span>${ctx.esc(msg)}</span>`;
+                        box.appendChild(el);
+                        box.scrollTop = box.scrollHeight;
+                        while (box.children.length > ctx.CONFIG.MAX_LOG_ITEMS) box.firstChild.remove();
+                    }
+                } catch (_) { }
+            },
+
+            render() {
+                if (document.getElementById('fquest-picker-form')) return;
+                if (ctx.RUNTIME.activeTab !== 'quests') return;
+                const body = document.getElementById('fquest-body');
+                if (!body) return;
+                if (!this.tasks.size) {
+                    body.innerHTML = `<div class="fq-empty">Ожидание задач...</div>`;
+                    return;
+                }
+
+                const sorted = [...this.tasks.entries()].sort((a, b) => {
+                    const ta = a[1], tb = b[1];
+                    if (ta.done !== tb.done) return ta.done ? 1 : -1;
+                    if (ta.failed !== tb.failed) return ta.failed ? 1 : -1;
+                    if (ta.pending !== tb.pending) return ta.pending ? 1 : -1;
+                    if (!ta.done && !ta.pending && !tb.done && !tb.pending) {
+                        const pctA = ta.max ? ta.cur / ta.max : 0;
+                        const pctB = tb.max ? tb.cur / tb.max : 0;
+                        return pctB - pctA;
+                    }
+                    return 0;
+                });
+
+                const cards = sorted.map(([id, t]) => {
+                    const pct = t.pending || t.failed ? 0 : Math.min(100, (t.cur / t.max) * 100);
+                    const isVideoType = (t.type === 'VIDEO' || t.type === 'WATCH_VIDEO');
+
+                    const icon =
+                        t.done ? ctx.ICONS.CHECK :
+                        t.failed ? ctx.ICONS.STOP :
+                        t.pending ? ctx.ICONS.CLOCK :
+                        isVideoType ? ctx.ICONS.VIDEO :
+                        t.type === 'ACHIEVEMENT' ? ctx.ICONS.ACTIVITY :
+                        t.type?.includes('GAME') ? ctx.ICONS.GAME :
+                        t.type?.includes('STREAM') ? ctx.ICONS.STREAM :
+                        ctx.ICONS.BOLT;
+
+                    let statusText = t.status === 'CLAIMED' ? 'ПОЛУЧЕНО' : t.done ? 'ЗАВЕРШЕН' : t.status;
+                    let progressLabel = t.pending ? 'В очереди' : t.failed ? 'Прервано' : 'Прогресс';
+                    const unit = t.type === 'ACHIEVEMENT' ? '' : 'с';
+
+                    let actionBtn = '';
+
+                    if (t.claimable) {
+                        if (t.claimState === 'WAITING') actionBtn = `<button class="claim-btn" disabled>ОЖИДАНИЕ...</button>`;
+                        else if (t.claimState === 'FAILED') actionBtn = `<button class="claim-btn failed" disabled>ТРЕБУЕТСЯ ДЕЙСТВИЕ</button>`;
+                        else actionBtn = `<button class="claim-btn" data-id="${id}">ПОЛУЧИТЬ</button>`;
+                    } else if (!isVideoType && t.actionRequired === 'ENROLL') {
+                        statusText = 'ТРЕБУЕТСЯ ДЕЙСТВИЕ';
+                        progressLabel = 'Примите квест в Discord';
+                        actionBtn = `<button class="goto-btn">К КВЕСТАМ</button>`;
+                    } else if (!isVideoType && t.type === 'ACHIEVEMENT' && t.status === 'RUNNING') {
+                        statusText = 'ТРЕБУЕТСЯ ДЕЙСТВИЕ';
+                        progressLabel = 'Выполните вручную';
+                        actionBtn = `<button class="goto-btn">К КВЕСТАМ</button>`;
+                    }
+
+                    const stateClass = t.done ? 'done' : t.failed ? 'failed' : t.pending ? 'pending' : 'running';
+                    const removingClass = t.removing ? 'removing' : '';
+
+                    return `
+                    <div id="fquest-task-${id}" class="task-card ${stateClass} ${removingClass}">
+                        <div class="task-top">
+                            <div class="task-icon">${icon}</div>
+                            <div class="task-info">
+                                <div class="task-status">${statusText}</div>
+                                <div class="task-name" title="${ctx.esc(t.name)}">${ctx.esc(t.name)}</div>
+                            </div>
+                        </div>
+                        ${!t.done ? `
+                            <div class="task-progress">
+                                <span>${progressLabel}</span>
+                                ${actionBtn ? '' : `<span class="progress-text">${Math.min(Math.floor(t.cur), t.max)} / ${t.max}${unit}</span>`}
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: ${pct}%"></div></div>
+                        ` : ''}
+                        ${actionBtn ? `<div class="task-actions">${actionBtn}</div>` : ''}
+                    </div>`;
+                }).join('');
+
+                body.innerHTML = `<div class="fquest-grid">${cards}</div>`;
+
+                requestAnimationFrame(() => {
+                    body.querySelectorAll('.task-card').forEach((el, i) => {
+                        el.style.animationDelay = `${i * 55}ms`;
+                    });
+                });
+            },
+
+            showQuestPicker(quests) {
+                return new Promise((resolve) => {
+                    const body = document.getElementById('fquest-body');
+                    const logs = document.getElementById('fquest-logs');
+
+                    const closePicker = (data) => {
+                        if (logs) logs.style.display = 'block';
+                        if (body) { body.classList.remove('picker-mode'); body.innerHTML = ''; }
+                        resolve(data);
+                    };
+
+                    if (!body) return closePicker({ selectedQuests: new Set(), autoEnroll: false, autoClaim: false, playSound: false, randomDelay: false });
+                    if (logs) logs.style.display = 'none';
+
+                    const items = [];
+                    const rewardTypes = new Map();
+                    const questTypes = new Set();
+                    const REWARD_META = { 1: { label: "В ИГРЕ", color: "#e67e22" }, 3: { label: "УКРАШЕНИЕ", color: "#a358f2" }, 4: { label: "СФЕРЫ", color: "#8B5CF6" } };
+                    const REWARD_FALLBACK = { label: "ДРУГОЕ", color: "#6B7A94" };
+
+                    quests.forEach(q => {
+                        const cfg = q.config?.taskConfig ?? q.config?.taskConfigV2;
+                        if (!cfg?.tasks) return;
+                        const typeData = ctx.Tasks.detectType(cfg, q.config?.application?.id);
+                        if (!typeData) return;
+                        if (!ctx.SYS.IS_DESKTOP && (typeData.type === 'GAME' || typeData.type === 'STREAM')) return;
+                        const rw = q.config?.rewardsConfig?.rewards?.[0];
+                        const rewardType = rw?.type ?? 0;
+                        const rewardText = rw?.messages?.name ?? "Неизвестная награда";
+                        const meta = REWARD_META[rewardType] ?? REWARD_FALLBACK;
+                        const displayType = typeData.type === 'WATCH_VIDEO' ? 'VIDEO' : typeData.type;
+                        questTypes.add(displayType);
+                        if (!rewardTypes.has(rewardType)) rewardTypes.set(rewardType, { label: meta.label, count: 0, type: rewardType, color: meta.color });
+                        rewardTypes.get(rewardType).count++;
+                        items.push({ id: q.id, name: q.config?.messages?.questName ?? "Неизвестный квест", type: displayType, rewardType, rewardText, color: meta.color });
+                    });
+
+                    if (!items.length) return closePicker({ selectedQuests: new Set(), autoEnroll: false, autoClaim: false, playSound: false, randomDelay: false });
+
+                    const buildCard = (q) => `
+                        <label class="quest-pick" data-rt="${q.rewardType}" data-qt="${q.type}">
+                            <input type="checkbox" name="quests" value="${q.id}" class="native-cb" checked>
+                            <div class="task-info">
+                                <div class="task-name" title="${ctx.esc(q.name)}">${ctx.esc(q.name)}</div>
+                                <div class="task-progress" style="justify-content:flex-start; gap:8px;">
+                                    <span style="text-transform:uppercase; font-size:9px;">${ctx.esc(q.type)}</span>
+                                    <span style="color:${q.color}; font-size:9px;">${ctx.esc(q.rewardText)}</span>
+                                </div>
+                            </div>
+                        </label>`;
+
+                    const buildToggle = (name, label, isChecked) => `
+                        <div class="fquest-option">
+                            <span class="fquest-option-label">${label}</span>
+                            <input type="checkbox" name="${name}" class="native-toggle" ${isChecked ? 'checked' : ''}>
+                        </div>`;
+
+                    body.innerHTML = `
+                        <form id="fquest-picker-form">
+
+                            <div class="picker-section-title" style="margin-bottom:10px;">Доступные квесты</div>
+
+                            <div id="fquest-quest-list" class="picker-quest-list">${items.map(buildCard).join('')}
+                                <div id="fquest-no-quests" class="fq-empty" style="display:none; grid-column:1/-1;">Нет доступных квестов</div>
+                            </div>
+
+                            <div class="picker-actions">
+                                <button type="button" class="quest-pick-btn deselect" id="select-all-btn">СНЯТЬ ВСЕ</button>
+                                <button type="submit" class="quest-pick-btn start" id="start-btn"><span id="start-btn-text">СТАРТ (${items.length})</span></button>
+                            </div>
+                        </form>`;
+
+                    const form = document.getElementById('fquest-picker-form');
+                    const selectAllBtn = document.getElementById('select-all-btn');
+                    const startBtn = document.getElementById('start-btn');
+
+
+                    const getVisibleCheckboxes = () => Array.from(form.querySelectorAll('.quest-pick input[type="checkbox"]'))
+                        .filter(cb => !cb.closest('.quest-pick').classList.contains('hidden'));
+
+                    const syncUI = () => {
+                        const visibleCbs = getVisibleCheckboxes();
+                        const totalChecked = visibleCbs.filter(cb => cb.checked).length;
+                        const sbt = document.getElementById('start-btn-text');
+                        if (sbt) sbt.textContent = `СТАРТ (${totalChecked})`;
+                        startBtn.disabled = totalChecked === 0;
+                        if (visibleCbs.length === 0) { selectAllBtn.disabled = true; selectAllBtn.textContent = 'ВЫБРАТЬ ВСЕ'; }
+                        else { selectAllBtn.disabled = false; selectAllBtn.textContent = visibleCbs.every(cb => cb.checked) ? 'СНЯТЬ ВСЕ' : 'ВЫБРАТЬ ВСЕ'; }
+                        const noQ = document.getElementById('fquest-no-quests');
+                        if (noQ) noQ.style.display = visibleCbs.length === 0 ? 'block' : 'none';
+                    };
+
+                    form.addEventListener('change', (e) => { if (e.target.name === 'quests') syncUI(); });
+
+                    const activeRewards = new Set([...rewardTypes.keys()].map(String));
+                    const activeTypes = new Set([...questTypes]);
+                    const applyFilters = () => {
+                        form.querySelectorAll('.quest-pick').forEach(el => {
+                            const rt = el.getAttribute('data-rt');
+                            const qt = el.getAttribute('data-qt');
+                            el.classList.toggle('hidden', !(activeRewards.has(rt) && activeTypes.has(qt)));
+                        });
+                        syncUI();
+                    };
+                    const FILTER_KINDS = [
+                        { cls: 'reward-filter', attr: 'data-rt', set: activeRewards },
+                        { cls: 'type-filter', attr: 'data-qt', set: activeTypes }
+                    ];
+                    form.addEventListener('click', (e) => {
+                        const kind = FILTER_KINDS.find(k => e.target.classList.contains(k.cls));
+                        if (kind) {
+                            e.preventDefault();
+                            const value = e.target.getAttribute(kind.attr);
+                            e.target.classList.toggle('off');
+                            if (e.target.classList.contains('off')) kind.set.delete(value);
+                            else kind.set.add(value);
+                            applyFilters();
+                            return;
+                        }
+                        if (e.target.id === 'select-all-btn') {
+                            e.preventDefault();
+                            const visibleCbs = getVisibleCheckboxes();
+                            if (visibleCbs.length === 0) return;
+                            const shouldCheck = !visibleCbs.every(cb => cb.checked);
+                            visibleCbs.forEach(cb => { cb.checked = shouldCheck; });
+                            syncUI();
+                        }
+                    });
+
+                    form.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const selected = getVisibleCheckboxes().filter(cb => cb.checked);
+                        if (selected.length === 0) return;
+                        const data = new FormData(form);
+                        closePicker({
+                            selectedQuests: new Set(selected.map(cb => cb.value)),
+                            autoEnroll: data.has('autoEnroll'),
+                            autoClaim: data.has('autoClaim'),
+                            playSound: data.has('playSound'),
+                            randomDelay: data.has('randomDelay')
+                        });
+                    });
+
+                    body.classList.add('picker-mode');
+                    syncUI();
+
+                    requestAnimationFrame(() => {
+                        body.querySelectorAll('.quest-pick').forEach((el, i) => {
+                            el.style.animationDelay = `${i * 35}ms`;
+                        });
+                        body.querySelectorAll('.fquest-option').forEach((el, i) => {
+                            el.style.animationDelay = `${200 + i * 55}ms`;
+                        });
+                    });
+                });
+            },
+        };
+    },
+};

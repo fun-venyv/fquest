@@ -1,1 +1,928 @@
-module['exports']={'createThemes'(_0x4cf310){const {RUNTIME:_0x48e352,platform:_0x5c5416}=_0x4cf310;let _0x2bbded=null,_0x5d7997=null,_0x19cf58=null,_0x5e0f59=null,_0x443296=null,_0x5db1e9=0x0,_0x10d738=null;const _0x55f0fb=()=>{if(document['visibilityState']!=='visible')return;setTimeout(()=>{try{_0x10d738?.['resume']?.();}catch(_0x42b414){}},0xc8);};document['addEventListener']('visibilitychange',_0x55f0fb);const _0x261cfc=()=>document['getElementById']('fquest-ui');return _0x10d738={'apply'(_0x52b667){this['clear'](),_0x2bbded=_0x52b667;switch(_0x52b667){case'cyberpunk':this['_startCyberpunk']();break;case'midnight':this['_startMidnight']();break;case'sakura':this['_startSakura']();break;case'starfield':this['_startStarfield']();break;case'lofi':this['_startLofi']();break;default:break;}},'clear'(){_0x5d7997&&(cancelAnimationFrame(_0x5d7997),_0x5d7997=null);_0x19cf58&&(clearInterval(_0x19cf58),_0x19cf58=null);const _0x1a77cf=_0x261cfc();if(_0x1a77cf)try{_0x1a77cf['querySelectorAll']('canvas[id^=\x22fq-\x22]')['forEach'](_0x1e413c=>_0x1e413c['remove']());}catch(_0x853e10){}_0x5e0f59=null;if(_0x443296){try{_0x443296['disconnect']();}catch(_0x32f2a1){}_0x443296=null;}if(_0x1a77cf){_0x1a77cf['style']['removeProperty']('background-image'),_0x1a77cf['style']['removeProperty']('background'),_0x1a77cf['style']['removeProperty']('box-shadow'),_0x1a77cf['style']['removeProperty']('filter'),_0x1a77cf['style']['removeProperty']('mix-blend-mode');const _0x5b75cf=_0x1a77cf['querySelector']('#fquest-head');_0x5b75cf&&(_0x5b75cf['style']['removeProperty']('transform'),_0x5b75cf['style']['removeProperty']('text-shadow'));}typeof this['_onResize']==='function'&&(this['_onResize']=null);if(typeof this['_starfieldCleanup']==='function'){try{this['_starfieldCleanup']();}catch(_0x4e8285){}this['_starfieldCleanup']=null;}_0x2bbded=null;},'getActive'(){return _0x2bbded;},'pause'(){_0x5d7997&&(cancelAnimationFrame(_0x5d7997),_0x5d7997=null),_0x19cf58&&(clearInterval(_0x19cf58),_0x19cf58=null);},'resume'(){const _0x5117bc=_0x2bbded;if(!_0x5117bc)return;const _0x4974a2=_0x261cfc();if(!_0x4974a2||_0x4974a2['style']['display']==='none')return;_0x5c5416?.['Logger']?.['info']?.('[Theme]\x20resume\x20for\x20\x22'+_0x5117bc+'\x22'),this['apply'](_0x5117bc);},'_makeCanvas'(_0x571b03,_0x2ed1bf=0x1,_0x4da9c8='normal'){const _0x33bc12=_0x261cfc();if(!_0x33bc12)return null;_0x5e0f59=document['createElement']('canvas'),_0x5e0f59['id']=_0x571b03,_0x5e0f59['style']['cssText']='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20position:\x20absolute;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20inset:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pointer-events:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20z-index:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity:\x20'+_0x2ed1bf+';\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20mix-blend-mode:\x20'+_0x4da9c8+';\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',_0x33bc12['insertBefore'](_0x5e0f59,_0x33bc12['firstChild']);const _0x1bd67e=Math['min'](window['devicePixelRatio']||0x1,0x2),_0xc41a28=()=>{if(!_0x5e0f59||!_0x33bc12)return;const _0x55f371=_0x33bc12['clientWidth'],_0x427b25=_0x33bc12['clientHeight'];if(_0x55f371===0x0||_0x427b25===0x0)return;_0x5e0f59['width']=_0x55f371*_0x1bd67e,_0x5e0f59['height']=_0x427b25*_0x1bd67e,_0x5e0f59['style']['width']=_0x55f371+'px',_0x5e0f59['style']['height']=_0x427b25+'px';const _0x49bb20=_0x5e0f59['getContext']('2d');_0x49bb20['setTransform'](_0x1bd67e,0x0,0x0,_0x1bd67e,0x0,0x0),_0x49bb20['globalAlpha']=0x1,_0x49bb20['globalCompositeOperation']='source-over',_0x49bb20['filter']='none';if(typeof this['_onResize']==='function')this['_onResize'](_0x55f371,_0x427b25);};return _0xc41a28(),_0x443296=new ResizeObserver(_0xc41a28),_0x443296['observe'](_0x33bc12),_0x5e0f59;},'_startCyberpunk'(){const _0x5597e6=_0x261cfc();if(!_0x5597e6)return;_0x19cf58=setInterval(()=>{if(_0x2bbded!=='cyberpunk')return;if(Math['random']()>0.75){const _0x25683a=_0x5597e6['querySelector']('#fquest-head')||_0x5597e6;_0x25683a['style']['textShadow']=(Math['random']()*0x4-0x2)['toFixed'](0x1)+'px\x200\x20#FF2C9C,\x20'+(Math['random']()*0x4-0x2)['toFixed'](0x1)+'px\x200\x20#00FFF0',_0x25683a['style']['transform']='translate('+(Math['random']()*0x2-0x1)['toFixed'](0x1)+'px,\x200)',setTimeout(()=>{_0x25683a['style']['removeProperty']('text-shadow'),_0x25683a['style']['removeProperty']('transform');},0x46+Math['random']()*0x5a);}},0x2bc);let _0x33ca01=0x0;const _0xacb8e1=()=>{if(_0x2bbded!=='cyberpunk')return;_0x33ca01+=0.05;const _0xa7fa77=0x12c+Math['sin'](_0x33ca01)*0x1e,_0x33aa9a=0xc+Math['sin'](_0x33ca01*1.3)*0x6;_0x5597e6['style']['boxShadow']='0\x2024px\x2080px\x20rgba(0,0,0,.85),\x200\x200\x20'+_0x33aa9a+'px\x20hsl('+_0xa7fa77+',\x20100%,\x2060%),\x200\x200\x200\x201px\x20hsla('+_0xa7fa77+',\x20100%,\x2060%,\x20.4)\x20inset',_0x5d7997=requestAnimationFrame(_0xacb8e1);};_0x5d7997=requestAnimationFrame(_0xacb8e1);},'_startMidnight'(){const _0x1bdfd6=_0x261cfc();if(!_0x1bdfd6)return;const _0x39efa2=this['_makeCanvas']('fq-midnight-canvas',0.9);if(!_0x39efa2)return;const _0x45ba20=_0x39efa2['getContext']('2d');let _0x210701=_0x1bdfd6['clientWidth'],_0x7ee900=_0x1bdfd6['clientHeight'];this['_onResize']=(_0x2a877d,_0x3abf7b)=>{_0x210701=_0x2a877d,_0x7ee900=_0x3abf7b;};const _0x5ba5e5=[{'hue':0x140,'sat':0x46,'lit':0x41,'r':0.55,'ox':0.25,'oy':0.3,'vx':0.00018,'vy':0.00011,'phase':0x0},{'hue':0x10e,'sat':0x4b,'lit':0x3c,'r':0.5,'ox':0.7,'oy':0.65,'vx':-0.00015,'vy':0.00013,'phase':Math['PI']*0.6},{'hue':0xc3,'sat':0x46,'lit':0x37,'r':0.45,'ox':0.55,'oy':0.85,'vx':0.00012,'vy':-0.00014,'phase':Math['PI']*1.3}],_0x3287c8=performance['now'](),_0x41b173=_0x50da02=>{if(_0x2bbded!=='midnight')return;if(_0x50da02-_0x5db1e9<0x28){_0x5d7997=requestAnimationFrame(_0x41b173);return;}_0x5db1e9=_0x50da02;const _0x422b18=_0x50da02-_0x3287c8;_0x45ba20['clearRect'](0x0,0x0,_0x210701,_0x7ee900),_0x45ba20['globalCompositeOperation']='lighter';for(const _0x14c2d9 of _0x5ba5e5){const _0x3d0b97=_0x210701*(_0x14c2d9['ox']+Math['sin'](_0x422b18*_0x14c2d9['vx']+_0x14c2d9['phase'])*0.18),_0x11e2ed=_0x7ee900*(_0x14c2d9['oy']+Math['cos'](_0x422b18*_0x14c2d9['vy']+_0x14c2d9['phase'])*0.18),_0x5a8883=Math['max'](_0x210701,_0x7ee900)*_0x14c2d9['r'],_0x110629=_0x45ba20['createRadialGradient'](_0x3d0b97,_0x11e2ed,0x0,_0x3d0b97,_0x11e2ed,_0x5a8883);_0x110629['addColorStop'](0x0,'hsla('+_0x14c2d9['hue']+',\x20'+_0x14c2d9['sat']+'%,\x20'+_0x14c2d9['lit']+'%,\x200.35)'),_0x110629['addColorStop'](0.5,'hsla('+_0x14c2d9['hue']+',\x20'+_0x14c2d9['sat']+'%,\x20'+_0x14c2d9['lit']+'%,\x200.12)'),_0x110629['addColorStop'](0x1,'hsla('+_0x14c2d9['hue']+',\x20'+_0x14c2d9['sat']+'%,\x20'+_0x14c2d9['lit']+'%,\x200)'),_0x45ba20['fillStyle']=_0x110629,_0x45ba20['beginPath'](),_0x45ba20['arc'](_0x3d0b97,_0x11e2ed,_0x5a8883,0x0,Math['PI']*0x2),_0x45ba20['fill']();}_0x45ba20['globalCompositeOperation']='source-over',_0x5d7997=requestAnimationFrame(_0x41b173);};_0x5d7997=requestAnimationFrame(_0x41b173);},'_startSakura'(){const _0x586638=_0x261cfc();if(!_0x586638)return;const _0x4abdf5=this['_makeCanvas']('fq-sakura',0x1);if(!_0x4abdf5)return;const _0x563fb5=_0x4abdf5['getContext']('2d');let _0x12d2dc=_0x586638['clientWidth'],_0x7712ca=_0x586638['clientHeight'];const _0x5d7e36=generateSakuraTree();let _0x119ad4=null,_0x3044a4=null;const _0x588645=()=>{!_0x119ad4&&(_0x119ad4=document['createElement']('canvas'),_0x3044a4=_0x119ad4['getContext']('2d')),_0x119ad4['width']=_0x12d2dc,_0x119ad4['height']=_0x7712ca,_0x3044a4['clearRect'](0x0,0x0,_0x12d2dc,_0x7712ca),drawSakuraTreeStatic(_0x3044a4,_0x12d2dc,_0x7712ca,_0x5d7e36);};_0x588645();const _0x140934=0x23,_0x430682=[],_0x16e31b=()=>({'x':Math['random']()*_0x12d2dc,'y':-0xa-Math['random']()*0xc8,'size':0x3+Math['random']()*3.5,'fallSpeed':0.35+Math['random']()*0.55,'wobbleAmp':0x1+Math['random']()*0x2,'wobbleFreq':0.0008+Math['random']()*0.0015,'wobblePhase':Math['random']()*Math['PI']*0x2,'rot':Math['random']()*Math['PI']*0x2,'rotSpeed':(Math['random']()-0.5)*0.03,'driftX':(Math['random']()*0x2-0x1)*0.18,'hue':0x14f+Math['random']()*0xf,'sat':0x44+Math['random']()*0x12,'lit':0x52+Math['random']()*0xa,'baseAlpha':0.55+Math['random']()*0.4});for(let _0x23f779=0x0;_0x23f779<_0x140934;_0x23f779++){const _0x19716e=_0x16e31b();_0x19716e['y']=Math['random']()*_0x7712ca,_0x430682['push'](_0x19716e);}const _0x38aa36=0x28,_0x405162=_0x31f0e0=>{if(_0x2bbded!=='sakura')return;if(_0x31f0e0-_0x5db1e9<_0x38aa36){_0x5d7997=requestAnimationFrame(_0x405162);return;}_0x5db1e9=_0x31f0e0,_0x563fb5['clearRect'](0x0,0x0,_0x12d2dc,_0x7712ca);const _0x548f68=Math['sin'](_0x31f0e0*0.0006)*2.5,_0x1fd9b0=Math['sin'](_0x31f0e0*0.0008)*1.2;_0x563fb5['drawImage'](_0x119ad4,_0x548f68,_0x1fd9b0);for(let _0x1b29aa=_0x430682['length']-0x1;_0x1b29aa>=0x0;_0x1b29aa--){const _0x127a60=_0x430682[_0x1b29aa];_0x127a60['y']+=_0x127a60['fallSpeed'],_0x127a60['x']+=Math['sin'](_0x31f0e0*_0x127a60['wobbleFreq']+_0x127a60['wobblePhase'])*_0x127a60['wobbleAmp']*0.25+_0x127a60['driftX'],_0x127a60['rot']+=_0x127a60['rotSpeed'];let _0x4c9c5e=_0x127a60['baseAlpha'];_0x127a60['y']>_0x7712ca*0.75&&(_0x4c9c5e*=Math['max'](0x0,0x1-(_0x127a60['y']-_0x7712ca*0.75)/(_0x7712ca*0.3)));if(_0x127a60['y']>_0x7712ca+0x14||_0x4c9c5e<=0.02){_0x430682[_0x1b29aa]=_0x16e31b();continue;}drawPetalShape(_0x563fb5,_0x127a60,_0x4c9c5e);}_0x5d7997=requestAnimationFrame(_0x405162);};_0x5d7997=requestAnimationFrame(_0x405162),this['_onResize']=(_0x29a5cc,_0x577c49)=>{_0x12d2dc=_0x29a5cc,_0x7712ca=_0x577c49,_0x588645();};},'_startStarfield'(){const _0x4952dc=_0x261cfc();if(!_0x4952dc)return;const _0x5d1719=this['_makeCanvas']('fq-starfield',0x1);if(!_0x5d1719)return;const _0x20b4c3=_0x5d1719['getContext']('2d');let _0x527857=_0x4952dc['clientWidth'],_0x4202fe=_0x4952dc['clientHeight'];this['_onResize']=(_0x2a1146,_0x46541d)=>{_0x527857=_0x2a1146,_0x4202fe=_0x46541d;};const _0x1a7d7e=[{'count':0x46,'depth':0.4,'sizeMin':0.3,'sizeMax':0.8,'alpha':0.55},{'count':0x28,'depth':0.7,'sizeMin':0.6,'sizeMax':1.3,'alpha':0.8},{'count':0x12,'depth':0x1,'sizeMin':0.9,'sizeMax':0x2,'alpha':0x1}],_0x5a2720=[];for(const _0x30f5cc of _0x1a7d7e){for(let _0x336de7=0x0;_0x336de7<_0x30f5cc['count'];_0x336de7++){_0x5a2720['push']({'x':Math['random']()*_0x527857,'y':Math['random']()*_0x4202fe,'size':_0x30f5cc['sizeMin']+Math['random']()*(_0x30f5cc['sizeMax']-_0x30f5cc['sizeMin']),'depth':_0x30f5cc['depth'],'baseAlpha':_0x30f5cc['alpha'],'twinkleSpeed':0.0004+Math['random']()*0.0012,'twinklePhase':Math['random']()*Math['PI']*0x2,'hue':0xc8+Math['random']()*0x3c,'vx':(0.08+Math['random']()*0.08)*_0x30f5cc['depth'],'vy':(0.03+Math['random']()*0.04)*_0x30f5cc['depth'],'driftPhase':Math['random']()*Math['PI']*0x2,'driftFreq':0.00015+Math['random']()*0.00025});}}const _0x265fcb=[{'ox':0.25,'oy':0.35,'r':0.7,'hue':0xfa,'alpha':0.1},{'ox':0.75,'oy':0.55,'r':0.6,'hue':0xd2,'alpha':0.08},{'ox':0.5,'oy':0.85,'r':0.65,'hue':0x12c,'alpha':0.07}],_0x1a7dda=0x2710,_0x38c765=0x898;let _0x5933e8=null,_0x2a31a5=performance['now']()+0x7d0+Math['random']()*0xbb8;const _0x29597b=()=>{const _0x485922=Math['random']()>0.5,_0x32f4b5=0xbe+Math['random']()*0x50,_0x5972fc=0.8+Math['random']()*0.4;let _0x11f8c3,_0x37031c,_0x4d4a45,_0xa0f8f0;_0x485922?(_0x11f8c3=-0x64,_0x37031c=Math['random']()*_0x4202fe*0.4,_0x4d4a45=_0x527857+0x64,_0xa0f8f0=_0x37031c+_0x4202fe*(0.4+Math['random']()*0.4)):(_0x11f8c3=Math['random']()*_0x527857*0.3,_0x37031c=-0x64,_0x4d4a45=_0x11f8c3+_0x527857*(0.5+Math['random']()*0.4),_0xa0f8f0=_0x4202fe+0x64),_0x5933e8={'x':_0x11f8c3,'y':_0x37031c,'startX':_0x11f8c3,'startY':_0x37031c,'endX':_0x4d4a45,'endY':_0xa0f8f0,'startTime':performance['now'](),'duration':_0x38c765/_0x5972fc,'hue':_0x32f4b5,'size':1.6+Math['random']()*1.4,'tailLength':0x50+Math['random']()*0x46};};let _0x443cfc=0.5,_0x3b98fe=0.5;const _0x535c89=_0x5641e3=>{if(_0x2bbded!=='starfield')return;_0x443cfc=_0x5641e3['clientX']/ innerWidth,_0x3b98fe=_0x5641e3['clientY']/ innerHeight;};document['addEventListener']('mousemove',_0x535c89),this['_starfieldCleanup']=()=>document['removeEventListener']('mousemove',_0x535c89);const _0x15fea1=performance['now'](),_0x3973c8=_0x4ee71b=>{if(_0x2bbded!=='starfield')return;if(_0x4ee71b-_0x5db1e9<0x28){_0x5d7997=requestAnimationFrame(_0x3973c8);return;}_0x5db1e9=_0x4ee71b;const _0xc3625e=_0x4ee71b-_0x15fea1;_0x20b4c3['clearRect'](0x0,0x0,_0x527857,_0x4202fe);const _0x3bc0ab=(_0x443cfc-0.5)*-0x19,_0x4d4858=(_0x3b98fe-0.5)*-0x19;_0x20b4c3['globalCompositeOperation']='lighter';for(const _0x34ee20 of _0x265fcb){const _0x37537=_0x527857*_0x34ee20['ox']+_0x3bc0ab*0.3,_0x62b02d=_0x4202fe*_0x34ee20['oy']+_0x4d4858*0.3,_0x55aa8b=Math['max'](_0x527857,_0x4202fe)*_0x34ee20['r'],_0x525b97=_0x20b4c3['createRadialGradient'](_0x37537,_0x62b02d,0x0,_0x37537,_0x62b02d,_0x55aa8b);_0x525b97['addColorStop'](0x0,'hsla('+_0x34ee20['hue']+',\x2070%,\x2055%,\x20'+_0x34ee20['alpha']+')'),_0x525b97['addColorStop'](0.5,'hsla('+_0x34ee20['hue']+',\x2070%,\x2045%,\x20'+_0x34ee20['alpha']*0.4+')'),_0x525b97['addColorStop'](0x1,'hsla('+_0x34ee20['hue']+',\x2070%,\x2040%,\x200)'),_0x20b4c3['fillStyle']=_0x525b97,_0x20b4c3['beginPath'](),_0x20b4c3['arc'](_0x37537,_0x62b02d,_0x55aa8b,0x0,Math['PI']*0x2),_0x20b4c3['fill']();}for(const _0x5db033 of _0x5a2720){const _0x50e841=0.85+Math['sin'](_0xc3625e*_0x5db033['driftFreq']+_0x5db033['driftPhase'])*0.15;_0x5db033['x']+=_0x5db033['vx']*_0x50e841,_0x5db033['y']+=_0x5db033['vy']*_0x50e841;_0x5db033['x']>_0x527857+0x4&&(_0x5db033['x']=-0x4,_0x5db033['y']=Math['random']()*_0x4202fe);_0x5db033['y']>_0x4202fe+0x4&&(_0x5db033['y']=-0x4,_0x5db033['x']=Math['random']()*_0x527857);if(_0x5db033['x']<-0x4)_0x5db033['x']=_0x527857+0x4;if(_0x5db033['y']<-0x4)_0x5db033['y']=_0x4202fe+0x4;const _0x4adf55=0.7+Math['sin'](_0xc3625e*_0x5db033['twinkleSpeed']+_0x5db033['twinklePhase'])*0.3,_0xb96dda=_0x5db033['baseAlpha']*_0x4adf55,_0x2833fd=_0x5db033['x']+_0x3bc0ab*_0x5db033['depth'],_0x4905eb=_0x5db033['y']+_0x4d4858*_0x5db033['depth'];_0x5db033['size']>1.2?(_0x20b4c3['shadowColor']='hsla('+_0x5db033['hue']+',\x2090%,\x2080%,\x20'+_0xb96dda*0.9+')',_0x20b4c3['shadowBlur']=_0x5db033['size']*0x5):_0x20b4c3['shadowBlur']=0x0,_0x20b4c3['fillStyle']='hsla('+_0x5db033['hue']+',\x2090%,\x2095%,\x20'+_0xb96dda+')',_0x20b4c3['beginPath'](),_0x20b4c3['arc'](_0x2833fd,_0x4905eb,_0x5db033['size'],0x0,Math['PI']*0x2),_0x20b4c3['fill']();}_0x20b4c3['shadowBlur']=0x0;!_0x5933e8&&_0x4ee71b>=_0x2a31a5&&_0x29597b();if(_0x5933e8){const _0x5d0622=_0x5933e8,_0x45b87a=(_0x4ee71b-_0x5d0622['startTime'])/_0x5d0622['duration'];if(_0x45b87a>=0x1)_0x5933e8=null,_0x2a31a5=_0x4ee71b+_0x1a7dda+(Math['random']()*0xfa0-0x7d0);else{const _0x48dadf=_0x45b87a;_0x5d0622['x']=_0x5d0622['startX']+(_0x5d0622['endX']-_0x5d0622['startX'])*_0x48dadf,_0x5d0622['y']=_0x5d0622['startY']+(_0x5d0622['endY']-_0x5d0622['startY'])*_0x48dadf;const _0x37623c=_0x5d0622['endX']-_0x5d0622['startX'],_0x568989=_0x5d0622['endY']-_0x5d0622['startY'],_0x58a526=Math['hypot'](_0x37623c,_0x568989)||0x1,_0x43e046=_0x37623c/_0x58a526,_0xcdc458=_0x568989/_0x58a526;let _0x375e3a=0x1;if(_0x45b87a<0.15)_0x375e3a=_0x45b87a/0.15;else{if(_0x45b87a>0.85)_0x375e3a=(0x1-_0x45b87a)/0.15;}const _0x4f9d9a=_0x5d0622['x']-_0x43e046*_0x5d0622['tailLength'],_0x397327=_0x5d0622['y']-_0xcdc458*_0x5d0622['tailLength'],_0x1e1a39=_0x20b4c3['createLinearGradient'](_0x5d0622['x'],_0x5d0622['y'],_0x4f9d9a,_0x397327);_0x1e1a39['addColorStop'](0x0,'hsla('+_0x5d0622['hue']+',\x20100%,\x2085%,\x20'+0.95*_0x375e3a+')'),_0x1e1a39['addColorStop'](0.15,'hsla('+_0x5d0622['hue']+',\x20100%,\x2075%,\x20'+0.7*_0x375e3a+')'),_0x1e1a39['addColorStop'](0.4,'hsla('+(_0x5d0622['hue']+0xf)+',\x2090%,\x2065%,\x20'+0.4*_0x375e3a+')'),_0x1e1a39['addColorStop'](0.7,'hsla('+(_0x5d0622['hue']+0x19)+',\x2080%,\x2055%,\x20'+0.15*_0x375e3a+')'),_0x1e1a39['addColorStop'](0x1,'hsla('+(_0x5d0622['hue']+0x28)+',\x2070%,\x2050%,\x200)'),_0x20b4c3['strokeStyle']=_0x1e1a39,_0x20b4c3['lineWidth']=_0x5d0622['size']*1.2,_0x20b4c3['lineCap']='round',_0x20b4c3['shadowColor']='hsla('+_0x5d0622['hue']+',\x20100%,\x2070%,\x20'+_0x375e3a+')',_0x20b4c3['shadowBlur']=0x12,_0x20b4c3['beginPath'](),_0x20b4c3['moveTo'](_0x5d0622['x'],_0x5d0622['y']),_0x20b4c3['lineTo'](_0x4f9d9a,_0x397327),_0x20b4c3['stroke'](),_0x20b4c3['strokeStyle']='hsla('+_0x5d0622['hue']+',\x20100%,\x2095%,\x20'+0.5*_0x375e3a+')',_0x20b4c3['lineWidth']=_0x5d0622['size']*0.5,_0x20b4c3['shadowBlur']=0xa,_0x20b4c3['beginPath'](),_0x20b4c3['moveTo'](_0x5d0622['x'],_0x5d0622['y']),_0x20b4c3['lineTo'](_0x5d0622['x']-_0x43e046*_0x5d0622['tailLength']*0.5,_0x5d0622['y']-_0xcdc458*_0x5d0622['tailLength']*0.5),_0x20b4c3['stroke'](),_0x20b4c3['shadowColor']='hsla('+_0x5d0622['hue']+',\x20100%,\x2080%,\x20'+_0x375e3a+')',_0x20b4c3['shadowBlur']=0x19,_0x20b4c3['fillStyle']='hsla(0,\x200%,\x20100%,\x20'+_0x375e3a+')',_0x20b4c3['beginPath'](),_0x20b4c3['arc'](_0x5d0622['x'],_0x5d0622['y'],_0x5d0622['size']*0.8,0x0,Math['PI']*0x2),_0x20b4c3['fill']();const _0x237603=_0x20b4c3['createRadialGradient'](_0x5d0622['x'],_0x5d0622['y'],0x0,_0x5d0622['x'],_0x5d0622['y'],_0x5d0622['size']*0x6);_0x237603['addColorStop'](0x0,'hsla('+_0x5d0622['hue']+',\x20100%,\x2090%,\x20'+0.6*_0x375e3a+')'),_0x237603['addColorStop'](0.5,'hsla('+_0x5d0622['hue']+',\x20100%,\x2070%,\x20'+0.2*_0x375e3a+')'),_0x237603['addColorStop'](0x1,'hsla('+_0x5d0622['hue']+',\x20100%,\x2060%,\x200)'),_0x20b4c3['fillStyle']=_0x237603,_0x20b4c3['beginPath'](),_0x20b4c3['arc'](_0x5d0622['x'],_0x5d0622['y'],_0x5d0622['size']*0x6,0x0,Math['PI']*0x2),_0x20b4c3['fill'](),_0x20b4c3['shadowBlur']=0x0;}}_0x20b4c3['globalCompositeOperation']='source-over',_0x5d7997=requestAnimationFrame(_0x3973c8);};_0x5d7997=requestAnimationFrame(_0x3973c8);},'_startLofi'(){const _0x4f3d6b=_0x261cfc();if(!_0x4f3d6b)return;const _0x2b0314=this['_makeCanvas']('fq-lofi',0x1);if(!_0x2b0314)return;const _0x2f4ef2=_0x2b0314['getContext']('2d');let _0x3ea0c9=_0x4f3d6b['clientWidth'],_0xd791b3=_0x4f3d6b['clientHeight'];this['_onResize']=(_0x4c2471,_0xef8ee0)=>{_0x3ea0c9=_0x4c2471,_0xd791b3=_0xef8ee0;};let _0x57338d=null,_0x3a2c2b=null;const _0x3caa11=()=>{!_0x57338d&&(_0x57338d=document['createElement']('canvas'),_0x3a2c2b=_0x57338d['getContext']('2d'));_0x57338d['width']=_0x3ea0c9,_0x57338d['height']=_0xd791b3,_0x3a2c2b['clearRect'](0x0,0x0,_0x3ea0c9,_0xd791b3);const _0x319d24=_0x3a2c2b['createLinearGradient'](0x0,0x0,_0x3ea0c9,_0xd791b3);_0x319d24['addColorStop'](0x0,'hsl(280,\x2040%,\x208%)'),_0x319d24['addColorStop'](0.35,'hsl(320,\x2035%,\x2012%)'),_0x319d24['addColorStop'](0.65,'hsl(260,\x2040%,\x2010%)'),_0x319d24['addColorStop'](0x1,'hsl(220,\x2035%,\x207%)'),_0x3a2c2b['fillStyle']=_0x319d24,_0x3a2c2b['fillRect'](0x0,0x0,_0x3ea0c9,_0xd791b3),_0x3a2c2b['globalCompositeOperation']='lighter';const _0x3e142c=[{'x':0.15,'y':0.25,'r':0.55,'hue':0x14a,'alpha':0.1},{'x':0.75,'y':0.45,'r':0.6,'hue':0x118,'alpha':0.08},{'x':0.4,'y':0.8,'r':0.5,'hue':0xc8,'alpha':0.06},{'x':0.85,'y':0.15,'r':0.45,'hue':0x140,'alpha':0.07}];for(const _0x1c17ab of _0x3e142c){const _0x5a76c9=_0x3ea0c9*_0x1c17ab['x'],_0x217db8=_0xd791b3*_0x1c17ab['y'],_0xe552a7=Math['max'](_0x3ea0c9,_0xd791b3)*_0x1c17ab['r'],_0x2cf1e4=_0x3a2c2b['createRadialGradient'](_0x5a76c9,_0x217db8,0x0,_0x5a76c9,_0x217db8,_0xe552a7);_0x2cf1e4['addColorStop'](0x0,'hsla('+_0x1c17ab['hue']+',\x2070%,\x2070%,\x20'+_0x1c17ab['alpha']+')'),_0x2cf1e4['addColorStop'](0.5,'hsla('+_0x1c17ab['hue']+',\x2065%,\x2055%,\x20'+_0x1c17ab['alpha']*0.4+')'),_0x2cf1e4['addColorStop'](0x1,'hsla('+_0x1c17ab['hue']+',\x2060%,\x2045%,\x200)'),_0x3a2c2b['fillStyle']=_0x2cf1e4,_0x3a2c2b['beginPath'](),_0x3a2c2b['arc'](_0x5a76c9,_0x217db8,_0xe552a7,0x0,Math['PI']*0x2),_0x3a2c2b['fill']();}_0x3a2c2b['globalCompositeOperation']='source-over';};_0x3caa11();const _0x40e5b5=0x2d,_0x4f8074=[],_0x2f508c=()=>({'x':Math['random']()*_0x3ea0c9,'y':Math['random']()*_0xd791b3,'size':0x1+Math['random']()*3.5,'vx':(Math['random']()-0.5)*0.4,'vy':-0.1-Math['random']()*0.35,'wobbleAmp':0.3+Math['random']()*0.8,'wobbleFreq':0.0006+Math['random']()*0.0012,'wobblePhase':Math['random']()*Math['PI']*0x2,'hue':0x12c+Math['random']()*0x50,'sat':0x3c+Math['random']()*0x19,'lit':0x4e+Math['random']()*0xc,'baseAlpha':0.35+Math['random']()*0.45,'pulseSpeed':0.0005+Math['random']()*0.001,'pulsePhase':Math['random']()*Math['PI']*0x2});for(let _0x473c62=0x0;_0x473c62<_0x40e5b5;_0x473c62++){_0x4f8074['push'](_0x2f508c());}const _0xe2fb6c=0x28,_0x2ebfda=_0xe96be2=>{if(_0x2bbded!=='lofi')return;if(_0xe96be2-_0x5db1e9<_0xe2fb6c){_0x5d7997=requestAnimationFrame(_0x2ebfda);return;}_0x5db1e9=_0xe96be2,_0x2f4ef2['clearRect'](0x0,0x0,_0x3ea0c9,_0xd791b3),_0x2f4ef2['drawImage'](_0x57338d,0x0,0x0),_0x2f4ef2['globalCompositeOperation']='lighter';for(let _0x51c77d=_0x4f8074['length']-0x1;_0x51c77d>=0x0;_0x51c77d--){const _0x26101f=_0x4f8074[_0x51c77d];_0x26101f['x']+=_0x26101f['vx']+Math['sin'](_0xe96be2*_0x26101f['wobbleFreq']+_0x26101f['wobblePhase'])*_0x26101f['wobbleAmp']*0.05,_0x26101f['y']+=_0x26101f['vy'];if(_0x26101f['y']<-0x14||_0x26101f['x']<-0x14||_0x26101f['x']>_0x3ea0c9+0x14){_0x4f8074[_0x51c77d]=_0x2f508c(),_0x4f8074[_0x51c77d]['y']=_0xd791b3+0xa,_0x4f8074[_0x51c77d]['x']=Math['random']()*_0x3ea0c9;continue;}const _0x17c893=0.7+Math['sin'](_0xe96be2*_0x26101f['pulseSpeed']+_0x26101f['pulsePhase'])*0.3,_0x59d51d=_0x26101f['baseAlpha']*_0x17c893,_0x2ee803=_0x26101f['size']*_0x17c893,_0x579c32=_0x2f4ef2['createRadialGradient'](_0x26101f['x'],_0x26101f['y'],0x0,_0x26101f['x'],_0x26101f['y'],_0x2ee803*0x4);_0x579c32['addColorStop'](0x0,'hsla('+_0x26101f['hue']+',\x20'+_0x26101f['sat']+'%,\x20'+_0x26101f['lit']+'%,\x20'+_0x59d51d+')'),_0x579c32['addColorStop'](0.4,'hsla('+_0x26101f['hue']+',\x20'+_0x26101f['sat']+'%,\x20'+_0x26101f['lit']+'%,\x20'+_0x59d51d*0.4+')'),_0x579c32['addColorStop'](0x1,'hsla('+_0x26101f['hue']+',\x20'+_0x26101f['sat']+'%,\x20'+_0x26101f['lit']+'%,\x200)'),_0x2f4ef2['fillStyle']=_0x579c32,_0x2f4ef2['beginPath'](),_0x2f4ef2['arc'](_0x26101f['x'],_0x26101f['y'],_0x2ee803*0x4,0x0,Math['PI']*0x2),_0x2f4ef2['fill'](),_0x2f4ef2['fillStyle']='hsla('+_0x26101f['hue']+',\x20'+_0x26101f['sat']+'%,\x20'+(_0x26101f['lit']+0xa)+'%,\x20'+_0x59d51d*0.9+')',_0x2f4ef2['beginPath'](),_0x2f4ef2['arc'](_0x26101f['x'],_0x26101f['y'],_0x2ee803*0.6,0x0,Math['PI']*0x2),_0x2f4ef2['fill']();}_0x2f4ef2['globalCompositeOperation']='source-over',_0x5d7997=requestAnimationFrame(_0x2ebfda);};_0x5d7997=requestAnimationFrame(_0x2ebfda),this['_onResize']=(_0x4f38db,_0x700f46)=>{_0x3ea0c9=_0x4f38db,_0xd791b3=_0x700f46,_0x3caa11();};}},_0x10d738;}};function generateSakuraTree(){const _0x3c568d={'start':{'x':1.05,'y':-0.05},'cp1':{'x':0x1,'y':0x0},'cp2':{'x':0.96,'y':0.06},'end':{'x':0.92,'y':0.12},'thickness':0x4},_0x2d51a6={'x':0.92,'y':0.08},_0x1803f0=[],_0x48efcc=[],_0x3cbf73=[{'angle':Math['PI']*0.65,'len':0.18,'thick':0x2},{'angle':Math['PI']*0.8,'len':0.2,'thick':1.8},{'angle':Math['PI']*0.95,'len':0.2,'thick':1.6},{'angle':Math['PI']*1.1,'len':0.18,'thick':1.5},{'angle':Math['PI']*1.25,'len':0.16,'thick':1.4},{'angle':Math['PI']*1.4,'len':0.14,'thick':1.3}],_0x147160=[{'start':{'x':1.1,'y':-0.2},'cp1':{'x':1.02,'y':-0.05},'cp2':{'x':0.85,'y':0.02},'end':{'x':0.68,'y':0.06},'thickness':1.6},{'start':{'x':1.08,'y':-0.1},'cp1':{'x':0.98,'y':0.05},'cp2':{'x':0.8,'y':0.1},'end':{'x':0.6,'y':0.16},'thickness':1.5},{'start':{'x':1.05,'y':0x0},'cp1':{'x':0x1,'y':0.1},'cp2':{'x':0.92,'y':0.2},'end':{'x':0.8,'y':0.28},'thickness':1.4},{'start':{'x':1.02,'y':0.08},'cp1':{'x':0.98,'y':0.2},'cp2':{'x':0.86,'y':0.3},'end':{'x':0.72,'y':0.38},'thickness':1.3}];for(const _0x596b84 of _0x147160){_0x1803f0['push']({'start':_0x596b84['start'],'cp1':_0x596b84['cp1'],'cp2':_0x596b84['cp2'],'end':_0x596b84['end'],'thickness':_0x596b84['thickness'],'level':0x1});const _0x1d72dc=0x1e+Math['floor'](Math['random']()*0xc);for(let _0x58a4c3=0x0;_0x58a4c3<_0x1d72dc;_0x58a4c3++){const _0x258506=0.15+Math['random']()*0.85,_0x46f178=0x1-_0x258506,_0xa1a635=_0x46f178*_0x46f178*_0x46f178*_0x596b84['start']['x']+0x3*_0x46f178*_0x46f178*_0x258506*_0x596b84['cp1']['x']+0x3*_0x46f178*_0x258506*_0x258506*_0x596b84['cp2']['x']+_0x258506*_0x258506*_0x258506*_0x596b84['end']['x'],_0x363d08=_0x46f178*_0x46f178*_0x46f178*_0x596b84['start']['y']+0x3*_0x46f178*_0x46f178*_0x258506*_0x596b84['cp1']['y']+0x3*_0x46f178*_0x258506*_0x258506*_0x596b84['cp2']['y']+_0x258506*_0x258506*_0x258506*_0x596b84['end']['y'],_0x3fcb2f=0.016;_0x48efcc['push']({'x':_0xa1a635+(Math['random']()-0.5)*_0x3fcb2f,'y':_0x363d08+(Math['random']()-0.5)*_0x3fcb2f,'size':0.005+Math['random']()*0.004,'rotation':Math['random']()*Math['PI']*0x2,'hue':0x152+Math['random']()*0xc,'sat':0x37+Math['random']()*0xc,'lit':0x4b+Math['random']()*0x8,'scale':0.9+Math['random']()*0.2});}}const _0x53efa2=(_0x1780d4,_0x584203,_0x2d3772,_0x166078,_0x38c2f4,_0x33883d,_0x1f86c2)=>{const _0x478da0=_0x1780d4+Math['cos'](_0x2d3772)*_0x166078,_0x4d05f0=_0x584203+Math['sin'](_0x2d3772)*_0x166078,_0x1d6beb=(_0x1780d4+_0x478da0)/0x2,_0xb95183=(_0x584203+_0x4d05f0)/0x2,_0x8b0819=(Math['random']()-0.5)*0.05,_0x50a60d={'x':_0x1780d4+(_0x1d6beb-_0x1780d4)*0.5+Math['cos'](_0x2d3772+Math['PI']/0x2)*_0x8b0819,'y':_0x584203+(_0xb95183-_0x584203)*0.5+Math['sin'](_0x2d3772+Math['PI']/0x2)*_0x8b0819},_0x10f6ae={'x':_0x1d6beb+(_0x478da0-_0x1d6beb)*0.5+Math['cos'](_0x2d3772+Math['PI']/0x2)*_0x8b0819*0.5,'y':_0xb95183+(_0x4d05f0-_0xb95183)*0.5+Math['sin'](_0x2d3772+Math['PI']/0x2)*_0x8b0819*0.5};_0x1803f0['push']({'start':{'x':_0x1780d4,'y':_0x584203},'cp1':_0x50a60d,'cp2':_0x10f6ae,'end':{'x':_0x478da0,'y':_0x4d05f0},'thickness':_0x38c2f4,'level':_0x33883d});if(_0x33883d>=_0x1f86c2-0x1){const _0x53f921=0xe+Math['floor'](Math['random']()*0x6);for(let _0xd0bbe=0x0;_0xd0bbe<_0x53f921;_0xd0bbe++){const _0x499242=0.25+Math['random']()*0.75,_0x2a7273=0x1-_0x499242,_0x6170e6=_0x2a7273*_0x2a7273*_0x2a7273*_0x1780d4+0x3*_0x2a7273*_0x2a7273*_0x499242*_0x50a60d['x']+0x3*_0x2a7273*_0x499242*_0x499242*_0x10f6ae['x']+_0x499242*_0x499242*_0x499242*_0x478da0,_0x52c8e8=_0x2a7273*_0x2a7273*_0x2a7273*_0x584203+0x3*_0x2a7273*_0x2a7273*_0x499242*_0x50a60d['y']+0x3*_0x2a7273*_0x499242*_0x499242*_0x10f6ae['y']+_0x499242*_0x499242*_0x499242*_0x4d05f0,_0x340787=0.018;_0x48efcc['push']({'x':_0x6170e6+(Math['random']()-0.5)*_0x340787,'y':_0x52c8e8+(Math['random']()-0.5)*_0x340787,'size':0.005+Math['random']()*0.004,'rotation':Math['random']()*Math['PI']*0x2,'hue':0x152+Math['random']()*0xc,'sat':0x37+Math['random']()*0xc,'lit':0x4b+Math['random']()*0x8,'scale':0.9+Math['random']()*0.2});}}else{const _0x23c7a6=0x3+Math['floor'](Math['random']()*0x2);for(let _0x4433db=0x0;_0x4433db<_0x23c7a6;_0x4433db++){const _0x146e26=0.35+Math['random']()*0.55,_0x5573db=0x1-_0x146e26,_0x114fd3=_0x5573db*_0x5573db*_0x5573db*_0x1780d4+0x3*_0x5573db*_0x5573db*_0x146e26*_0x50a60d['x']+0x3*_0x5573db*_0x146e26*_0x146e26*_0x10f6ae['x']+_0x146e26*_0x146e26*_0x146e26*_0x478da0,_0x1730c0=_0x5573db*_0x5573db*_0x5573db*_0x584203+0x3*_0x5573db*_0x5573db*_0x146e26*_0x50a60d['y']+0x3*_0x5573db*_0x146e26*_0x146e26*_0x10f6ae['y']+_0x146e26*_0x146e26*_0x146e26*_0x4d05f0,_0x66cc96=(Math['random']()-0.5)*Math['PI']*0.6,_0x82e60b=_0x2d3772+_0x66cc96,_0x2577e8=_0x166078*(0.55+Math['random']()*0.2),_0x56e495=_0x38c2f4*0.6;_0x53efa2(_0x114fd3,_0x1730c0,_0x82e60b,_0x2577e8,_0x56e495,_0x33883d+0x1,_0x1f86c2);}}};for(const _0x3794b0 of _0x3cbf73){_0x53efa2(_0x2d51a6['x'],_0x2d51a6['y'],_0x3794b0['angle'],_0x3794b0['len'],_0x3794b0['thick'],0x0,0x2);}return{'trunk':_0x3c568d,'allBranches':_0x1803f0,'allBlossoms':_0x48efcc};}function drawSakuraTreeStatic(_0x22d524,_0x41d699,_0x58b1c1,_0x2636c5){_0x22d524['lineCap']='round',_0x22d524['lineJoin']='round',_0x22d524['strokeStyle']='#0F080C',_0x22d524['lineWidth']=Math['max'](0x2,_0x41d699*(_0x2636c5['trunk']['thickness']/0x320)),_0x22d524['beginPath'](),_0x22d524['moveTo'](_0x2636c5['trunk']['start']['x']*_0x41d699,_0x2636c5['trunk']['start']['y']*_0x58b1c1),_0x22d524['bezierCurveTo'](_0x2636c5['trunk']['cp1']['x']*_0x41d699,_0x2636c5['trunk']['cp1']['y']*_0x58b1c1,_0x2636c5['trunk']['cp2']['x']*_0x41d699,_0x2636c5['trunk']['cp2']['y']*_0x58b1c1,_0x2636c5['trunk']['end']['x']*_0x41d699,_0x2636c5['trunk']['end']['y']*_0x58b1c1),_0x22d524['stroke']();const _0x5ca34e=[..._0x2636c5['allBranches']]['sort']((_0x26d572,_0x26b829)=>_0x26b829['thickness']-_0x26d572['thickness']);for(const _0x5c09ae of _0x5ca34e){_0x22d524['strokeStyle']=_0x5c09ae['level']<=0x1?'#150A10':'#1A0E14',_0x22d524['lineWidth']=Math['max'](0.5,_0x41d699*(_0x5c09ae['thickness']/0x3e8)),_0x22d524['beginPath'](),_0x22d524['moveTo'](_0x5c09ae['start']['x']*_0x41d699,_0x5c09ae['start']['y']*_0x58b1c1),_0x22d524['bezierCurveTo'](_0x5c09ae['cp1']['x']*_0x41d699,_0x5c09ae['cp1']['y']*_0x58b1c1,_0x5c09ae['cp2']['x']*_0x41d699,_0x5c09ae['cp2']['y']*_0x58b1c1,_0x5c09ae['end']['x']*_0x41d699,_0x5c09ae['end']['y']*_0x58b1c1),_0x22d524['stroke']();}const _0x35be18=[..._0x2636c5['allBlossoms']]['sort']((_0x567086,_0x2bbc6b)=>_0x567086['y']-_0x2bbc6b['y']);for(const _0x4762cb of _0x35be18){drawBlossomAt(_0x22d524,_0x4762cb['x']*_0x41d699,_0x4762cb['y']*_0x58b1c1,_0x41d699,_0x4762cb);}}function drawBlossomAt(_0x141500,_0x57c3d1,_0x365870,_0x29c3d6,_0x2e34f8){const _0x4f28ec=_0x2e34f8['size']*_0x29c3d6;_0x141500['save'](),_0x141500['translate'](_0x57c3d1,_0x365870),_0x141500['rotate'](_0x2e34f8['rotation']),_0x141500['scale'](_0x2e34f8['scale'],_0x2e34f8['scale']);const _0x5d94cf=_0x2e34f8['hue'],_0x2c332f=_0x2e34f8['sat'],_0x4c7d8=_0x2e34f8['lit'];_0x141500['fillStyle']='hsla('+(_0x5d94cf-0xa)+',\x20'+_0x2c332f+'%,\x20'+(_0x4c7d8-0x1e)+'%,\x200.15)',_0x141500['beginPath'](),_0x141500['arc'](0x0,0x0,_0x4f28ec*0.85,0x0,Math['PI']*0x2),_0x141500['fill']();for(let _0x36684d=0x0;_0x36684d<0x5;_0x36684d++){const _0x16d3c2=_0x36684d/0x5*Math['PI']*0x2-Math['PI']/0x2,_0x31b6b9=Math['cos'](_0x16d3c2)*_0x4f28ec*0.42,_0x5d76f3=Math['sin'](_0x16d3c2)*_0x4f28ec*0.42,_0x46338b=_0x141500['createRadialGradient'](_0x31b6b9-_0x4f28ec*0.1,_0x5d76f3-_0x4f28ec*0.1,0x0,_0x31b6b9,_0x5d76f3,_0x4f28ec*0.42);_0x46338b['addColorStop'](0x0,'hsl('+_0x5d94cf+',\x20'+_0x2c332f+'%,\x20'+(_0x4c7d8+0x6)+'%)'),_0x46338b['addColorStop'](0.55,'hsl('+_0x5d94cf+',\x20'+_0x2c332f+'%,\x20'+_0x4c7d8+'%)'),_0x46338b['addColorStop'](0x1,'hsl('+(_0x5d94cf-0x8)+',\x20'+(_0x2c332f+0x5)+'%,\x20'+(_0x4c7d8-0xc)+'%)'),_0x141500['fillStyle']=_0x46338b,_0x141500['beginPath'](),_0x141500['arc'](_0x31b6b9,_0x5d76f3,_0x4f28ec*0.36,0x0,Math['PI']*0x2),_0x141500['fill'](),_0x141500['strokeStyle']='hsla('+(_0x5d94cf-0xf)+',\x20'+_0x2c332f+'%,\x20'+(_0x4c7d8-0x19)+'%,\x200.4)',_0x141500['lineWidth']=Math['max'](0.3,_0x4f28ec*0.04),_0x141500['beginPath'](),_0x141500['arc'](_0x31b6b9,_0x5d76f3,_0x4f28ec*0.36,0x0,Math['PI']*0x2),_0x141500['stroke'](),_0x141500['strokeStyle']='hsla('+(_0x5d94cf+0x5)+',\x20'+(_0x2c332f-0xa)+'%,\x20'+(_0x4c7d8-0xf)+'%,\x200.5)',_0x141500['lineWidth']=Math['max'](0.2,_0x4f28ec*0.025),_0x141500['beginPath'](),_0x141500['moveTo'](_0x31b6b9*0.55,_0x5d76f3*0.55),_0x141500['lineTo'](_0x31b6b9*1.15,_0x5d76f3*1.15),_0x141500['stroke']();}const _0x43b5be=_0x141500['createRadialGradient'](0x0,0x0,0x0,0x0,0x0,_0x4f28ec*0.22);_0x43b5be['addColorStop'](0x0,'rgba(255,\x20240,\x20248,\x200.95)'),_0x43b5be['addColorStop'](0.6,'rgba(255,\x20220,\x20235,\x200.85)'),_0x43b5be['addColorStop'](0x1,'rgba(240,\x20190,\x20210,\x200.7)'),_0x141500['fillStyle']=_0x43b5be,_0x141500['beginPath'](),_0x141500['arc'](0x0,0x0,_0x4f28ec*0.18,0x0,Math['PI']*0x2),_0x141500['fill'](),_0x141500['fillStyle']='hsla(20,\x2060%,\x2045%,\x200.85)';for(let _0x2452fa=0x0;_0x2452fa<0x5;_0x2452fa++){const _0x27ce46=_0x2452fa/0x5*Math['PI']*0x2,_0x34c106=_0x4f28ec*0.1;_0x141500['beginPath'](),_0x141500['arc'](Math['cos'](_0x27ce46)*_0x34c106,Math['sin'](_0x27ce46)*_0x34c106,_0x4f28ec*0.03,0x0,Math['PI']*0x2),_0x141500['fill']();}_0x141500['fillStyle']='rgba(255,\x20255,\x20255,\x200.35)',_0x141500['beginPath'](),_0x141500['arc'](-_0x4f28ec*0.08,-_0x4f28ec*0.08,_0x4f28ec*0.06,0x0,Math['PI']*0x2),_0x141500['fill'](),_0x141500['restore']();}function drawPetalShape(_0x1ce49b,_0x4ce9bc,_0x142e03){_0x1ce49b['save'](),_0x1ce49b['translate'](_0x4ce9bc['x'],_0x4ce9bc['y']),_0x1ce49b['rotate'](_0x4ce9bc['rot']),_0x1ce49b['fillStyle']='hsla('+_0x4ce9bc['hue']+',\x20'+_0x4ce9bc['sat']+'%,\x20'+_0x4ce9bc['lit']+'%,\x20'+_0x142e03+')',_0x1ce49b['beginPath'](),_0x1ce49b['moveTo'](-_0x4ce9bc['size'],0x0),_0x1ce49b['quadraticCurveTo'](-_0x4ce9bc['size']*0.3,-_0x4ce9bc['size']*0.65,_0x4ce9bc['size']*0.7,-_0x4ce9bc['size']*0.1),_0x1ce49b['quadraticCurveTo'](_0x4ce9bc['size'],0x0,_0x4ce9bc['size']*0.7,_0x4ce9bc['size']*0.1),_0x1ce49b['quadraticCurveTo'](-_0x4ce9bc['size']*0.3,_0x4ce9bc['size']*0.65,-_0x4ce9bc['size'],0x0),_0x1ce49b['closePath'](),_0x1ce49b['fill'](),_0x1ce49b['restore']();}
+/* ============================================================
+ *  FQuest · modules/themes.js
+ * ============================================================ */
+
+module.exports = {
+    createThemes(ctx) {
+        const { RUNTIME, platform } = ctx;
+
+        let _active = null;
+        let _rafId = null;
+        let _intervalId = null;
+        let _canvas = null;
+        let _resizeObserver = null;
+        let _lastFrame = 0;
+        let _themes = null;
+
+        const visListener = () => {
+            if (document.visibilityState !== 'visible') return;
+            setTimeout(() => {
+                try { _themes?.resume?.(); } catch (_) {}
+            }, 200);
+        };
+        document.addEventListener('visibilitychange', visListener);
+
+        const getRoot = () => document.getElementById('fquest-ui');
+
+        _themes = {
+            apply(theme) {
+                this.clear();
+                _active = theme;
+
+                switch (theme) {
+                    case 'cyberpunk':  this._startCyberpunk(); break;
+                    case 'midnight':   this._startMidnight(); break;
+                    case 'sakura':     this._startSakura(); break;
+                    case 'starfield':  this._startStarfield(); break;
+                    case 'lofi':       this._startLofi(); break;
+                    default: break;
+                }
+            },
+
+            clear() {
+                if (_rafId) { cancelAnimationFrame(_rafId); _rafId = null; }
+                if (_intervalId) { clearInterval(_intervalId); _intervalId = null; }
+
+                const root = getRoot();
+                if (root) {
+                    try {
+                        root.querySelectorAll('canvas[id^="fq-"]').forEach(c => c.remove());
+                    } catch (_) {}
+                }
+                _canvas = null;
+
+                if (_resizeObserver) {
+                    try { _resizeObserver.disconnect(); } catch (_) {}
+                    _resizeObserver = null;
+                }
+
+                if (root) {
+                    root.style.removeProperty('background-image');
+                    root.style.removeProperty('background');
+                    root.style.removeProperty('box-shadow');
+                    root.style.removeProperty('filter');
+                    root.style.removeProperty('mix-blend-mode');
+
+                    const head = root.querySelector('#fquest-head');
+                    if (head) {
+                        head.style.removeProperty('transform');
+                        head.style.removeProperty('text-shadow');
+                    }
+                }
+
+                if (typeof this._onResize === 'function') {
+                    this._onResize = null;
+                }
+
+                if (typeof this._starfieldCleanup === 'function') {
+                    try { this._starfieldCleanup(); } catch (_) {}
+                    this._starfieldCleanup = null;
+                }
+
+                _active = null;
+            },
+
+            getActive() { return _active; },
+
+            pause() {
+                if (_rafId) { cancelAnimationFrame(_rafId); _rafId = null; }
+                if (_intervalId) { clearInterval(_intervalId); _intervalId = null; }
+            },
+
+            resume() {
+                const t = _active;
+                if (!t) return;
+                const root = getRoot();
+                if (!root || root.style.display === 'none') return;
+                platform?.Logger?.info?.(`[Theme] resume for "${t}"`);
+                this.apply(t);
+            },
+
+            _makeCanvas(id, opacity = 1, blend = 'normal') {
+                const root = getRoot();
+                if (!root) return null;
+                _canvas = document.createElement('canvas');
+                _canvas.id = id;
+                _canvas.style.cssText = `
+                    position: absolute;
+                    inset: 0;
+                    pointer-events: none;
+                    z-index: 0;
+                    opacity: ${opacity};
+                    mix-blend-mode: ${blend};
+                `;
+                root.insertBefore(_canvas, root.firstChild);
+
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                const resize = () => {
+                    if (!_canvas || !root) return;
+                    const w = root.clientWidth;
+                    const h = root.clientHeight;
+                    if (w === 0 || h === 0) return;
+                    _canvas.width = w * dpr;
+                    _canvas.height = h * dpr;
+                    _canvas.style.width = w + 'px';
+                    _canvas.style.height = h + 'px';
+                    const c = _canvas.getContext('2d');
+                    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+                    c.globalAlpha = 1;
+                    c.globalCompositeOperation = 'source-over';
+                    c.filter = 'none';
+                    if (typeof this._onResize === 'function') this._onResize(w, h);
+                };
+                resize();
+                _resizeObserver = new ResizeObserver(resize);
+                _resizeObserver.observe(root);
+                return _canvas;
+            },
+            _startCyberpunk() {
+                const root = getRoot();
+                if (!root) return;
+
+                _intervalId = setInterval(() => {
+                    if (_active !== 'cyberpunk') return;
+                    if (Math.random() > 0.75) {
+                        const target = root.querySelector('#fquest-head') || root;
+                        target.style.textShadow = `${(Math.random() * 4 - 2).toFixed(1)}px 0 #FF2C9C, ${(Math.random() * 4 - 2).toFixed(1)}px 0 #00FFF0`;
+                        target.style.transform = `translate(${(Math.random() * 2 - 1).toFixed(1)}px, 0)`;
+                        setTimeout(() => {
+                            target.style.removeProperty('text-shadow');
+                            target.style.removeProperty('transform');
+                        }, 70 + Math.random() * 90);
+                    }
+                }, 700);
+
+                let t = 0;
+                const pulse = () => {
+                    if (_active !== 'cyberpunk') return;
+                    t += 0.05;
+                    const hue = 300 + Math.sin(t) * 30;
+                    const glow = 12 + Math.sin(t * 1.3) * 6;
+                    root.style.boxShadow = `0 24px 80px rgba(0,0,0,.85), 0 0 ${glow}px hsl(${hue}, 100%, 60%), 0 0 0 1px hsla(${hue}, 100%, 60%, .4) inset`;
+                    _rafId = requestAnimationFrame(pulse);
+                };
+                _rafId = requestAnimationFrame(pulse);
+            },
+            _startMidnight() {
+                const root = getRoot();
+                if (!root) return;
+
+                const canvas = this._makeCanvas('fq-midnight-canvas', 0.9);
+                if (!canvas) return;
+                const c2d = canvas.getContext('2d');
+
+                let W = root.clientWidth, H = root.clientHeight;
+                this._onResize = (w, h) => { W = w; H = h; };
+
+                const blobs = [
+                    { hue: 320, sat: 70, lit: 65, r: 0.55, ox: 0.25, oy: 0.30, vx: 0.00018, vy: 0.00011, phase: 0 },
+                    { hue: 270, sat: 75, lit: 60, r: 0.50, ox: 0.70, oy: 0.65, vx: -0.00015, vy: 0.00013, phase: Math.PI * 0.6 },
+                    { hue: 195, sat: 70, lit: 55, r: 0.45, ox: 0.55, oy: 0.85, vx: 0.00012, vy: -0.00014, phase: Math.PI * 1.3 },
+                ];
+
+                const t0 = performance.now();
+                const draw = (ts) => {
+                    if (_active !== 'midnight') return;
+                    if (ts - _lastFrame < 40) { _rafId = requestAnimationFrame(draw); return; }
+                    _lastFrame = ts;
+
+                    const elapsed = ts - t0;
+                    c2d.clearRect(0, 0, W, H);
+                    c2d.globalCompositeOperation = 'lighter';
+
+                    for (const b of blobs) {
+                        const cx = W * (b.ox + Math.sin(elapsed * b.vx + b.phase) * 0.18);
+                        const cy = H * (b.oy + Math.cos(elapsed * b.vy + b.phase) * 0.18);
+                        const radius = Math.max(W, H) * b.r;
+                        const grad = c2d.createRadialGradient(cx, cy, 0, cx, cy, radius);
+                        grad.addColorStop(0, `hsla(${b.hue}, ${b.sat}%, ${b.lit}%, 0.35)`);
+                        grad.addColorStop(0.5, `hsla(${b.hue}, ${b.sat}%, ${b.lit}%, 0.12)`);
+                        grad.addColorStop(1, `hsla(${b.hue}, ${b.sat}%, ${b.lit}%, 0)`);
+                        c2d.fillStyle = grad;
+                        c2d.beginPath();
+                        c2d.arc(cx, cy, radius, 0, Math.PI * 2);
+                        c2d.fill();
+                    }
+                    c2d.globalCompositeOperation = 'source-over';
+                    _rafId = requestAnimationFrame(draw);
+                };
+                _rafId = requestAnimationFrame(draw);
+            },
+
+            _startSakura() {
+                const root = getRoot();
+                if (!root) return;
+
+                const canvas = this._makeCanvas('fq-sakura', 1.0);
+                if (!canvas) return;
+                const c2d = canvas.getContext('2d');
+
+                let W = root.clientWidth, H = root.clientHeight;
+
+                const tree = generateSakuraTree();
+
+                let bgCanvas = null;
+                let bgCtx = null;
+
+                const renderStatic = () => {
+                    if (!bgCanvas) {
+                        bgCanvas = document.createElement('canvas');
+                        bgCtx = bgCanvas.getContext('2d');
+                    }
+                    bgCanvas.width = W;
+                    bgCanvas.height = H;
+                    bgCtx.clearRect(0, 0, W, H);
+                    drawSakuraTreeStatic(bgCtx, W, H, tree);
+                };
+                renderStatic();
+
+                const MAX_PETALS = 35;
+                const petals = [];
+
+                const spawnPetal = () => ({
+                    x: Math.random() * W,
+                    y: -10 - Math.random() * 200,
+                    size: 3 + Math.random() * 3.5,
+                    fallSpeed: 0.35 + Math.random() * 0.55,
+                    wobbleAmp: 1 + Math.random() * 2,
+                    wobbleFreq: 0.0008 + Math.random() * 0.0015,
+                    wobblePhase: Math.random() * Math.PI * 2,
+                    rot: Math.random() * Math.PI * 2,
+                    rotSpeed: (Math.random() - 0.5) * 0.03,
+                    driftX: (Math.random() * 2 - 1) * 0.18,
+                    hue: 335 + Math.random() * 15,
+                    sat: 68 + Math.random() * 18,
+                    lit: 82 + Math.random() * 10,
+                    baseAlpha: 0.55 + Math.random() * 0.4,
+                });
+
+                for (let i = 0; i < MAX_PETALS; i++) {
+                    const p = spawnPetal();
+                    p.y = Math.random() * H;
+                    petals.push(p);
+                }
+
+                const FRAME_MS = 40;
+
+                const draw = (ts) => {
+                    if (_active !== 'sakura') return;
+                    if (ts - _lastFrame < FRAME_MS) { _rafId = requestAnimationFrame(draw); return; }
+                    _lastFrame = ts;
+
+                    c2d.clearRect(0, 0, W, H);
+
+                    const swayX = Math.sin(ts * 0.0006) * 2.5;
+                    const swayY = Math.sin(ts * 0.0008) * 1.2;
+                    c2d.drawImage(bgCanvas, swayX, swayY);
+
+                    for (let i = petals.length - 1; i >= 0; i--) {
+                        const p = petals[i];
+                        p.y += p.fallSpeed;
+                        p.x += Math.sin(ts * p.wobbleFreq + p.wobblePhase) * p.wobbleAmp * 0.25 + p.driftX;
+                        p.rot += p.rotSpeed;
+
+                        let alpha = p.baseAlpha;
+                        if (p.y > H * 0.75) {
+                            alpha *= Math.max(0, 1 - (p.y - H * 0.75) / (H * 0.3));
+                        }
+
+                        if (p.y > H + 20 || alpha <= 0.02) {
+                            petals[i] = spawnPetal();
+                            continue;
+                        }
+
+                        drawPetalShape(c2d, p, alpha);
+                    }
+
+                    _rafId = requestAnimationFrame(draw);
+                };
+                _rafId = requestAnimationFrame(draw);
+
+                this._onResize = (w, h) => {
+                    W = w; H = h;
+                    renderStatic();
+                };
+            },
+
+            _startStarfield() {
+                const root = getRoot();
+                if (!root) return;
+
+                const canvas = this._makeCanvas('fq-starfield', 1.0);
+                if (!canvas) return;
+                const c2d = canvas.getContext('2d');
+
+                let W = root.clientWidth, H = root.clientHeight;
+                this._onResize = (w, h) => { W = w; H = h; };
+
+                const layers = [
+                    { count: 70, depth: 0.4, sizeMin: 0.3, sizeMax: 0.8, alpha: 0.55 },
+                    { count: 40, depth: 0.7, sizeMin: 0.6, sizeMax: 1.3, alpha: 0.8 },
+                    { count: 18, depth: 1.0, sizeMin: 0.9, sizeMax: 2.0, alpha: 1.0 },
+                ];
+                const stars = [];
+                for (const L of layers) {
+                    for (let i = 0; i < L.count; i++) {
+                        stars.push({
+                            x: Math.random() * W,
+                            y: Math.random() * H,
+                            size: L.sizeMin + Math.random() * (L.sizeMax - L.sizeMin),
+                            depth: L.depth,
+                            baseAlpha: L.alpha,
+                            twinkleSpeed: 0.0004 + Math.random() * 0.0012,
+                            twinklePhase: Math.random() * Math.PI * 2,
+                            hue: 200 + Math.random() * 60,
+                            vx: (0.08 + Math.random() * 0.08) * L.depth,
+                            vy: (0.03 + Math.random() * 0.04) * L.depth,
+                            driftPhase: Math.random() * Math.PI * 2,
+                            driftFreq: 0.00015 + Math.random() * 0.00025,
+                        });
+                    }
+                }
+
+                const nebulas = [
+                    { ox: 0.25, oy: 0.35, r: 0.7, hue: 250, alpha: 0.10 },
+                    { ox: 0.75, oy: 0.55, r: 0.6, hue: 210, alpha: 0.08 },
+                    { ox: 0.5,  oy: 0.85, r: 0.65, hue: 300, alpha: 0.07 },
+                ];
+
+                const COMET_INTERVAL_MS = 10000;
+                const COMET_TRAVEL_MS = 2200;
+                let activeComet = null;
+                let nextCometAt = performance.now() + 2000 + Math.random() * 3000;
+
+                const spawnComet = () => {
+                    const fromTop = Math.random() > 0.5;
+                    const hue = 190 + Math.random() * 80;
+                    const speed = 0.8 + Math.random() * 0.4;
+
+                    let x0, y0, x1, y1;
+                    if (fromTop) {
+                        x0 = -100;
+                        y0 = Math.random() * H * 0.4;
+                        x1 = W + 100;
+                        y1 = y0 + H * (0.4 + Math.random() * 0.4);
+                    } else {
+                        x0 = Math.random() * W * 0.3;
+                        y0 = -100;
+                        x1 = x0 + W * (0.5 + Math.random() * 0.4);
+                        y1 = H + 100;
+                    }
+
+                    activeComet = {
+                        x: x0, y: y0, startX: x0, startY: y0, endX: x1, endY: y1,
+                        startTime: performance.now(),
+                        duration: COMET_TRAVEL_MS / speed,
+                        hue,
+                        size: 1.6 + Math.random() * 1.4,
+                        tailLength: 80 + Math.random() * 70,
+                    };
+                };
+
+                let mouseX = 0.5, mouseY = 0.5;
+                const onMove = (e) => {
+                    if (_active !== 'starfield') return;
+                    mouseX = e.clientX / innerWidth;
+                    mouseY = e.clientY / innerHeight;
+                };
+                document.addEventListener('mousemove', onMove);
+                this._starfieldCleanup = () => document.removeEventListener('mousemove', onMove);
+
+                const t0 = performance.now();
+                const draw = (ts) => {
+                    if (_active !== 'starfield') return;
+                    if (ts - _lastFrame < 40) { _rafId = requestAnimationFrame(draw); return; }
+                    _lastFrame = ts;
+                    const elapsed = ts - t0;
+
+                    c2d.clearRect(0, 0, W, H);
+
+                    const px = (mouseX - 0.5) * -25;
+                    const py = (mouseY - 0.5) * -25;
+
+                    c2d.globalCompositeOperation = 'lighter';
+                    for (const n of nebulas) {
+                        const cx = W * n.ox + px * 0.3;
+                        const cy = H * n.oy + py * 0.3;
+                        const r = Math.max(W, H) * n.r;
+                        const grad = c2d.createRadialGradient(cx, cy, 0, cx, cy, r);
+                        grad.addColorStop(0, `hsla(${n.hue}, 70%, 55%, ${n.alpha})`);
+                        grad.addColorStop(0.5, `hsla(${n.hue}, 70%, 45%, ${n.alpha * 0.4})`);
+                        grad.addColorStop(1, `hsla(${n.hue}, 70%, 40%, 0)`);
+                        c2d.fillStyle = grad;
+                        c2d.beginPath();
+                        c2d.arc(cx, cy, r, 0, Math.PI * 2);
+                        c2d.fill();
+                    }
+
+                    for (const s of stars) {
+                        const breath = 0.85 + Math.sin(elapsed * s.driftFreq + s.driftPhase) * 0.15;
+                        s.x += s.vx * breath;
+                        s.y += s.vy * breath;
+
+                        if (s.x > W + 4) { s.x = -4; s.y = Math.random() * H; }
+                        if (s.y > H + 4) { s.y = -4; s.x = Math.random() * W; }
+                        if (s.x < -4) s.x = W + 4;
+                        if (s.y < -4) s.y = H + 4;
+
+                        const twinkle = 0.7 + Math.sin(elapsed * s.twinkleSpeed + s.twinklePhase) * 0.3;
+                        const a = s.baseAlpha * twinkle;
+                        const dx = s.x + px * s.depth;
+                        const dy = s.y + py * s.depth;
+
+                        if (s.size > 1.2) {
+                            c2d.shadowColor = `hsla(${s.hue}, 90%, 80%, ${a * 0.9})`;
+                            c2d.shadowBlur = s.size * 5;
+                        } else {
+                            c2d.shadowBlur = 0;
+                        }
+
+                        c2d.fillStyle = `hsla(${s.hue}, 90%, 95%, ${a})`;
+                        c2d.beginPath();
+                        c2d.arc(dx, dy, s.size, 0, Math.PI * 2);
+                        c2d.fill();
+                    }
+                    c2d.shadowBlur = 0;
+
+                    if (!activeComet && ts >= nextCometAt) {
+                        spawnComet();
+                    }
+
+                    if (activeComet) {
+                        const c = activeComet;
+                        const p = (ts - c.startTime) / c.duration;
+
+                        if (p >= 1) {
+                            activeComet = null;
+                            nextCometAt = ts + COMET_INTERVAL_MS + (Math.random() * 4000 - 2000);
+                        } else {
+                            const ease = p;
+                            c.x = c.startX + (c.endX - c.startX) * ease;
+                            c.y = c.startY + (c.endY - c.startY) * ease;
+
+                            const dx = c.endX - c.startX;
+                            const dy = c.endY - c.startY;
+                            const len = Math.hypot(dx, dy) || 1;
+                            const ux = dx / len;
+                            const uy = dy / len;
+
+                            let fade = 1;
+                            if (p < 0.15) fade = p / 0.15;
+                            else if (p > 0.85) fade = (1 - p) / 0.15;
+
+                            const tailX = c.x - ux * c.tailLength;
+                            const tailY = c.y - uy * c.tailLength;
+
+                            const tailGrad = c2d.createLinearGradient(c.x, c.y, tailX, tailY);
+                            tailGrad.addColorStop(0,    `hsla(${c.hue}, 100%, 85%, ${0.95 * fade})`);
+                            tailGrad.addColorStop(0.15, `hsla(${c.hue}, 100%, 75%, ${0.7 * fade})`);
+                            tailGrad.addColorStop(0.4,  `hsla(${c.hue + 15}, 90%, 65%, ${0.4 * fade})`);
+                            tailGrad.addColorStop(0.7,  `hsla(${c.hue + 25}, 80%, 55%, ${0.15 * fade})`);
+                            tailGrad.addColorStop(1,    `hsla(${c.hue + 40}, 70%, 50%, 0)`);
+
+                            c2d.strokeStyle = tailGrad;
+                            c2d.lineWidth = c.size * 1.2;
+                            c2d.lineCap = 'round';
+                            c2d.shadowColor = `hsla(${c.hue}, 100%, 70%, ${fade})`;
+                            c2d.shadowBlur = 18;
+
+                            c2d.beginPath();
+                            c2d.moveTo(c.x, c.y);
+                            c2d.lineTo(tailX, tailY);
+                            c2d.stroke();
+
+                            c2d.strokeStyle = `hsla(${c.hue}, 100%, 95%, ${0.5 * fade})`;
+                            c2d.lineWidth = c.size * 0.5;
+                            c2d.shadowBlur = 10;
+                            c2d.beginPath();
+                            c2d.moveTo(c.x, c.y);
+                            c2d.lineTo(c.x - ux * c.tailLength * 0.5, c.y - uy * c.tailLength * 0.5);
+                            c2d.stroke();
+
+                            c2d.shadowColor = `hsla(${c.hue}, 100%, 80%, ${fade})`;
+                            c2d.shadowBlur = 25;
+                            c2d.fillStyle = `hsla(0, 0%, 100%, ${fade})`;
+                            c2d.beginPath();
+                            c2d.arc(c.x, c.y, c.size * 0.8, 0, Math.PI * 2);
+                            c2d.fill();
+
+                            const coreGrad = c2d.createRadialGradient(c.x, c.y, 0, c.x, c.y, c.size * 6);
+                            coreGrad.addColorStop(0, `hsla(${c.hue}, 100%, 90%, ${0.6 * fade})`);
+                            coreGrad.addColorStop(0.5, `hsla(${c.hue}, 100%, 70%, ${0.2 * fade})`);
+                            coreGrad.addColorStop(1, `hsla(${c.hue}, 100%, 60%, 0)`);
+                            c2d.fillStyle = coreGrad;
+                            c2d.beginPath();
+                            c2d.arc(c.x, c.y, c.size * 6, 0, Math.PI * 2);
+                            c2d.fill();
+
+                            c2d.shadowBlur = 0;
+                        }
+                    }
+
+                    c2d.globalCompositeOperation = 'source-over';
+                    _rafId = requestAnimationFrame(draw);
+                };
+                _rafId = requestAnimationFrame(draw);
+            },
+
+            _startLofi() {
+                const root = getRoot();
+                if (!root) return;
+
+                const canvas = this._makeCanvas('fq-lofi', 1.0);
+                if (!canvas) return;
+                const c2d = canvas.getContext('2d');
+
+                let W = root.clientWidth, H = root.clientHeight;
+                this._onResize = (w, h) => { W = w; H = h; };
+
+                let bgCanvas = null;
+                let bgCtx = null;
+
+                const renderBg = () => {
+                    if (!bgCanvas) {
+                        bgCanvas = document.createElement('canvas');
+                        bgCtx = bgCanvas.getContext('2d');
+                    }
+                    bgCanvas.width = W;
+                    bgCanvas.height = H;
+                    bgCtx.clearRect(0, 0, W, H);
+
+                    const grad = bgCtx.createLinearGradient(0, 0, W, H);
+                    grad.addColorStop(0, 'hsl(280, 40%, 8%)');
+                    grad.addColorStop(0.35, 'hsl(320, 35%, 12%)');
+                    grad.addColorStop(0.65, 'hsl(260, 40%, 10%)');
+                    grad.addColorStop(1, 'hsl(220, 35%, 7%)');
+                    bgCtx.fillStyle = grad;
+                    bgCtx.fillRect(0, 0, W, H);
+
+                    bgCtx.globalCompositeOperation = 'lighter';
+                    const spots = [
+                        { x: 0.15, y: 0.25, r: 0.55, hue: 330, alpha: 0.10 },
+                        { x: 0.75, y: 0.45, r: 0.60, hue: 280, alpha: 0.08 },
+                        { x: 0.40, y: 0.80, r: 0.50, hue: 200, alpha: 0.06 },
+                        { x: 0.85, y: 0.15, r: 0.45, hue: 320, alpha: 0.07 },
+                    ];
+                    for (const s of spots) {
+                        const cx = W * s.x;
+                        const cy = H * s.y;
+                        const r = Math.max(W, H) * s.r;
+                        const g = bgCtx.createRadialGradient(cx, cy, 0, cx, cy, r);
+                        g.addColorStop(0, `hsla(${s.hue}, 70%, 70%, ${s.alpha})`);
+                        g.addColorStop(0.5, `hsla(${s.hue}, 65%, 55%, ${s.alpha * 0.4})`);
+                        g.addColorStop(1, `hsla(${s.hue}, 60%, 45%, 0)`);
+                        bgCtx.fillStyle = g;
+                        bgCtx.beginPath();
+                        bgCtx.arc(cx, cy, r, 0, Math.PI * 2);
+                        bgCtx.fill();
+                    }
+                    bgCtx.globalCompositeOperation = 'source-over';
+                };
+                renderBg();
+
+                const MAX_PARTICLES = 45;
+                const particles = [];
+
+                const spawnParticle = () => ({
+                    x: Math.random() * W,
+                    y: Math.random() * H,
+                    size: 1 + Math.random() * 3.5,
+                    vx: (Math.random() - 0.5) * 0.4,
+                    vy: -0.1 - Math.random() * 0.35,
+                    wobbleAmp: 0.3 + Math.random() * 0.8,
+                    wobbleFreq: 0.0006 + Math.random() * 0.0012,
+                    wobblePhase: Math.random() * Math.PI * 2,
+                    hue: 300 + Math.random() * 80,
+                    sat: 60 + Math.random() * 25,
+                    lit: 78 + Math.random() * 12,
+                    baseAlpha: 0.35 + Math.random() * 0.45,
+                    pulseSpeed: 0.0005 + Math.random() * 0.001,
+                    pulsePhase: Math.random() * Math.PI * 2,
+                });
+
+                for (let i = 0; i < MAX_PARTICLES; i++) {
+                    particles.push(spawnParticle());
+                }
+
+                const FRAME_MS = 40;
+
+                const draw = (ts) => {
+                    if (_active !== 'lofi') return;
+                    if (ts - _lastFrame < FRAME_MS) { _rafId = requestAnimationFrame(draw); return; }
+                    _lastFrame = ts;
+
+                    c2d.clearRect(0, 0, W, H);
+                    c2d.drawImage(bgCanvas, 0, 0);
+
+                    c2d.globalCompositeOperation = 'lighter';
+
+                    for (let i = particles.length - 1; i >= 0; i--) {
+                        const p = particles[i];
+
+                        p.x += p.vx + Math.sin(ts * p.wobbleFreq + p.wobblePhase) * p.wobbleAmp * 0.05;
+                        p.y += p.vy;
+
+                        if (p.y < -20 || p.x < -20 || p.x > W + 20) {
+                            particles[i] = spawnParticle();
+                            particles[i].y = H + 10;
+                            particles[i].x = Math.random() * W;
+                            continue;
+                        }
+
+                        const pulse = 0.7 + Math.sin(ts * p.pulseSpeed + p.pulsePhase) * 0.3;
+                        const a = p.baseAlpha * pulse;
+                        const r = p.size * pulse;
+
+                        const grad = c2d.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 4);
+                        grad.addColorStop(0, `hsla(${p.hue}, ${p.sat}%, ${p.lit}%, ${a})`);
+                        grad.addColorStop(0.4, `hsla(${p.hue}, ${p.sat}%, ${p.lit}%, ${a * 0.4})`);
+                        grad.addColorStop(1, `hsla(${p.hue}, ${p.sat}%, ${p.lit}%, 0)`);
+                        c2d.fillStyle = grad;
+                        c2d.beginPath();
+                        c2d.arc(p.x, p.y, r * 4, 0, Math.PI * 2);
+                        c2d.fill();
+
+                        c2d.fillStyle = `hsla(${p.hue}, ${p.sat}%, ${p.lit + 10}%, ${a * 0.9})`;
+                        c2d.beginPath();
+                        c2d.arc(p.x, p.y, r * 0.6, 0, Math.PI * 2);
+                        c2d.fill();
+                    }
+
+                    c2d.globalCompositeOperation = 'source-over';
+                    _rafId = requestAnimationFrame(draw);
+                };
+                _rafId = requestAnimationFrame(draw);
+
+                this._onResize = (w, h) => {
+                    W = w; H = h;
+                    renderBg();
+                };
+            },
+        };
+
+        return _themes;
+    },
+};
+
+function generateSakuraTree() {
+    const trunk = {
+        start: { x: 1.05, y: -0.05 },
+        cp1:   { x: 1.00, y: 0.00 },
+        cp2:   { x: 0.96, y: 0.06 },
+        end:   { x: 0.92, y: 0.12 },
+        thickness: 4,
+    };
+
+    const forkPoint = { x: 0.92, y: 0.08 };
+
+    const allBranches = [];
+    const allBlossoms = [];
+
+    const rootDirections = [
+        { angle: Math.PI * 0.65, len: 0.18, thick: 2.0 },
+        { angle: Math.PI * 0.80, len: 0.20, thick: 1.8 },
+        { angle: Math.PI * 0.95, len: 0.20, thick: 1.6 },
+        { angle: Math.PI * 1.10, len: 0.18, thick: 1.5 },
+        { angle: Math.PI * 1.25, len: 0.16, thick: 1.4 },
+        { angle: Math.PI * 1.40, len: 0.14, thick: 1.3 },
+    ];
+
+    const longBranches = [
+        { start: { x: 1.10, y: -0.20 }, cp1: { x: 1.02, y: -0.05 }, cp2: { x: 0.85, y: 0.02 }, end: { x: 0.68, y: 0.06 }, thickness: 1.6 },
+        { start: { x: 1.08, y: -0.10 }, cp1: { x: 0.98, y: 0.05 },  cp2: { x: 0.80, y: 0.10 }, end: { x: 0.60, y: 0.16 }, thickness: 1.5 },
+        { start: { x: 1.05, y: 0.00 },  cp1: { x: 1.00, y: 0.10 },  cp2: { x: 0.92, y: 0.20 }, end: { x: 0.80, y: 0.28 }, thickness: 1.4 },
+        { start: { x: 1.02, y: 0.08 },  cp1: { x: 0.98, y: 0.20 },  cp2: { x: 0.86, y: 0.30 }, end: { x: 0.72, y: 0.38 }, thickness: 1.3 },
+    ];
+
+    for (const lb of longBranches) {
+        allBranches.push({
+            start: lb.start,
+            cp1: lb.cp1,
+            cp2: lb.cp2,
+            end: lb.end,
+            thickness: lb.thickness,
+            level: 1,
+        });
+
+        const numBlossoms = 30 + Math.floor(Math.random() * 12);
+        for (let i = 0; i < numBlossoms; i++) {
+            const tt = 0.15 + Math.random() * 0.85;
+            const mt = 1 - tt;
+            const bx = mt * mt * mt * lb.start.x + 3 * mt * mt * tt * lb.cp1.x + 3 * mt * tt * tt * lb.cp2.x + tt * tt * tt * lb.end.x;
+            const by = mt * mt * mt * lb.start.y + 3 * mt * mt * tt * lb.cp1.y + 3 * mt * tt * tt * lb.cp2.y + tt * tt * tt * lb.end.y;
+
+            const offset = 0.016;
+            allBlossoms.push({
+                x: bx + (Math.random() - 0.5) * offset,
+                y: by + (Math.random() - 0.5) * offset,
+                size: 0.005 + Math.random() * 0.004,
+                rotation: Math.random() * Math.PI * 2,
+                hue: 338 + Math.random() * 12,
+                sat: 55 + Math.random() * 12,
+                lit: 75 + Math.random() * 8,
+                scale: 0.9 + Math.random() * 0.2,
+            });
+        }
+    }
+
+    const growBranch = (startX, startY, angle, length, thickness, level, maxLevel) => {
+        const endX = startX + Math.cos(angle) * length;
+        const endY = startY + Math.sin(angle) * length;
+
+        const midX = (startX + endX) / 2;
+        const midY = (startY + endY) / 2;
+        const curve = (Math.random() - 0.5) * 0.05;
+
+        const cp1 = {
+            x: startX + (midX - startX) * 0.5 + Math.cos(angle + Math.PI / 2) * curve,
+            y: startY + (midY - startY) * 0.5 + Math.sin(angle + Math.PI / 2) * curve,
+        };
+        const cp2 = {
+            x: midX + (endX - midX) * 0.5 + Math.cos(angle + Math.PI / 2) * curve * 0.5,
+            y: midY + (endY - midY) * 0.5 + Math.sin(angle + Math.PI / 2) * curve * 0.5,
+        };
+
+        allBranches.push({
+            start: { x: startX, y: startY },
+            cp1, cp2,
+            end: { x: endX, y: endY },
+            thickness,
+            level,
+        });
+
+        if (level >= maxLevel - 1) {
+            const numBlossoms = 14 + Math.floor(Math.random() * 6);
+            for (let i = 0; i < numBlossoms; i++) {
+                const tt = 0.25 + Math.random() * 0.75;
+                const mt = 1 - tt;
+                const bx = mt * mt * mt * startX + 3 * mt * mt * tt * cp1.x + 3 * mt * tt * tt * cp2.x + tt * tt * tt * endX;
+                const by = mt * mt * mt * startY + 3 * mt * mt * tt * cp1.y + 3 * mt * tt * tt * cp2.y + tt * tt * tt * endY;
+
+                const offset = 0.018;
+                allBlossoms.push({
+                    x: bx + (Math.random() - 0.5) * offset,
+                    y: by + (Math.random() - 0.5) * offset,
+                    size: 0.005 + Math.random() * 0.004,
+                    rotation: Math.random() * Math.PI * 2,
+                    hue: 338 + Math.random() * 12,
+                    sat: 55 + Math.random() * 12,
+                    lit: 75 + Math.random() * 8,
+                    scale: 0.9 + Math.random() * 0.2,
+                });
+            }
+        } else {
+            const childCount = 3 + Math.floor(Math.random() * 2);
+            for (let i = 0; i < childCount; i++) {
+                const tt = 0.35 + Math.random() * 0.55;
+                const mt = 1 - tt;
+                const bx = mt * mt * mt * startX + 3 * mt * mt * tt * cp1.x + 3 * mt * tt * tt * cp2.x + tt * tt * tt * endX;
+                const by = mt * mt * mt * startY + 3 * mt * mt * tt * cp1.y + 3 * mt * tt * tt * cp2.y + tt * tt * tt * endY;
+
+                const spread = (Math.random() - 0.5) * Math.PI * 0.6;
+                const newAngle = angle + spread;
+                const newLen = length * (0.55 + Math.random() * 0.20);
+                const newThick = thickness * 0.6;
+
+                growBranch(bx, by, newAngle, newLen, newThick, level + 1, maxLevel);
+            }
+        }
+    };
+
+    for (const dir of rootDirections) {
+        growBranch(forkPoint.x, forkPoint.y, dir.angle, dir.len, dir.thick, 0, 2);
+    }
+
+    return { trunk, allBranches, allBlossoms };
+}
+
+function drawSakuraTreeStatic(c2d, W, H, tree) {
+    c2d.lineCap = 'round';
+    c2d.lineJoin = 'round';
+
+    // Тёмный ствол
+    c2d.strokeStyle = '#0F080C';
+    c2d.lineWidth = Math.max(2, W * (tree.trunk.thickness / 800));
+    c2d.beginPath();
+    c2d.moveTo(tree.trunk.start.x * W, tree.trunk.start.y * H);
+    c2d.bezierCurveTo(
+        tree.trunk.cp1.x * W, tree.trunk.cp1.y * H,
+        tree.trunk.cp2.x * W, tree.trunk.cp2.y * H,
+        tree.trunk.end.x * W, tree.trunk.end.y * H
+    );
+    c2d.stroke();
+
+    // Тёмные ветки
+    const sortedBranches = [...tree.allBranches].sort((a, b) => b.thickness - a.thickness);
+
+    for (const b of sortedBranches) {
+        c2d.strokeStyle = b.level <= 1 ? '#150A10' : '#1A0E14';
+        c2d.lineWidth = Math.max(0.5, W * (b.thickness / 1000));
+
+        c2d.beginPath();
+        c2d.moveTo(b.start.x * W, b.start.y * H);
+        c2d.bezierCurveTo(
+            b.cp1.x * W, b.cp1.y * H,
+            b.cp2.x * W, b.cp2.y * H,
+            b.end.x * W, b.end.y * H
+        );
+        c2d.stroke();
+    }
+
+    const sortedBlossoms = [...tree.allBlossoms].sort((a, b) => a.y - b.y);
+    for (const blossom of sortedBlossoms) {
+        drawBlossomAt(c2d, blossom.x * W, blossom.y * H, W, blossom);
+    }
+}
+
+function drawBlossomAt(c2d, x, y, W, blossom) {
+    const size = blossom.size * W;
+
+    c2d.save();
+    c2d.translate(x, y);
+    c2d.rotate(blossom.rotation);
+    c2d.scale(blossom.scale, blossom.scale);
+
+    const baseHue = blossom.hue;
+    const baseSat = blossom.sat;
+    const baseLit = blossom.lit;
+
+    c2d.fillStyle = `hsla(${baseHue - 10}, ${baseSat}%, ${baseLit - 30}%, 0.15)`;
+    c2d.beginPath();
+    c2d.arc(0, 0, size * 0.85, 0, Math.PI * 2);
+    c2d.fill();
+
+    for (let i = 0; i < 5; i++) {
+        const angle = (i / 5) * Math.PI * 2 - Math.PI / 2;
+        const px = Math.cos(angle) * size * 0.42;
+        const py = Math.sin(angle) * size * 0.42;
+
+        const grad = c2d.createRadialGradient(
+            px - size * 0.1, py - size * 0.1, 0,
+            px, py, size * 0.42
+        );
+        grad.addColorStop(0, `hsl(${baseHue}, ${baseSat}%, ${baseLit + 6}%)`);
+        grad.addColorStop(0.55, `hsl(${baseHue}, ${baseSat}%, ${baseLit}%)`);
+        grad.addColorStop(1, `hsl(${baseHue - 8}, ${baseSat + 5}%, ${baseLit - 12}%)`);
+
+        c2d.fillStyle = grad;
+        c2d.beginPath();
+        c2d.arc(px, py, size * 0.36, 0, Math.PI * 2);
+        c2d.fill();
+
+        c2d.strokeStyle = `hsla(${baseHue - 15}, ${baseSat}%, ${baseLit - 25}%, 0.4)`;
+        c2d.lineWidth = Math.max(0.3, size * 0.04);
+        c2d.beginPath();
+        c2d.arc(px, py, size * 0.36, 0, Math.PI * 2);
+        c2d.stroke();
+
+        c2d.strokeStyle = `hsla(${baseHue + 5}, ${baseSat - 10}%, ${baseLit - 15}%, 0.5)`;
+        c2d.lineWidth = Math.max(0.2, size * 0.025);
+        c2d.beginPath();
+        c2d.moveTo(px * 0.55, py * 0.55);
+        c2d.lineTo(px * 1.15, py * 1.15);
+        c2d.stroke();
+    }
+
+    const coreGrad = c2d.createRadialGradient(0, 0, 0, 0, 0, size * 0.22);
+    coreGrad.addColorStop(0, 'rgba(255, 240, 248, 0.95)');
+    coreGrad.addColorStop(0.6, 'rgba(255, 220, 235, 0.85)');
+    coreGrad.addColorStop(1, 'rgba(240, 190, 210, 0.7)');
+    c2d.fillStyle = coreGrad;
+    c2d.beginPath();
+    c2d.arc(0, 0, size * 0.18, 0, Math.PI * 2);
+    c2d.fill();
+
+    c2d.fillStyle = `hsla(20, 60%, 45%, 0.85)`;
+    for (let i = 0; i < 5; i++) {
+        const a = (i / 5) * Math.PI * 2;
+        const r = size * 0.10;
+        c2d.beginPath();
+        c2d.arc(Math.cos(a) * r, Math.sin(a) * r, size * 0.03, 0, Math.PI * 2);
+        c2d.fill();
+    }
+
+    c2d.fillStyle = 'rgba(255, 255, 255, 0.35)';
+    c2d.beginPath();
+    c2d.arc(-size * 0.08, -size * 0.08, size * 0.06, 0, Math.PI * 2);
+    c2d.fill();
+
+    c2d.restore();
+}
+
+function drawPetalShape(c2d, p, alpha) {
+    c2d.save();
+    c2d.translate(p.x, p.y);
+    c2d.rotate(p.rot);
+
+    c2d.fillStyle = `hsla(${p.hue}, ${p.sat}%, ${p.lit}%, ${alpha})`;
+
+    c2d.beginPath();
+    c2d.moveTo(-p.size, 0);
+    c2d.quadraticCurveTo(-p.size * 0.3, -p.size * 0.65, p.size * 0.7, -p.size * 0.1);
+    c2d.quadraticCurveTo(p.size, 0, p.size * 0.7, p.size * 0.1);
+    c2d.quadraticCurveTo(-p.size * 0.3, p.size * 0.65, -p.size, 0);
+    c2d.closePath();
+    c2d.fill();
+
+    c2d.restore();
+}

@@ -1,1 +1,306 @@
-module['exports']={'createTab'(_0x5366bd){const {esc:_0x263dc0}=_0x5366bd,_0x1f9b05={'VIDEO':'Видео','GAME':'Игры','STREAM':'Стримы','ACHIEVEMENT':'Достижения','ACTIVITY':'Активность'},_0x50e20b={'ORB':'#8B5CF6','ORBS':'#8B5CF6','ORB_PACK':'#A78BFA','DECORATION':'#EC4899','IN_GAME':'#F59E0B','UNKNOWN':'#6B7A94'};return{'_reactRoot':null,'_fallbackTimer':null,'_vanillaPeriod':'month','render'(_0x272dd2){const _0x22a384=_0x5366bd['React'];if(_0x22a384&&_0x22a384['isAvailable']())try{const {createStatsDashboard:_0x1bb7a9}=_0x5366bd['modules']('ui/components/stats-dashboard.js'),_0x4e0797=_0x1bb7a9(_0x5366bd,_0x22a384);this['_reactRoot']=_0x22a384['render'](_0x272dd2,_0x4e0797,{'onClearHistory':()=>this['_refresh']()},()=>this['_renderVanilla'](_0x272dd2));return;}catch(_0x2b7683){_0x5366bd['platform']?.['Logger']?.['warn']?.('[TabStats]\x20React\x20render\x20failed,\x20fallback:',_0x2b7683),this['_renderVanilla'](_0x272dd2);return;}this['_renderVanilla'](_0x272dd2);},'_refresh'(){if(!this['_reactRoot'])return;},'unmount'(_0x1b4895){try{_0x5366bd['React']?.['isAvailable']()&&_0x5366bd['React']['unmount'](_0x1b4895);}catch(_0x5e7bdb){}this['_fallbackTimer']&&(clearInterval(this['_fallbackTimer']),this['_fallbackTimer']=null),this['_reactRoot']=null;},'_renderVanilla'(_0x7b8183){const _0x49eab5=_0x5366bd['Stats']['snapshot'](),_0x3c3eab=_0x1c50a9=>String(_0x1c50a9??0x0);if(!this['_vanillaPeriod'])this['_vanillaPeriod']='month';const _0x1c8b3b=()=>{const _0x20724a=_0x49eab5['dailyAll']||{},_0x4b476d=_0x20724a[this['_vanillaPeriod']]||_0x49eab5['daily']||[],_0x139687='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-stats-kpi\x20fq-stats-kpi-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-kpi-card\x20fq-kpi-orbs\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-kpi-icon\x22>🟣</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-kpi-value\x22>'+_0x3c3eab(_0x49eab5['totalOrbs'])+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-kpi-label\x22>Всего\x20Orbs</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-kpi-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-kpi-icon\x22>✅</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-kpi-value\x22>'+_0x3c3eab(_0x49eab5['total'])+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-kpi-label\x22>Квестов</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',{line:_0x3e502b,area:_0x4ef6af,max:_0x1257a0,points:_0x2c0f7e}=_0x5366bd['Stats']['buildLinePath'](_0x4b476d,0x280,0x64),_0x4426e6=_0x4b476d['length'],_0x5dc0f6=Math['max'](0x1,Math['ceil'](_0x4426e6/0x8)),_0xeb9960=_0x4b476d['map']((_0x57a554,_0x59889f)=>_0x59889f%_0x5dc0f6===0x0||_0x59889f===_0x4426e6-0x1?'<text\x20x=\x22'+(_0x59889f*(0x280/Math['max'](0x1,_0x4426e6-0x1)))['toFixed'](0x0)+'\x22\x20y=\x22118\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fill=\x22var(--fq-muted)\x22\x20font-size=\x229\x22\x20text-anchor=\x22middle\x22>'+_0x263dc0(_0x57a554['date'])+'</text>':'')['join'](''),_0x2a1797='',_0x103e29=_0x4b476d['reduce']((_0x3c4c2d,_0x33c037)=>_0x3c4c2d+_0x33c037['orbs'],0x0),_0x39bed4=_0x4b476d['reduce']((_0x2656a3,_0x31d168)=>_0x2656a3+_0x31d168['count'],0x0),_0x45cfba='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-chart-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-chart-header\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-chart-title\x22>Динамика\x20Orbs</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-period-switch\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22fq-period-btn\x20'+(this['_vanillaPeriod']==='week'?'active':'')+'\x22\x20data-period=\x22week\x22>Неделя</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22fq-period-btn\x20'+(this['_vanillaPeriod']==='month'?'active':'')+'\x22\x20data-period=\x22month\x22>Месяц</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22fq-period-btn\x20'+(this['_vanillaPeriod']==='all'?'active':'')+'\x22\x20data-period=\x22all\x22>Всё\x20время</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-chart-period-meta\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>Итого:\x20<b>'+_0x103e29+'\x20Orbs</b></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>\x20·\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span><b>'+_0x39bed4+'</b>\x20квестов</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<svg\x20viewBox=\x220\x200\x20640\x20120\x22\x20class=\x22fq-line-chart\x20fq-line-chart-anim\x22\x20preserveAspectRatio=\x22none\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<defs>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<linearGradient\x20id=\x22fq-orbs-grad\x22\x20x1=\x220\x22\x20y1=\x220\x22\x20x2=\x220\x22\x20y2=\x221\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<stop\x20offset=\x220%\x22\x20stop-color=\x22#8B5CF6\x22\x20stop-opacity=\x220.4\x22/>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<stop\x20offset=\x22100%\x22\x20stop-color=\x22#8B5CF6\x22\x20stop-opacity=\x220\x22/>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</linearGradient>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</defs>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x4ef6af?'<path\x20d=\x22'+_0x4ef6af+'\x22\x20fill=\x22url(#fq-orbs-grad)\x22\x20class=\x22fq-chart-area\x22/>':'')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x3e502b?'<path\x20d=\x22'+_0x3e502b+'\x22\x20fill=\x22none\x22\x20stroke=\x22#A78BFA\x22\x20stroke-width=\x222\x22\x20stroke-linejoin=\x22round\x22\x20stroke-linecap=\x22round\x22\x20class=\x22fq-chart-line\x22/>':'')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x2a1797+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0xeb9960+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</svg>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-chart-meta\x22>Максимум\x20за\x20период:\x20<b>'+_0x1257a0+'</b>\x20Orbs</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',_0x2f9622=Object['entries'](_0x49eab5['byType'])['sort']((_0x3bd7dc,_0x341a17)=>_0x341a17[0x1]-_0x3bd7dc[0x1])['map'](([_0x5d204b,_0x123a31])=>{const _0x21d330=_0x123a31/_0x49eab5['total']*0x64;return'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-type-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fq-type-label\x22>'+(_0x1f9b05[_0x5d204b]||_0x5d204b)+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-type-bar\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-type-fill\x22\x20style=\x22width:'+_0x21d330+'%\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fq-type-count\x22>'+_0x123a31+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20';})['join']('')||'<div\x20class=\x22fq-empty\x22\x20style=\x22padding:10px;\x22>Пока\x20пусто</div>',_0xb7949b='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-chart-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-chart-title\x22>Квесты\x20по\x20типам</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-type-list\x22>'+_0x2f9622+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',_0x5d709=_0x49eab5['recent']['map'](_0x162c6f=>{const _0x501bfe=new Date(_0x162c6f['completedAt']),_0x4a4072=String(_0x501bfe['getHours']())['padStart'](0x2,'0')+':'+String(_0x501bfe['getMinutes']())['padStart'](0x2,'0'),_0x5e920f=String(_0x501bfe['getDate']())['padStart'](0x2,'0')+'.'+String(_0x501bfe['getMonth']()+0x1)['padStart'](0x2,'0');return'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-recent-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fq-recent-icon\x22>'+(_0x162c6f['rewardIcon']||'❓')+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fq-recent-name\x22\x20title=\x22'+_0x263dc0(_0x162c6f['name'])+'\x22>'+_0x263dc0(_0x162c6f['name'])+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fq-recent-orbs\x22>'+(_0x162c6f['orbs']>0x0?'+'+_0x162c6f['orbs']+'\x20🟣':'')+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fq-recent-date\x22>'+_0x5e920f+'\x20'+_0x4a4072+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20';})['join']('')||'<div\x20class=\x22fq-empty\x22\x20style=\x22padding:10px;\x22>Пока\x20ничего\x20не\x20выполнено</div>',_0x5eb851='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-chart-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-chart-title\x22>Последние\x20выполненные</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-recent-list\x22>'+_0x5d709+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',_0x16e1ed=_0x49eab5['topDays']['map']((_0x2ceefa,_0x468690)=>'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-topday-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fq-topday-rank\x22>#'+(_0x468690+0x1)+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fq-topday-date\x22>'+_0x263dc0(_0x2ceefa['date'])+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fq-topday-orbs\x22>'+_0x2ceefa['orbs']+'\x20🟣</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22fq-topday-count\x22>'+_0x2ceefa['count']+'\x20кв.</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20')['join']('')||'<div\x20class=\x22fq-empty\x22\x20style=\x22padding:10px;\x22>Нет\x20данных</div>',_0x1b1098='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-chart-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-chart-title\x22>Топ\x20дней\x20по\x20Orbs</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-topday-list\x22>'+_0x16e1ed+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20';return'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-stats-dashboard\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section\x22>'+_0x139687+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section\x22>'+_0x45cfba+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-grid-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0xb7949b+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x1b1098+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x5eb851+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22quest-pick-btn\x20deselect\x22\x20id=\x22fq-stats-clear\x22>Очистить\x20историю</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20';};_0x7b8183['innerHTML']=_0x1c8b3b();const _0x31a1eb=()=>{_0x7b8183['querySelectorAll']('.fq-period-btn')['forEach'](_0x525264=>{_0x525264['onclick']=()=>{const _0x1b7398=_0x525264['getAttribute']('data-period');if(_0x1b7398===this['_vanillaPeriod'])return;this['_vanillaPeriod']=_0x1b7398;const _0x47112f=_0x7b8183['querySelector']('.fq-stats-dashboard');_0x47112f?(_0x47112f['style']['opacity']='0',_0x47112f['style']['transform']='translateY(4px)',_0x47112f['style']['transition']='opacity\x20.18s\x20ease,\x20transform\x20.18s\x20ease',setTimeout(()=>{_0x7b8183['innerHTML']=_0x1c8b3b(),_0x31a1eb();const _0x5e4774=_0x7b8183['querySelector']('.fq-stats-dashboard');_0x5e4774&&(_0x5e4774['style']['opacity']='0',_0x5e4774['style']['transform']='translateY(-4px)',requestAnimationFrame(()=>{_0x5e4774['style']['transition']='opacity\x20.22s\x20ease,\x20transform\x20.22s\x20ease',_0x5e4774['style']['opacity']='1',_0x5e4774['style']['transform']='translateY(0)';}));},0xb4)):(_0x7b8183['innerHTML']=_0x1c8b3b(),_0x31a1eb());};}),_0x7b8183['querySelector']('#fq-stats-clear')?.['addEventListener']('click',async()=>{const _0xcc1d2d=await _0x5366bd['UI']['confirm']('Очистить\x20всю\x20историю\x20квестов?');if(!_0xcc1d2d)return;_0x5366bd['History']['clear'](),_0x7b8183['innerHTML']=_0x1c8b3b(),_0x31a1eb();});};_0x31a1eb();if(this['_fallbackTimer'])clearInterval(this['_fallbackTimer']);this['_fallbackTimer']=setInterval(()=>{if(!document['body']['contains'](_0x7b8183)){clearInterval(this['_fallbackTimer']),this['_fallbackTimer']=null;return;}if(_0x5366bd['RUNTIME']['activeTab']!=='stats')return;if(_0x5366bd['UI']['_authLocked'])return;const _0x42b722=document['activeElement'];if(_0x42b722&&_0x7b8183['contains'](_0x42b722)&&_0x42b722['tagName']==='INPUT')return;try{const _0x377c17=_0x5366bd['Stats']['snapshot']();Object['assign'](_0x49eab5,_0x377c17),_0x7b8183['innerHTML']=_0x1c8b3b(),_0x31a1eb();}catch(_0x5a2f13){}},0x1388);}};}};
+/* FQuest · modules/ui/tab-stats.js
+ * Дашборд статистики: React-версия с fallback на vanilla SVG */
+
+module.exports = {
+    createTab(ctx) {
+        const { esc } = ctx;
+
+        const TYPE_LABELS = {
+            VIDEO: 'Видео', GAME: 'Игры', STREAM: 'Стримы',
+            ACHIEVEMENT: 'Достижения', ACTIVITY: 'Активность',
+        };
+
+        const REWARD_COLORS = {
+            ORB:       '#8B5CF6',
+            ORBS:      '#8B5CF6',
+            ORB_PACK:  '#A78BFA',
+            DECORATION: '#EC4899',
+            IN_GAME:   '#F59E0B',
+            UNKNOWN:   '#6B7A94',
+        };
+
+        return {
+            _reactRoot: null,
+            _fallbackTimer: null,
+            _vanillaPeriod: 'month',
+
+            render(container) {
+                const rt = ctx.React;
+
+                // === React-путь ===
+                if (rt && rt.isAvailable()) {
+                    try {
+                        const { createStatsDashboard } = ctx.modules('ui/components/stats-dashboard.js');
+                        const StatsDashboard = createStatsDashboard(ctx, rt);
+
+                        this._reactRoot = rt.render(
+                            container,
+                            StatsDashboard,
+                            {
+                                onClearHistory: () => this._refresh(),
+                            },
+                            () => this._renderVanilla(container)
+                        );
+                        return;
+                    } catch (e) {
+                        ctx.platform?.Logger?.warn?.('[TabStats] React render failed, fallback:', e);
+                        this._renderVanilla(container);
+                        return;
+                    }
+                }
+
+                // === Vanilla fallback ===
+                this._renderVanilla(container);
+            },
+
+            _refresh() {
+                if (!this._reactRoot) return;
+            },
+
+            unmount(container) {
+                try {
+                    if (ctx.React?.isAvailable()) {
+                        ctx.React.unmount(container);
+                    }
+                } catch (_) {}
+                if (this._fallbackTimer) {
+                    clearInterval(this._fallbackTimer);
+                    this._fallbackTimer = null;
+                }
+                this._reactRoot = null;
+            },
+
+            // ============================================================
+            //  VANILLA FALLBACK
+            // ============================================================
+            _renderVanilla(container) {
+                const snap = ctx.Stats.snapshot();
+                const fmt = (n) => String(n ?? 0);
+
+                if (!this._vanillaPeriod) this._vanillaPeriod = 'month';
+
+                const buildContent = () => {
+                    const dailyAll = snap.dailyAll || {};
+                    const daily = dailyAll[this._vanillaPeriod] || snap.daily || [];
+
+                    // === KPI ===
+                    const kpiCards = `
+                        <div class="fq-stats-kpi fq-stats-kpi-2">
+                            <div class="fq-kpi-card fq-kpi-orbs">
+                                <div class="fq-kpi-icon">🟣</div>
+                                <div class="fq-kpi-value">${fmt(snap.totalOrbs)}</div>
+                                <div class="fq-kpi-label">Всего Orbs</div>
+                            </div>
+                            <div class="fq-kpi-card">
+                                <div class="fq-kpi-icon">✅</div>
+                                <div class="fq-kpi-value">${fmt(snap.total)}</div>
+                                <div class="fq-kpi-label">Квестов</div>
+                            </div>
+                        </div>
+                    `;
+
+                    // === График Orbs ===
+                    const { line, area, max, points } = ctx.Stats.buildLinePath(daily, 640, 100);
+                    const n = daily.length;
+                    const labelStep = Math.max(1, Math.ceil(n / 8));
+
+                    const xLabels = daily
+                        .map((d, i) => (i % labelStep === 0 || i === n - 1)
+                            ? `<text x="${(i * (640 / Math.max(1, n - 1))).toFixed(0)}" y="118" 
+                                    fill="var(--fq-muted)" font-size="9" text-anchor="middle">${esc(d.date)}</text>`
+                            : ''
+                        ).join('');
+
+                    const dots = '';   
+
+                    const totalOrbs = daily.reduce((s, d) => s + d.orbs, 0);
+                    const totalCount = daily.reduce((s, d) => s + d.count, 0);
+
+                    const orbsChart = `
+                        <div class="fq-chart-card">
+                            <div class="fq-chart-header">
+                                <div class="fq-chart-title">Динамика Orbs</div>
+                                <div class="fq-period-switch">
+                                    <button class="fq-period-btn ${this._vanillaPeriod === 'week'  ? 'active' : ''}" data-period="week">Неделя</button>
+                                    <button class="fq-period-btn ${this._vanillaPeriod === 'month' ? 'active' : ''}" data-period="month">Месяц</button>
+                                    <button class="fq-period-btn ${this._vanillaPeriod === 'all'   ? 'active' : ''}" data-period="all">Всё время</button>
+                                </div>
+                            </div>
+                            <div class="fq-chart-period-meta">
+                                <span>Итого: <b>${totalOrbs} Orbs</b></span>
+                                <span> · </span>
+                                <span><b>${totalCount}</b> квестов</span>
+                            </div>
+                            <svg viewBox="0 0 640 120" class="fq-line-chart fq-line-chart-anim" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="fq-orbs-grad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.4"/>
+                                        <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+                                ${area ? `<path d="${area}" fill="url(#fq-orbs-grad)" class="fq-chart-area"/>` : ''}
+                                ${line ? `<path d="${line}" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" class="fq-chart-line"/>` : ''}
+                                ${dots}
+                                ${xLabels}
+                            </svg>
+                            <div class="fq-chart-meta">Максимум за период: <b>${max}</b> Orbs</div>
+                        </div>
+                    `;
+
+                    // === Прогресс-бары по типам ===
+                    const typeBars = Object.entries(snap.byType)
+                        .sort((a, b) => b[1] - a[1])
+                        .map(([type, count]) => {
+                            const pct = (count / snap.total) * 100;
+                            return `
+                                <div class="fq-type-row">
+                                    <span class="fq-type-label">${TYPE_LABELS[type] || type}</span>
+                                    <div class="fq-type-bar">
+                                        <div class="fq-type-fill" style="width:${pct}%"></div>
+                                    </div>
+                                    <span class="fq-type-count">${count}</span>
+                                </div>
+                            `;
+                        }).join('') || '<div class="fq-empty" style="padding:10px;">Пока пусто</div>';
+
+                    const typesCard = `
+                        <div class="fq-chart-card">
+                            <div class="fq-chart-title">Квесты по типам</div>
+                            <div class="fq-type-list">${typeBars}</div>
+                        </div>
+                    `;
+
+                    // === Последние выполненные ===
+                    const recentRows = snap.recent.map(r => {
+                        const dt = new Date(r.completedAt);
+                        const time = `${String(dt.getHours()).padStart(2, '0')}:${String(dt.getMinutes()).padStart(2, '0')}`;
+                        const date = `${String(dt.getDate()).padStart(2, '0')}.${String(dt.getMonth() + 1).padStart(2, '0')}`;
+                        return `
+                            <div class="fq-recent-row">
+                                <span class="fq-recent-icon">${r.rewardIcon || '❓'}</span>
+                                <span class="fq-recent-name" title="${esc(r.name)}">${esc(r.name)}</span>
+                                <span class="fq-recent-orbs">${r.orbs > 0 ? `+${r.orbs} 🟣` : ''}</span>
+                                <span class="fq-recent-date">${date} ${time}</span>
+                            </div>
+                        `;
+                    }).join('') || '<div class="fq-empty" style="padding:10px;">Пока ничего не выполнено</div>';
+
+                    const recentCard = `
+                        <div class="fq-chart-card">
+                            <div class="fq-chart-title">Последние выполненные</div>
+                            <div class="fq-recent-list">${recentRows}</div>
+                        </div>
+                    `;
+
+                    // === Топ-3 дня ===
+                    const topDaysHtml = snap.topDays.map((d, i) => `
+                        <div class="fq-topday-row">
+                            <span class="fq-topday-rank">#${i + 1}</span>
+                            <span class="fq-topday-date">${esc(d.date)}</span>
+                            <span class="fq-topday-orbs">${d.orbs} 🟣</span>
+                            <span class="fq-topday-count">${d.count} кв.</span>
+                        </div>
+                    `).join('') || '<div class="fq-empty" style="padding:10px;">Нет данных</div>';
+
+                    const topDaysCard = `
+                        <div class="fq-chart-card">
+                            <div class="fq-chart-title">Топ дней по Orbs</div>
+                            <div class="fq-topday-list">${topDaysHtml}</div>
+                        </div>
+                    `;
+
+                    // === Итог ===
+                    return `
+                        <div class="fq-stats-dashboard">
+                            <div class="fq-section">${kpiCards}</div>
+                            <div class="fq-section">${orbsChart}</div>
+                            <div class="fq-grid-2">
+                                ${typesCard}
+                                ${topDaysCard}
+                            </div>
+                            <div class="fq-section">
+                                ${recentCard}
+                            </div>
+                            <div class="fq-section">
+                                <button class="quest-pick-btn deselect" id="fq-stats-clear">Очистить историю</button>
+                            </div>
+                        </div>
+                    `;
+                };
+
+                // Первая отрисовка
+                container.innerHTML = buildContent();
+
+                // === Обработчики ===
+                const bindHandlers = () => {
+                    // Переключатель периода
+                    container.querySelectorAll('.fq-period-btn').forEach(btn => {
+                        btn.onclick = () => {
+                            const period = btn.getAttribute('data-period');
+                            if (period === this._vanillaPeriod) return;
+                            this._vanillaPeriod = period;
+
+                            const dash = container.querySelector('.fq-stats-dashboard');
+                            if (dash) {
+                                dash.style.opacity = '0';
+                                dash.style.transform = 'translateY(4px)';
+                                dash.style.transition = 'opacity .18s ease, transform .18s ease';
+                                setTimeout(() => {
+                                    container.innerHTML = buildContent();
+                                    bindHandlers();
+                                    const newDash = container.querySelector('.fq-stats-dashboard');
+                                    if (newDash) {
+                                        newDash.style.opacity = '0';
+                                        newDash.style.transform = 'translateY(-4px)';
+                                        requestAnimationFrame(() => {
+                                            newDash.style.transition = 'opacity .22s ease, transform .22s ease';
+                                            newDash.style.opacity = '1';
+                                            newDash.style.transform = 'translateY(0)';
+                                        });
+                                    }
+                                }, 180);
+                            } else {
+                                container.innerHTML = buildContent();
+                                bindHandlers();
+                            }
+                        };
+                    });
+
+                    // Очистка истории
+                    container.querySelector('#fq-stats-clear')?.addEventListener('click', async () => {
+                        const ok = await ctx.UI.confirm('Очистить всю историю квестов?');
+                        if (!ok) return;
+                        ctx.History.clear();
+                        container.innerHTML = buildContent();
+                        bindHandlers();
+                    });
+                };
+
+                bindHandlers();
+
+                // === Авто-обновление раз в 5 сек ===
+                if (this._fallbackTimer) clearInterval(this._fallbackTimer);
+                this._fallbackTimer = setInterval(() => {
+                    if (!document.body.contains(container)) {
+                        clearInterval(this._fallbackTimer);
+                        this._fallbackTimer = null;
+                        return;
+                    }
+                    if (ctx.RUNTIME.activeTab !== 'stats') return;
+                    if (ctx.UI._authLocked) return;
+
+                    const active = document.activeElement;
+                    if (active && container.contains(active) && active.tagName === 'INPUT') return;
+
+                    try {
+                        const newSnap = ctx.Stats.snapshot();
+                        // Меняем данные в замыкании
+                        Object.assign(snap, newSnap);
+                        container.innerHTML = buildContent();
+                        bindHandlers();
+                    } catch (_) {}
+                }, 5000);
+            },
+        };
+    },
+};

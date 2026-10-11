@@ -1,1 +1,107 @@
-module['exports']={'createTab'(_0x5e4afc){const {RUNTIME:_0x38e65c,Storage:_0x53ab33}=_0x5e4afc,_0x2ae3eb=[['autoClaim','Авто-получение\x20наград'],['playSound','Звук\x20при\x20завершении'],['richPresence','Discord\x20Rich\x20Presence'],['notifyOnFinish','Уведомления\x20о\x20завершении'],['notifyOnlyFinal','Только\x20финальное\x20уведомление'],['notifyInFocus','Уведомлять,\x20даже\x20если\x20Discord\x20в\x20фокусе']],_0x1fef0a=[{'id':'dark','label':'🌑\x20Тёмная'},{'id':'light','label':'☀️\x20Светлая'},{'id':'sakura','label':'🌸\x20Сакура'},{'id':'cyberpunk','label':'💜\x20Cyberpunk'},{'id':'midnight','label':'🌙\x20Midnight\x20Blossom'},{'id':'starfield','label':'✨\x20Starfield'},{'id':'lofi','label':'🎧\x20Lofi'}];return{'render'(_0x16053b){const _0x2e2e22=_0x2ae3eb['map'](([_0x4394c0,_0x2dc029])=>'<div\x20class=\x22fq-option\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>'+_0x2dc029+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22\x20class=\x22native-toggle\x22\x20data-key=\x22'+_0x4394c0+'\x22\x20'+(_0x38e65c[_0x4394c0]?'checked':'')+'>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>')['join'](''),_0x11847f=_0x1fef0a['map'](_0x1c6b81=>'<option\x20value=\x22'+_0x1c6b81['id']+'\x22\x20'+(_0x38e65c['theme']===_0x1c6b81['id']?'selected':'')+'>'+_0x1c6b81['label']+'</option>')['join']('');_0x16053b['innerHTML']='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section-title\x22>Поведение</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x2e2e22+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section-title\x22>Внешний\x20вид</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-option\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>Тема</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20class=\x22fq-select\x22\x20id=\x22fq-theme\x22>'+_0x11847f+'</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-option\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>Акцентный\x20цвет</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22color\x22\x20id=\x22fq-accent\x22\x20value=\x22'+(_0x38e65c['accent']||'#8B5CF6')+'\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section-title\x22>Аккаунт</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22quest-pick-btn\x20deselect\x22\x20id=\x22fq-logout\x22>Выйти\x20из\x20аккаунта</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fq-section-title\x22>Сброс</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22quest-pick-btn\x20deselect\x22\x20id=\x22fq-reset\x22>Сбросить\x20все\x20настройки</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',_0x16053b['querySelectorAll']('.native-toggle')['forEach'](_0xdc51f7=>{_0xdc51f7['addEventListener']('change',()=>{const _0x5afa9e=_0xdc51f7['dataset']['key'];_0x38e65c[_0x5afa9e]=_0xdc51f7['checked'],_0x53ab33['set'](_0x5afa9e,_0xdc51f7['checked']),_0x5afa9e==='richPresence'&&(_0xdc51f7['checked']?_0x5e4afc['RPC']?.['enable']():_0x5e4afc['RPC']?.['disable']());});}),_0x16053b['querySelector']('#fq-theme')?.['addEventListener']('change',_0x24051d=>{_0x38e65c['theme']=_0x24051d['target']['value'],_0x53ab33['set']('theme',_0x38e65c['theme']),_0x5e4afc['UI']['applyTheme'](_0x38e65c['theme'],_0x38e65c['accent']);}),_0x16053b['querySelector']('#fq-accent')?.['addEventListener']('input',_0x53d0dd=>{_0x38e65c['accent']=_0x53d0dd['target']['value'],_0x53ab33['set']('accent',_0x38e65c['accent']),_0x5e4afc['UI']['applyTheme'](_0x38e65c['theme'],_0x38e65c['accent']);}),_0x16053b['querySelector']('#fq-logout')?.['addEventListener']('click',async()=>{const _0x54a98b=await _0x5e4afc['UI']['confirm']('Выйти\x20из\x20аккаунта\x20FQuest?\x20Придётся\x20ввести\x20ключ\x20заново.');if(!_0x54a98b)return;_0x5e4afc['Profile']['clear'](),location['reload']();}),_0x16053b['querySelector']('#fq-reset')?.['addEventListener']('click',async()=>{const _0x304120=await _0x5e4afc['UI']['confirm']('Сбросить\x20все\x20настройки?');if(!_0x304120)return;_0x53ab33['reset'](),_0x5e4afc['UI']['applyTheme'](_0x38e65c['theme'],_0x38e65c['accent']),this['render'](_0x16053b);});}};}};
+module.exports = {
+    createTab(ctx) {
+        const { RUNTIME, Storage } = ctx;
+
+        const toggles = [
+            ['autoClaim', 'Авто-получение наград'],
+            ['playSound', 'Звук при завершении'],
+            ['richPresence', 'Discord Rich Presence'],
+            ['notifyOnFinish', 'Уведомления о завершении'],
+            ['notifyOnlyFinal', 'Только финальное уведомление'],
+            ['notifyInFocus', 'Уведомлять, даже если Discord в фокусе'],
+        ];
+
+        const THEMES = [
+            { id: 'dark',      label: '🌑 Тёмная' },
+            { id: 'light',     label: '☀️ Светлая' },
+            { id: 'sakura',    label: '🌸 Сакура' },
+            { id: 'cyberpunk', label: '💜 Cyberpunk' },
+            { id: 'midnight',  label: '🌙 Midnight Blossom' },
+            { id: 'starfield', label: '✨ Starfield' },
+            { id: 'lofi',      label: '🎧 Lofi' },
+        ];
+
+        return {
+            render(container) {
+                const tglHtml = toggles.map(([key, label]) =>
+                    `<div class="fq-option">
+                        <span>${label}</span>
+                        <input type="checkbox" class="native-toggle" data-key="${key}" ${RUNTIME[key] ? 'checked' : ''}>
+                    </div>`
+                ).join('');
+
+                const themeOptions = THEMES.map(t =>
+                    `<option value="${t.id}" ${RUNTIME.theme === t.id ? 'selected' : ''}>${t.label}</option>`
+                ).join('');
+
+                container.innerHTML = `
+                    <div class="fq-section">
+                        <div class="fq-section-title">Поведение</div>
+                        ${tglHtml}
+                    </div>
+
+                    <div class="fq-section">
+                        <div class="fq-section-title">Внешний вид</div>
+                        <div class="fq-option">
+                            <span>Тема</span>
+                            <select class="fq-select" id="fq-theme">${themeOptions}</select>
+                        </div>
+                        <div class="fq-option">
+                            <span>Акцентный цвет</span>
+                            <input type="color" id="fq-accent" value="${RUNTIME.accent || '#8B5CF6'}">
+                        </div>
+                    </div>
+
+                    <div class="fq-section">
+                        <div class="fq-section-title">Аккаунт</div>
+                        <button class="quest-pick-btn deselect" id="fq-logout">Выйти из аккаунта</button>
+                    </div>
+
+                    <div class="fq-section">
+                        <div class="fq-section-title">Сброс</div>
+                        <button class="quest-pick-btn deselect" id="fq-reset">Сбросить все настройки</button>
+                    </div>
+                `;
+
+                container.querySelectorAll('.native-toggle').forEach(cb => {
+                    cb.addEventListener('change', () => {
+                        const key = cb.dataset.key;
+                        RUNTIME[key] = cb.checked;
+                        Storage.set(key, cb.checked);
+
+                        if (key === 'richPresence') {
+                            cb.checked ? ctx.RPC?.enable() : ctx.RPC?.disable();
+                        }
+                    });
+                });
+
+                container.querySelector('#fq-theme')?.addEventListener('change', (e) => {
+                    RUNTIME.theme = e.target.value;
+                    Storage.set('theme', RUNTIME.theme);
+                    ctx.UI.applyTheme(RUNTIME.theme, RUNTIME.accent);
+                });
+
+                container.querySelector('#fq-accent')?.addEventListener('input', (e) => {
+                    RUNTIME.accent = e.target.value;
+                    Storage.set('accent', RUNTIME.accent);
+                    ctx.UI.applyTheme(RUNTIME.theme, RUNTIME.accent);
+                });
+
+                container.querySelector('#fq-logout')?.addEventListener('click', async () => {
+                    const ok = await ctx.UI.confirm('Выйти из аккаунта FQuest? Придётся ввести ключ заново.');
+                    if (!ok) return;
+                    ctx.Profile.clear();
+                    location.reload();
+                });
+
+                container.querySelector('#fq-reset')?.addEventListener('click', async () => {
+                    const ok = await ctx.UI.confirm('Сбросить все настройки?');
+                    if (!ok) return;
+                    Storage.reset();
+                    ctx.UI.applyTheme(RUNTIME.theme, RUNTIME.accent);
+                    this.render(container);
+                });
+            },
+        };
+    },
+};
