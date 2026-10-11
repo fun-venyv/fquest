@@ -112,14 +112,14 @@ module.exports = {
             openWindow() {
                 if (this.root && this.root.style.display === 'flex' && !ctx._stopped) return;
 
-                const afterShow = () => {
-                    // Перезапускаем JS-анимацию темы
+                setTimeout(() => {
                     try {
-                        if (ctx.Themes) {
-                            setTimeout(() => ctx.Themes.resume(), 100);
-                        }
-                    } catch (_) {}
-                };
+                        // Полностью переприменяем тему — надёжнее resume
+                        ctx.UI.applyTheme(RUNTIME.theme, RUNTIME.accent);
+                    } catch (e) {
+                        platform?.Logger?.warn?.('[UI] applyTheme on open failed:', e);
+                    }
+                }, 100);
 
                 if (ctx._stopped) {
                     ctx._stopped = false;
@@ -529,9 +529,8 @@ module.exports = {
                 this.root.style.display = 'none';
                 this.open = false;
                 this.navBtn?.classList.remove('active');
-
-                // === Ставим JS-анимации на паузу ===
-                try { ctx.Themes?.pause?.(); } catch (_) {}
+                // Полностью сбрасываем тему, чтобы при открытии она применилась заново
+                try { ctx.Themes?.clear?.(); } catch (_) {}
             },
 
             stopScript() {

@@ -202,18 +202,57 @@ module.exports = function FQuestFactory({ meta, api, modules, css, manifest }) {
                         active: active.length,
                     });
                     if (!active.length) {
-                        ctx.Logger.log('[Система] Все выбранные квесты завершены. Открываю список заново...', 'info');
+                        ctx.Logger.log('[Система] Все выбранные квесты завершены.', 'success');
 
                         quests = getQuests().filter(q =>
                             !q.userStatus?.completedAt && notExpired(q) && q.id !== CONST.ID && !ctx.Tasks.skipped.has(q.id)
                         );
 
                         if (!quests.length) {
-                            ctx.Logger.log('[Система] Нет доступных квестов. Ожидание...', 'info');
-                            await sleep(3000);
+                            ctx.Logger.log('[Система] Нет доступных квестов. Ожидание новых...', 'info');
+
+                            // Показываем в UI, что всё завершено
+                            ctx.Logger.tasks.clear();
+                            ctx.Logger.render();
+
+                            // Ждём появления новых квестов (проверка раз в 30 сек)
+                            // НЕ крутим бесконечный цикл — просто ждём с шагом 30 сек
+                            while (RUNTIME.running) {
+                                await sleep(30000);
+                                if (!RUNTIME.running) return;
+
+                                const fresh = getQuests().filter(q =>
+                                    !q.userStatus?.completedAt && notExpired(q) && q.id !== CONST.ID && !ctx.Tasks.skipped.has(q.id)
+                                );
+
+                                if (fresh.length) {
+                                    ctx.Logger.log(`[Система] Появились новые квесты: ${fresh.length}`, 'success');
+                                    quests = fresh;
+                                    break;
+                                }
+                            }
+
+                            // Если вышли из цикла — значит появились новые квесты
+                            // Идём дальше к показу picker
+                            const newPick = await ctx.Logger.showQuestPicker(quests);
+                            if (!RUNTIME.running) return;
+
+                            if (!newPick.selectedQuests.size) {
+                                ctx.Logger.log('[Система] Пользователь ничего не выбрал. Остановка.', 'info');
+                                return;
+                            }
+
+                            pick.selectedQuests = newPick.selectedQuests;
+                            RUNTIME.autoEnroll = newPick.autoEnroll;
+                            RUNTIME.autoClaim = newPick.autoClaim;
+                            RUNTIME.playSound = newPick.playSound;
+                            RUNTIME.randomDelay = newPick.randomDelay;
+
+                            ctx.Logger.log(`[Система] Выбрано ${newPick.selectedQuests.size} квестов. Продолжаю...`, 'success');
                             continue;
                         }
 
+                        // Есть свободные квесты — показываем picker заново
                         const newPick = await ctx.Logger.showQuestPicker(quests);
                         if (!RUNTIME.running) return;
 
@@ -229,7 +268,6 @@ module.exports = function FQuestFactory({ meta, api, modules, css, manifest }) {
                         RUNTIME.randomDelay = newPick.randomDelay;
 
                         ctx.Logger.log(`[Система] Выбрано ${newPick.selectedQuests.size} квестов. Продолжаю...`, 'success');
-
                         continue;
                     }
 

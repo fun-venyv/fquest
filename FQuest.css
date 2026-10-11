@@ -4061,3 +4061,49 @@ body.fq-theme-lofi .goto-btn {
     0%, 60%, 100% { opacity: .35; transform: translateY(0); }
     30%            { opacity: 1;   transform: translateY(-3px); }
 }
+/* ============ CHANGELOG SECTIONS ============ */
+.fq-changelog-subtitle {
+    font-size: 11px;
+    color: var(--fq-muted);
+    margin-left: 4px;
+    font-weight: 500;
+}
+
+.fq-changelog-section {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, .04);
+}
+.fq-changelog-section:first-of-type {
+    margin-top: 6px;
+    padding-top: 0;
+    border-top: none;
+}
+
+.fq-changelog-section-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    color: var(--fq-muted);
+    margin-bottom: 6px;
+}
+
+.fq-changelog-section-icon {
+    font-size: 12px;
+    line-height: 1;
+}
+
+.fq-changelog-section-count {
+    margin-left: auto;
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--fq-dim);
+    background: rgba(255, 255, 255, .05);
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-variant-numeric: tabular-nums;
+}

@@ -9,19 +9,35 @@ module.exports = {
                 const totalSize = files.reduce((s, f) => s + (manifest.files[f].size || 0), 0);
 
                 const changesHtml = CHANGELOG.map((rel, idx) => {
-                    const isLatest = idx === 0;
-                    const items = rel.items.map(item => `<li>${ctx.esc(item)}</li>`).join('');
-                    return `
-                        <div class="fq-changelog-item ${isLatest ? 'latest' : ''}">
-                            <div class="fq-changelog-head">
-                                <span class="fq-changelog-version">${ctx.esc(rel.version)}</span>
-                                <span class="fq-changelog-type ${rel.type}">${getTypeLabel(rel.type)}</span>
-                                <span class="fq-changelog-date">${ctx.esc(rel.date)}</span>
+                const isLatest = idx === 0;
+                const isMajor = rel.type === 'major';
+
+                // Если у релиза есть sections — рендерим по секциям
+                const body = rel.sections
+                    ? rel.sections.map(section => `
+                        <div class="fq-changelog-section">
+                            <div class="fq-changelog-section-title">
+                                <span class="fq-changelog-section-icon">${section.icon}</span>
+                                <span>${ctx.esc(section.label)}</span>
+                                <span class="fq-changelog-section-count">${section.items.length}</span>
                             </div>
-                            <ul class="fq-changelog-list">${items}</ul>
+                            <ul class="fq-changelog-list">${section.items.map(i => `<li>${ctx.esc(i)}</li>`).join('')}</ul>
                         </div>
-                    `;
-                }).join('');
+                    `).join('')
+                    : `<ul class="fq-changelog-list">${(rel.items || []).map(i => `<li>${ctx.esc(i)}</li>`).join('')}</ul>`;
+
+                return `
+                    <div class="fq-changelog-item ${isLatest ? 'latest' : ''} ${isMajor ? 'major' : ''}">
+                        <div class="fq-changelog-head">
+                            <span class="fq-changelog-version">${ctx.esc(rel.version)}</span>
+                            <span class="fq-changelog-type ${rel.type}">${getTypeLabel(rel.type)}</span>
+                            ${rel.title ? `<span class="fq-changelog-subtitle">${ctx.esc(rel.title)}</span>` : ''}
+                            <span class="fq-changelog-date">${ctx.esc(rel.date)}</span>
+                        </div>
+                        ${body}
+                    </div>
+                `;
+            }).join('');
 
                 container.innerHTML = `
                     <div class="fq-section">
