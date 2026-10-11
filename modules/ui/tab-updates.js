@@ -8,34 +8,20 @@ module.exports = {
                 const files = Object.keys(manifest.files || {});
                 const totalSize = files.reduce((s, f) => s + (manifest.files[f].size || 0), 0);
 
-                const changesHtml = CHANGELOG.map((rel, idx) => {
+               const changesHtml = CHANGELOG.map((rel, idx) => {
                 const isLatest = idx === 0;
-                const isMajor = rel.type === 'major';
-
-                // Если есть секции (глобальный релиз) — рендерим вложенные карточки
-                const body = rel.sections
-                    ? `<div class="fq-changelog-sections">` + rel.sections.map(sec => `
-                        <div class="fq-changelog-mini fq-changelog-mini-${sec.kind}">
-                            <div class="fq-changelog-mini-head">
-                                <span class="fq-changelog-mini-label">${ctx.esc(sec.label)}</span>
-                                <span class="fq-changelog-mini-count">${sec.items.length}</span>
-                            </div>
-                            <ul class="fq-changelog-list">${sec.items.map(i => `<li>${ctx.esc(i)}</li>`).join('')}</ul>
-                        </div>
-                    `).join('') + `</div>`
-                    : `<ul class="fq-changelog-list">${(rel.items || []).map(i => `<li>${ctx.esc(i)}</li>`).join('')}</ul>`;
-
+                const items = rel.items.map(item => `<li>${ctx.esc(item)}</li>`).join('');
                 return `
-                    <div class="fq-changelog-item ${isLatest ? 'latest' : ''} ${isMajor ? 'major' : ''}">
+                    <div class="fq-changelog-item ${isLatest ? 'latest' : ''}">
                         <div class="fq-changelog-head">
                             <span class="fq-changelog-version">${ctx.esc(rel.version)}</span>
                             <span class="fq-changelog-type ${rel.type}">${getTypeLabel(rel.type)}</span>
                             <span class="fq-changelog-date">${ctx.esc(rel.date)}</span>
                         </div>
-                        ${body}
+                        <ul class="fq-changelog-list">${items}</ul>
                     </div>
-                `;
-            }).join('');
+            `;
+                }).join('');
 
                 container.innerHTML = `
                     <div class="fq-section">
