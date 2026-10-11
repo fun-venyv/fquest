@@ -4107,3 +4107,87 @@ body.fq-theme-lofi .goto-btn {
     border-radius: 8px;
     font-variant-numeric: tabular-nums;
 }
+/* ============ CHANGELOG SECTIONS (mini cards) ============ */
+.fq-changelog-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.fq-changelog-mini {
+    border-radius: 6px;
+    padding: 8px 10px;
+    border: 1px solid var(--fq-border);
+    background: var(--fq-bg-3);
+    transition: border-color .18s, background .18s;
+}
+.fq-changelog-mini:hover {
+    border-color: var(--fq-border-h);
+}
+
+.fq-changelog-mini-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.fq-changelog-mini-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+}
+
+.fq-changelog-mini-count {
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-variant-numeric: tabular-nums;
+    background: rgba(255, 255, 255, .06);
+    color: var(--fq-muted);
+}
+
+/* Цвета по типу секции */
+.fq-changelog-mini-new {
+    border-color: rgba(139, 92, 246, .35);
+    background: linear-gradient(135deg, rgba(139, 92, 246, .08), rgba(139, 92, 246, .02));
+}
+.fq-changelog-mini-new .fq-changelog-mini-label { color: #A78BFA; }
+
+.fq-changelog-mini-improved {
+    border-color: rgba(52, 211, 153, .35);
+    background: linear-gradient(135deg, rgba(52, 211, 153, .08), rgba(52, 211, 153, .02));
+}
+.fq-changelog-mini-improved .fq-changelog-mini-label { color: #34D399; }
+
+.fq-changelog-mini-fixed {
+    border-color: rgba(96, 165, 250, .35);
+    background: linear-gradient(135deg, rgba(96, 165, 250, .08), rgba(96, 165, 250, .02));
+}
+.fq-changelog-mini-fixed .fq-changelog-mini-label { color: #60A5FA; }
+
+.fq-changelog-mini-security {
+    border-color: rgba(251, 191, 36, .35);
+    background: linear-gradient(135deg, rgba(251, 191, 36, .08), rgba(251, 191, 36, .02));
+}
+.fq-changelog-mini-security .fq-changelog-mini-label { color: #FBBF24; }
+
+.fq-changelog-mini-removed {
+    border-color: rgba(248, 113, 113, .35);
+    background: linear-gradient(135deg, rgba(248, 113, 113, .08), rgba(248, 113, 113, .02));
+}
+.fq-changelog-mini-removed .fq-changelog-mini-label { color: #F87171; }
+
+/* Убираем маркеры у вложенных списков, но оставляем отступ */
+.fq-changelog-mini .fq-changelog-list {
+    padding-left: 16px;
+    font-size: 11px;
+    line-height: 1.5;
+}
+.fq-changelog-mini .fq-changelog-list li {
+    margin-bottom: 2px;
+    color: var(--fq-muted);
+}

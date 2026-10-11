@@ -12,18 +12,17 @@ module.exports = {
                 const isLatest = idx === 0;
                 const isMajor = rel.type === 'major';
 
-                // Если у релиза есть sections — рендерим по секциям
+                // Если есть секции (глобальный релиз) — рендерим вложенные карточки
                 const body = rel.sections
-                    ? rel.sections.map(section => `
-                        <div class="fq-changelog-section">
-                            <div class="fq-changelog-section-title">
-                                <span class="fq-changelog-section-icon">${section.icon}</span>
-                                <span>${ctx.esc(section.label)}</span>
-                                <span class="fq-changelog-section-count">${section.items.length}</span>
+                    ? `<div class="fq-changelog-sections">` + rel.sections.map(sec => `
+                        <div class="fq-changelog-mini fq-changelog-mini-${sec.kind}">
+                            <div class="fq-changelog-mini-head">
+                                <span class="fq-changelog-mini-label">${ctx.esc(sec.label)}</span>
+                                <span class="fq-changelog-mini-count">${sec.items.length}</span>
                             </div>
-                            <ul class="fq-changelog-list">${section.items.map(i => `<li>${ctx.esc(i)}</li>`).join('')}</ul>
+                            <ul class="fq-changelog-list">${sec.items.map(i => `<li>${ctx.esc(i)}</li>`).join('')}</ul>
                         </div>
-                    `).join('')
+                    `).join('') + `</div>`
                     : `<ul class="fq-changelog-list">${(rel.items || []).map(i => `<li>${ctx.esc(i)}</li>`).join('')}</ul>`;
 
                 return `
@@ -31,7 +30,6 @@ module.exports = {
                         <div class="fq-changelog-head">
                             <span class="fq-changelog-version">${ctx.esc(rel.version)}</span>
                             <span class="fq-changelog-type ${rel.type}">${getTypeLabel(rel.type)}</span>
-                            ${rel.title ? `<span class="fq-changelog-subtitle">${ctx.esc(rel.title)}</span>` : ''}
                             <span class="fq-changelog-date">${ctx.esc(rel.date)}</span>
                         </div>
                         ${body}

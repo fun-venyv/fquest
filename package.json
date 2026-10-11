@@ -1,6 +1,6 @@
 {
     "name": "fquest",
-    "version": "6.0.0",
+    "version": "6.0.0-beta",
     "minLoader": "5.2.0",
     "scripts": {
         "build": "node build.js"
