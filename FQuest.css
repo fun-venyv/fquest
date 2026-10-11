@@ -1286,15 +1286,7 @@
     overflow: hidden;
 }
 .fq-changelog-item.major::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(139, 92, 246, .15) 50%,
-        transparent 100%);
-    animation: fq-major-shine 3s ease-in-out infinite;
-    pointer-events: none;
+    content: none;
 }
 @keyframes fq-major-shine {
     0%, 100% { transform: translateX(-100%); }
@@ -4107,87 +4099,93 @@ body.fq-theme-lofi .goto-btn {
     border-radius: 8px;
     font-variant-numeric: tabular-nums;
 }
-/* ============ CHANGELOG SECTIONS (mini cards) ============ */
+/* ============ CHANGELOG SECTIONS (compact) ============ */
 .fq-changelog-sections {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-top: 10px;
+    gap: 6px;
+    margin-top: 8px;
 }
 
+/* Мини-карточка — как обычный .fq-changelog-item, но компактнее */
 .fq-changelog-mini {
     border-radius: 6px;
-    padding: 8px 10px;
+    padding: 8px 12px;
     border: 1px solid var(--fq-border);
     background: var(--fq-bg-3);
     transition: border-color .18s, background .18s;
+    position: relative;
+    padding-left: 14px;
 }
 .fq-changelog-mini:hover {
     border-color: var(--fq-border-h);
+    background: var(--fq-bg-hover);
 }
 
+/* Левый цветной акцент — единственное отличие от обычных карточек */
+.fq-changelog-mini::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    border-radius: 0 2px 2px 0;
+}
+
+/* Заголовок секции — как .fq-changelog-version в обычных, чуть меньше */
 .fq-changelog-mini-head {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 6px;
+    gap: 6px;
+    margin-bottom: 4px;
 }
 
 .fq-changelog-mini-label {
-    font-size: 10px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: .6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    color: #fff;
 }
 
 .fq-changelog-mini-count {
-    font-size: 9.5px;
+    margin-left: auto;
+    font-size: 9px;
     font-weight: 700;
-    padding: 1px 6px;
+    padding: 1px 5px;
     border-radius: 8px;
     font-variant-numeric: tabular-nums;
-    background: rgba(255, 255, 255, .06);
+    background: rgba(255, 255, 255, .05);
     color: var(--fq-muted);
 }
 
-/* Цвета по типу секции */
-.fq-changelog-mini-new {
-    border-color: rgba(139, 92, 246, .35);
-    background: linear-gradient(135deg, rgba(139, 92, 246, .08), rgba(139, 92, 246, .02));
-}
-.fq-changelog-mini-new .fq-changelog-mini-label { color: #A78BFA; }
-
-.fq-changelog-mini-improved {
-    border-color: rgba(52, 211, 153, .35);
-    background: linear-gradient(135deg, rgba(52, 211, 153, .08), rgba(52, 211, 153, .02));
-}
-.fq-changelog-mini-improved .fq-changelog-mini-label { color: #34D399; }
-
-.fq-changelog-mini-fixed {
-    border-color: rgba(96, 165, 250, .35);
-    background: linear-gradient(135deg, rgba(96, 165, 250, .08), rgba(96, 165, 250, .02));
-}
-.fq-changelog-mini-fixed .fq-changelog-mini-label { color: #60A5FA; }
-
-.fq-changelog-mini-security {
-    border-color: rgba(251, 191, 36, .35);
-    background: linear-gradient(135deg, rgba(251, 191, 36, .08), rgba(251, 191, 36, .02));
-}
-.fq-changelog-mini-security .fq-changelog-mini-label { color: #FBBF24; }
-
-.fq-changelog-mini-removed {
-    border-color: rgba(248, 113, 113, .35);
-    background: linear-gradient(135deg, rgba(248, 113, 113, .08), rgba(248, 113, 113, .02));
-}
-.fq-changelog-mini-removed .fq-changelog-mini-label { color: #F87171; }
-
-/* Убираем маркеры у вложенных списков, но оставляем отступ */
+/* Список — как у обычных, тот же размер шрифта */
 .fq-changelog-mini .fq-changelog-list {
     padding-left: 16px;
-    font-size: 11px;
-    line-height: 1.5;
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: var(--fq-muted);
+    margin: 0;
 }
 .fq-changelog-mini .fq-changelog-list li {
-    margin-bottom: 2px;
-    color: var(--fq-muted);
+    margin-bottom: 1px;
 }
+.fq-changelog-mini .fq-changelog-list li::marker {
+    color: var(--fq-accent);
+}
+
+/* ===== Цвета: только акцент и заголовок ===== */
+.fq-changelog-mini-new::before          { background: #A78BFA; }
+.fq-changelog-mini-new .fq-changelog-mini-label    { color: #A78BFA; }
+
+.fq-changelog-mini-improved::before     { background: #34D399; }
+.fq-changelog-mini-improved .fq-changelog-mini-label { color: #34D399; }
+
+.fq-changelog-mini-fixed::before        { background: #60A5FA; }
+.fq-changelog-mini-fixed .fq-changelog-mini-label  { color: #60A5FA; }
+
+.fq-changelog-mini-security::before     { background: #FBBF24; }
+.fq-changelog-mini-security .fq-changelog-mini-label { color: #FBBF24; }
+
+.fq-changelog-mini-removed::before      { background: #F87171; }
+.fq-changelog-mini-removed .fq-changelog-mini-label { color: #F87171; }
