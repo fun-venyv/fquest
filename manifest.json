@@ -1,12 +1,12 @@
 {
   "version": "6.0.0-beta",
   "minLoader": "5.2.0",
-  "updatedAt": "2026-10-11T04:08:36.858Z",
+  "updatedAt": "2026-10-12T15:47:57.901Z",
   "baseUrl": "https://raw.githubusercontent.com/fun-venyv/test-repo/main/",
   "files": {
     "FQuest.css": {
-      "hash": "sha256-q3VN06gmTP75pT/40+Meu/vVQXAyKHKlJOvBiQhtKXM=",
-      "size": 112599
+      "hash": "sha256-6/u/g6qAFS0TH2bzAIIbjbpJpdnEbyCQbci9W6+A2TE=",
+      "size": 112559
     },
     "modules/auth.js": {
       "hash": "sha256-QOhvIpSUO6+oA50cExhBGBz99WVXYVTZbIH2FhUVc0o=",
@@ -73,8 +73,8 @@
       "size": 2093
     },
     "modules/ui/changelog.js": {
-      "hash": "sha256-6EmzEx1uXpjmlYi410TYOTvsrj+4/mt8+nNiWD0AEKs=",
-      "size": 3314
+      "hash": "sha256-wTFse1efwCFt4/xP6sXXktT8p4EBM0tgU2fdc9BdiFU=",
+      "size": 3568
     },
     "modules/ui/changelogs.txt": {
       "hash": "sha256-FyVwIwUcf19fkskMk6ZNDDnY7Ms7C5KX0II8TMeVZLI=",
