@@ -13,8 +13,8 @@ module.exports = {
                     <div class="fq-section">
                         <div class="fq-section-title">Что это такое</div>
                         <div class="fq-about-text">
-                            FQuest — плагин для BetterDiscord и Vencord, который автоматически выполняет квесты Discord.
-                            Он берёт на себя рутину: смотрит видео, запускает игры, стримы, активности и достижения.
+                            FQuest — плагин для BetterDiscord и Vencord(скоро), который автоматически выполняет квесты Discord через офицальное Discord API.
+                            Он берёт на себя всю работу: смотрит видео, запускает игры, стримы, активности и достижения.
                             Тебе остаётся только выбрать нужные квесты и забрать награды.
                         </div>
                     </div>
@@ -25,8 +25,8 @@ module.exports = {
                             <div class="fq-about-feature">
                                 <span class="fq-about-feature-icon">🎬</span>
                                 <div class="fq-about-feature-body">
-                                    <div class="fq-about-feature-title">Видео и стримы</div>
-                                    <div class="fq-about-feature-text">Автоматически просматривает видео и подделывает стрим</div>
+                                    <div class="fq-about-feature-title">Видео</div>
+                                    <div class="fq-about-feature-text">Автоматически просматривает видео</div>
                                 </div>
                             </div>
                             <div class="fq-about-feature">
@@ -44,24 +44,10 @@ module.exports = {
                                 </div>
                             </div>
                             <div class="fq-about-feature">
-                                <span class="fq-about-feature-icon">🎨</span>
-                                <div class="fq-about-feature-body">
-                                    <div class="fq-about-feature-title">Живые темы</div>
-                                    <div class="fq-about-feature-text">7 тем с настоящими JS-анимациями: Сакура, Starfield, Lofi и другие</div>
-                                </div>
-                            </div>
-                            <div class="fq-about-feature">
                                 <span class="fq-about-feature-icon">🔔</span>
                                 <div class="fq-about-feature-body">
                                     <div class="fq-about-feature-title">Уведомления</div>
                                     <div class="fq-about-feature-text">Оповещения о завершении квестов и появлении новых</div>
-                                </div>
-                            </div>
-                            <div class="fq-about-feature">
-                                <span class="fq-about-feature-icon">⚡</span>
-                                <div class="fq-about-feature-body">
-                                    <div class="fq-about-feature-title">Горячие клавиши</div>
-                                    <div class="fq-about-feature-text">Быстрый доступ ко всем вкладкам через Ctrl+1..6</div>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +80,7 @@ module.exports = {
 
                     <div class="fq-section fq-about-footer">
                         <div class="fq-about-text" style="text-align:center; opacity:.7; font-size:11px;">
-                            FQuest v${CONFIG.VERSION} · сделано с душой by venyv
+                            FQuest v${CONFIG.VERSION} · by venyv
                         </div>
                     </div>
                 `;

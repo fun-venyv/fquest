@@ -311,7 +311,6 @@ module.exports = {
                     <div class="fq-loading-box">
                         <div class="fq-loading-spinner">
                             <svg viewBox="0 0 50 50" class="fq-loading-svg">
-                                <circle class="fq-loading-track" cx="25" cy="25" r="20" />
                                 <circle class="fq-loading-arc" cx="25" cy="25" r="20" />
                             </svg>
                         </div>
@@ -554,29 +553,39 @@ module.exports = {
             },
 
             _bindDrag(head) {
-                head.addEventListener('mousedown', (e) => {
-                    if (e.target.closest('.ctrl-btn') || e.target.closest('.dev-credit')) return;
-                    head.classList.add('dragging');
-                    const startX = e.clientX, startY = e.clientY;
-                    const rect = this.root.getBoundingClientRect();
-                    const initL = rect.left, initT = rect.top;
-                    this.root.style.left = initL + 'px';
-                    this.root.style.top = initT + 'px';
-                    this.root.style.right = 'auto';
-                    e.preventDefault();
-                    const mm = (ev) => {
-                        this.root.style.left = Math.max(0, Math.min(initL + ev.clientX - startX, innerWidth - this.root.offsetWidth)) + 'px';
-                        this.root.style.top  = Math.max(0, Math.min(initT + ev.clientY - startY, innerHeight - 50)) + 'px';
-                    };
-                    const mu = () => {
-                        head.classList.remove('dragging');
-                        document.removeEventListener('mousemove', mm);
-                        document.removeEventListener('mouseup', mu);
-                    };
-                    document.addEventListener('mousemove', mm);
-                    document.addEventListener('mouseup', mu);
-                });
-            },
+    if (!head) return;
+    
+    head.addEventListener('mousedown', (e) => {
+        // Игнорируем клики по кнопкам
+        if (e.target.closest('.ctrl-btn')) return;
+        if (e.target.closest('.dev-credit')) return;
+        if (e.target.closest('button, a, input, select, textarea')) return;
+        
+        // Разрешаем drag даже когда _authLocked
+        e.preventDefault();
+        e.stopPropagation();
+        
+        head.classList.add('dragging');
+        const startX = e.clientX, startY = e.clientY;
+        const rect = this.root.getBoundingClientRect();
+        const initL = rect.left, initT = rect.top;
+        this.root.style.left = initL + 'px';
+        this.root.style.top = initT + 'px';
+        this.root.style.right = 'auto';
+        
+        const mm = (ev) => {
+            this.root.style.left = Math.max(0, Math.min(initL + ev.clientX - startX, innerWidth - this.root.offsetWidth)) + 'px';
+            this.root.style.top  = Math.max(0, Math.min(initT + ev.clientY - startY, innerHeight - 50)) + 'px';
+        };
+        const mu = () => {
+            head.classList.remove('dragging');
+            document.removeEventListener('mousemove', mm);
+            document.removeEventListener('mouseup', mu);
+        };
+        document.addEventListener('mousemove', mm);
+        document.addEventListener('mouseup', mu);
+    });
+},
 
             // ============================================================
             //  MODALS (внутри окна, без закрытия по клику на фон)
