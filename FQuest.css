@@ -4099,3 +4099,64 @@ body.fq-theme-lofi .goto-btn {
     border-radius: 8px;
     font-variant-numeric: tabular-nums;
 }
+/* ============ ABOUT FEATURES ============ */
+.fq-about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+@media (max-width: 700px) {
+    .fq-about-features { grid-template-columns: 1fr; }
+}
+
+.fq-about-feature {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 10px 12px;
+    background: var(--fq-bg-3);
+    border: 1px solid var(--fq-border);
+    border-radius: 8px;
+    transition: border-color .18s, background .18s, transform .18s;
+}
+.fq-about-feature:hover {
+    border-color: var(--fq-border-h);
+    background: var(--fq-bg-hover);
+    transform: translateY(-1px);
+}
+
+.fq-about-feature-icon {
+    font-size: 18px;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+    margin-top: 1px;
+}
+
+.fq-about-feature-body {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.fq-about-feature-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--fq-text);
+    line-height: 1.2;
+}
+
+.fq-about-feature-text {
+    font-size: 11px;
+    color: var(--fq-muted);
+    line-height: 1.45;
+}
+
+/* Футер */
+.fq-about-footer {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--fq-border);
+}
