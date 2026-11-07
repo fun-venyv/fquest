@@ -435,7 +435,7 @@ module.exports = function FQuestFactory({ meta, api, modules, css, manifest }) {
 
             // === 4. Хоткей ===
             ctx._hotkeyHandler = (e) => {
-                if (e.key === '>' || (e.shiftKey && e.key === '.')) {
+                if (e.code === 'ShiftRight' && !e.repeat) {
                     if (ctx._stopped) return;
                     e.preventDefault();
                     ctx.UI.toggleWindow();

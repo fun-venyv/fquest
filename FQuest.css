@@ -3959,8 +3959,11 @@ body.fq-theme-lofi .goto-btn {
 /* ============ LOADING OVERLAY ============ */
 #fq-loading {
     position: absolute;
-    inset: 0;
-    z-index: 500;
+    top: 56px !important;         /* ← под шапкой, как modal-host */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 150 !important;      /* ниже шапки (300), выше контента */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3973,7 +3976,7 @@ body.fq-theme-lofi .goto-btn {
     opacity: 0;
     transition: opacity .25s ease;
     pointer-events: none;
-    border-radius: 12px;
+    border-radius: 0 0 12px 12px;
     overflow: hidden;
 }
 #fq-loading.visible {

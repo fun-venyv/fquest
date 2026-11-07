@@ -56,9 +56,35 @@ module.exports = {
 
             getDiscordUser() {
                 try {
+                    // 1. Основной путь — через UserStore
                     const userStore = platform.Webpack.getStore('UserStore');
-                    const u = userStore?.getCurrentUser?.();
-                    if (!u) return null;
+                    let u = userStore?.getCurrentUser?.();
+
+                    // 2. Fallback — через findByProps
+                    if (!u) {
+                        const store = platform.Webpack.getByKeys('getCurrentUser');
+                        u = store?.getCurrentUser?.();
+                    }
+
+                    // 3. Fallback — через webpackChunkdiscord_app напрямую
+                    if (!u) {
+                        try {
+                            let wpRequire;
+                            webpackChunkdiscord_app.push([[Symbol()], {}, r => { wpRequire = r; }]);
+                            webpackChunkdiscord_app.pop();
+                            const modules = Object.values(wpRequire.c);
+                            for (const m of modules) {
+                                const store = m?.exports;
+                                if (store?.getCurrentUser) {
+                                    u = store.getCurrentUser();
+                                    if (u?.id) break;
+                                }
+                            }
+                        } catch (_) {}
+                    }
+
+                    if (!u || !u.id) return null;
+
                     return {
                         id: u.id,
                         username: u.username,
