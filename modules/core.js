@@ -104,44 +104,56 @@ module.exports = function FQuestFactory({ meta, api, modules, css, manifest }) {
     ctx.Logger      = modules('logger.js').createLogger(ctx);
     ctx.UI          = modules('ui/index.js').createUI(ctx);
 
-               ctx.loadModules = function () {
+                ctx.loadModules = function () {
         try {
+            // Универсальная функция поиска модуля
             const findMod = (predicate) => {
-                // В BetterDiscord используем мощный рекурсивный поиск
+                // 1. Пробуем через BetterDiscord (самый надёжный способ)
                 if (typeof BdApi !== 'undefined' && BdApi.Webpack) {
-                    const mod = BdApi.Webpack.getModule(predicate, { searchExports: true });
+                    // Ищем по ключам (например, getQuest)
+                    let mod = BdApi.Webpack.getModule(predicate, { searchExports: true });
+                    if (mod) return mod;
+
+                    // Если не нашли, пробуем поискать по прототипу
+                    // (иногда методы лежат в prototype)
+                    mod = BdApi.Webpack.getModule(m => m?.prototype && predicate(m.prototype));
                     if (mod) return mod;
                 }
-                
-                // Fallback для Vencord или если BdApi не сработал
+
+                // 2. Fallback для Vencord или если BdApi не сработал
                 let wpRequire;
                 webpackChunkdiscord_app.push([[Symbol()], {}, r => { wpRequire = r; }]);
                 webpackChunkdiscord_app.pop();
                 const all = Object.values(wpRequire.c);
+
                 for (const m of all) {
                     const ex = m?.exports;
                     if (!ex) continue;
+
+                    // Проверяем сам объект
                     if (predicate(ex)) return ex;
-                    // Ищем в стандартных обертках (A, Z, default)
+
+                    // Проверяем возможные обёртки
                     if (ex.A && predicate(ex.A)) return ex.A;
                     if (ex.Z && predicate(ex.Z)) return ex.Z;
                     if (ex.default && predicate(ex.default)) return ex.default;
-                    // Ищем по прототипу (если это класс)
+
+                    // Проверяем прототип
                     if (ex.prototype && predicate(ex.prototype)) return ex;
                 }
                 return null;
             };
 
-            // Ищем модули по их уникальным методам
-            const QuestsStore = findMod(m => m?.getQuest && m?.getQuests) || findMod(m => m?.prototype?.getQuest);
-            const RunningGameStore = findMod(m => m?.getRunningGames) || findMod(m => m?.prototype?.getRunningGames);
-            const ApplicationStreamingStore = findMod(m => m?.getStreamerActiveStreamMetadata) || findMod(m => m?.prototype?.getStreamerActiveStreamMetadata);
-            const ChannelStore = findMod(m => m?.getChannel && m?.getDMFromUserId) || findMod(m => m?.prototype?.getChannel);
-            const GuildChannelStore = findMod(m => m?.getSFWDefaultChannel) || findMod(m => m?.prototype?.getSFWDefaultChannel);
-            
-            // FluxDispatcher и API
-            const FluxDispatcher = findMod(m => m?.flushWaitQueue && m?.dispatch) || findMod(m => m?.prototype?.flushWaitQueue) || findMod(m => m?.dispatch && m?.subscribe);
-            const api = findMod(m => m?.get && m?.post && m?.put && m?.patch) || findMod(m => m?.prototype?.get && m?.prototype?.post);
+            // Ищем QuestsStore по наличию метода getQuest
+            const QuestsStore = findMod(m => m?.getQuest && typeof m.getQuest === 'function');
+
+            // Остальные модули ищем по их уникальным методам
+            const RunningGameStore = findMod(m => m?.getRunningGames);
+            const ApplicationStreamingStore = findMod(m => m?.getStreamerActiveStreamMetadata);
+            const ChannelStore = findMod(m => m?.getChannel && m?.getDMFromUserId);
+            const GuildChannelStore = findMod(m => m?.getSFWDefaultChannel);
+            const FluxDispatcher = findMod(m => m?.flushWaitQueue && m?.dispatch);
+            const api = findMod(m => m?.get && m?.post && m?.put);
 
             ctx.Mods = { 
                 ApplicationStreamingStore, 
