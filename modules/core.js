@@ -106,34 +106,39 @@ module.exports = function FQuestFactory({ meta, api, modules, css, manifest }) {
 
     ctx.loadModules = function () {
         try {
-            const wpRequire = webpackChunkdiscord_app.push([[Symbol()], {}, r => r]);
-            webpackChunkdiscord_app.pop();
+            // Используем нативный API BetterDiscord для поиска по именам store'ов
+            const QuestsStore = BdApi.Webpack.getStore('QuestsStore');
+            const RunningGameStore = BdApi.Webpack.getStore('RunningGameStore');
+            const ApplicationStreamingStore = BdApi.Webpack.getStore('ApplicationStreamingStore');
+            const ChannelStore = BdApi.Webpack.getStore('ChannelStore');
+            const GuildChannelStore = BdApi.Webpack.getStore('GuildChannelStore');
 
-            const all = Object.values(wpRequire.c);
+            // FluxDispatcher и API ищем по ключевым методам
+            const FluxDispatcher = BdApi.Webpack.getByKeys('dispatch', 'subscribe');
+            const api = BdApi.Webpack.getByKeys('get', 'post');
 
-            const ApplicationStreamingStore = all.find(x => x?.exports?.A?.__proto__?.getStreamerActiveStreamMetadata)?.exports?.A;
-            const RunningGameStore = all.find(x => x?.exports?.Ay?.getRunningGames)?.exports?.Ay;
-            const QuestsStore = all.find(x => x?.exports?.A?.__proto__?.getQuest)?.exports?.A;
-            const ChannelStore = all.find(x => x?.exports?.A?.__proto__?.getAllThreadsForParent)?.exports?.A;
-            const GuildChannelStore = all.find(x => x?.exports?.Ay?.getSFWDefaultChannel)?.exports?.Ay;
-            const FluxDispatcher = all.find(x => x?.exports?.h?.__proto__?.flushWaitQueue)?.exports?.h;
-            const discordApi = all.find(x => x?.exports?.Bo?.get)?.exports?.Bo;
+            this.mods = { 
+                ApplicationStreamingStore, 
+                RunningGameStore, 
+                QuestsStore, 
+                ChannelStore, 
+                GuildChannelStore, 
+                FluxDispatcher, 
+                api 
+            };
 
-            ctx.Mods = { ApplicationStreamingStore, RunningGameStore, QuestsStore, ChannelStore, GuildChannelStore, FluxDispatcher, api: discordApi };
+            // Проверяем, что всё нашлось
+            const required = ['QuestsStore', 'RunningGameStore', 'ApplicationStreamingStore', 'FluxDispatcher', 'api'];
+            const missing = required.filter(k => !this.mods[k]);
 
-            ctx.Logger.log('[Mods] Найдено:', 'debug');
-            for (const [k, v] of Object.entries(ctx.Mods)) {
-                ctx.Logger.log(`  ${k}: ${v ? '✓' : '✗ null'}`, 'debug');
+            if (missing.length > 0) {
+                throw new Error('Не найдены: ' + missing.join(', '));
             }
 
-            const required = ['ApplicationStreamingStore', 'RunningGameStore', 'QuestsStore', 'ChannelStore', 'GuildChannelStore', 'FluxDispatcher', 'api'];
-            const missing = required.filter(k => !ctx.Mods[k]);
-            if (missing.length > 0) throw new Error('Не найдены: ' + missing.join(', '));
-
+            this.log('[Mods] Все модули Discord успешно загружены', 'success');
             return true;
         } catch (e) {
-            console.error('[FQuest] loadModules error:', e);
-            try { ctx.Logger.log(`[Система] Ошибка загрузки: ${e.message}`, 'err'); } catch (_) {}
+            this.log(`[Система] Ошибка загрузки модулей: ${e.message}`, 'err');
             return false;
         }
     };
