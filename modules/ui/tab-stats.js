@@ -25,31 +25,7 @@ module.exports = {
             _vanillaPeriod: 'month',
 
             render(container) {
-                const rt = ctx.React;
-
-                // === React-путь ===
-                if (rt && rt.isAvailable()) {
-                    try {
-                        const { createStatsDashboard } = ctx.modules('ui/components/stats-dashboard.js');
-                        const StatsDashboard = createStatsDashboard(ctx, rt);
-
-                        this._reactRoot = rt.render(
-                            container,
-                            StatsDashboard,
-                            {
-                                onClearHistory: () => this._refresh(),
-                            },
-                            () => this._renderVanilla(container)
-                        );
-                        return;
-                    } catch (e) {
-                        ctx.platform?.Logger?.warn?.('[TabStats] React render failed, fallback:', e);
-                        this._renderVanilla(container);
-                        return;
-                    }
-                }
-
-                // === Vanilla fallback ===
+                // Принудительно используем Vanilla JS, так как кастомный React-рендерер не поддерживает хуки
                 this._renderVanilla(container);
             },
 

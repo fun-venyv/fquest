@@ -104,7 +104,7 @@ module.exports = function FQuestFactory({ meta, api, modules, css, manifest }) {
     ctx.Logger      = modules('logger.js').createLogger(ctx);
     ctx.UI          = modules('ui/index.js').createUI(ctx);
 
-    ctx.loadModules = function () {
+     ctx.loadModules = function () {
         try {
             // Используем нативный API BetterDiscord для поиска по именам store'ов
             const QuestsStore = BdApi.Webpack.getStore('QuestsStore');
@@ -117,7 +117,7 @@ module.exports = function FQuestFactory({ meta, api, modules, css, manifest }) {
             const FluxDispatcher = BdApi.Webpack.getByKeys('dispatch', 'subscribe');
             const api = BdApi.Webpack.getByKeys('get', 'post');
 
-            this.mods = { 
+            ctx.Mods = { 
                 ApplicationStreamingStore, 
                 RunningGameStore, 
                 QuestsStore, 
@@ -127,18 +127,19 @@ module.exports = function FQuestFactory({ meta, api, modules, css, manifest }) {
                 api 
             };
 
-            // Проверяем, что всё нашлось
+            // Проверяем только критически важные модули (без GuildChannelStore)
             const required = ['QuestsStore', 'RunningGameStore', 'ApplicationStreamingStore', 'FluxDispatcher', 'api'];
-            const missing = required.filter(k => !this.mods[k]);
+            const missing = required.filter(k => !ctx.Mods[k]);
 
             if (missing.length > 0) {
                 throw new Error('Не найдены: ' + missing.join(', '));
             }
 
-            this.log('[Mods] Все модули Discord успешно загружены', 'success');
+            ctx.Logger.log('[Mods] Все модули Discord успешно загружены', 'success');
             return true;
         } catch (e) {
-            this.log(`[Система] Ошибка загрузки модулей: ${e.message}`, 'err');
+            // ИСПРАВЛЕНО: ctx.Logger.log вместо this.log
+            ctx.Logger.log(`[Система] Ошибка загрузки модулей: ${e.message}`, 'err');
             return false;
         }
     };
