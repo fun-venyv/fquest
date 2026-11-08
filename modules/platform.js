@@ -1,4 +1,7 @@
 // === Маппинг имён stores → методов для поиска ===
+const isVencord = typeof Vencord !== 'undefined' && typeof definePlugin !== 'undefined';
+const isBD = typeof BdApi !== 'undefined';
+
 const STORE_METHODS = {
     'UserStore': 'getCurrentUser',
     'SelectedGuildStore': 'getSelectedGuildId',
@@ -115,8 +118,6 @@ const Webpack = {
     },
 };
  function createPlatform(meta) {
-        const isVencord = typeof Vencord !== 'undefined' && typeof definePlugin !== 'undefined';
-        const isBD = !isVencord && typeof BdApi !== 'undefined';
 
         // === DATA (универсальный) ===
         const Data = {
