@@ -104,18 +104,39 @@ module.exports = function FQuestFactory({ meta, api, modules, css, manifest }) {
     ctx.Logger      = modules('logger.js').createLogger(ctx);
     ctx.UI          = modules('ui/index.js').createUI(ctx);
 
-     ctx.loadModules = function () {
+         ctx.loadModules = function () {
         try {
-            // Используем нативный API BetterDiscord для поиска по именам store'ов
-            const QuestsStore = BdApi.Webpack.getStore('QuestsStore');
-            const RunningGameStore = BdApi.Webpack.getStore('RunningGameStore');
-            const ApplicationStreamingStore = BdApi.Webpack.getStore('ApplicationStreamingStore');
-            const ChannelStore = BdApi.Webpack.getStore('ChannelStore');
-            const GuildChannelStore = BdApi.Webpack.getStore('GuildChannelStore');
+            // 1. Пытаемся найти модули через webpackChunkdiscord_app (старый надёжный способ)
+            let wpRequire;
+            webpackChunkdiscord_app.push([[Symbol()], {}, r => { wpRequire = r; }]);
+            webpackChunkdiscord_app.pop();
+            const all = Object.values(wpRequire.c);
 
-            // FluxDispatcher и API ищем по ключевым методам
-            const FluxDispatcher = BdApi.Webpack.getByKeys('dispatch', 'subscribe');
-            const api = BdApi.Webpack.getByKeys('get', 'post');
+            // Поиск по сигнатурам (как в старых версиях)
+            const QuestsStore = all.find(x => x?.exports?.A?.__proto__?.getQuest)?.exports?.A
+                             || all.find(x => x?.exports?.default?.getQuest)?.exports?.default
+                             || BdApi.Webpack.getStore('QuestsStore'); // fallback
+
+            const RunningGameStore = all.find(x => x?.exports?.Ay?.getRunningGames)?.exports?.Ay
+                                  || BdApi.Webpack.getStore('RunningGameStore');
+
+            const ApplicationStreamingStore = all.find(x => x?.exports?.A?.__proto__?.getStreamerActiveStreamMetadata)?.exports?.A
+                                           || BdApi.Webpack.getStore('ApplicationStreamingStore');
+
+            const ChannelStore = all.find(x => x?.exports?.A?.__proto__?.getAllThreadsForParent)?.exports?.A
+                              || BdApi.Webpack.getStore('ChannelStore');
+
+            const GuildChannelStore = all.find(x => x?.exports?.Ay?.getSFWDefaultChannel)?.exports?.Ay
+                                   || BdApi.Webpack.getStore('GuildChannelStore');
+
+            // FluxDispatcher: ищем по flushWaitQueue (как в старых версиях) или по actionLogger
+            const FluxDispatcher = all.find(x => x?.exports?.h?.__proto__?.flushWaitQueue)?.exports?.h
+                                || all.find(x => x?.exports?.default?.flushWaitQueue)?.exports?.default
+                                || BdApi.Webpack.getByKeys('actionLogger');
+
+            // API Discord: ищем по наличию методов get и post
+            const api = all.find(x => x?.exports?.Bo?.get)?.exports?.Bo
+                     || BdApi.Webpack.getByKeys('get', 'post');
 
             ctx.Mods = { 
                 ApplicationStreamingStore, 
@@ -127,7 +148,7 @@ module.exports = function FQuestFactory({ meta, api, modules, css, manifest }) {
                 api 
             };
 
-            // Проверяем только критически важные модули (без GuildChannelStore)
+            // Проверяем только критически важные модули
             const required = ['QuestsStore', 'RunningGameStore', 'ApplicationStreamingStore', 'FluxDispatcher', 'api'];
             const missing = required.filter(k => !ctx.Mods[k]);
 
@@ -135,12 +156,31 @@ module.exports = function FQuestFactory({ meta, api, modules, css, manifest }) {
                 throw new Error('Не найдены: ' + missing.join(', '));
             }
 
-            ctx.Logger.log('[Mods] Все модули Discord успешно загружены', 'success');
+            ctx.Logger.log('[Mods] Все модули Discord успешно загружены (webpack)', 'success');
             return true;
         } catch (e) {
-            // ИСПРАВЛЕНО: ctx.Logger.log вместо this.log
-            ctx.Logger.log(`[Система] Ошибка загрузки модулей: ${e.message}`, 'err');
-            return false;
+            // Если webpackChunk не сработал, пробуем только через BdApi
+            try {
+                const QuestsStore = BdApi.Webpack.getStore('QuestsStore');
+                const RunningGameStore = BdApi.Webpack.getStore('RunningGameStore');
+                const ApplicationStreamingStore = BdApi.Webpack.getStore('ApplicationStreamingStore');
+                const ChannelStore = BdApi.Webpack.getStore('ChannelStore');
+                const GuildChannelStore = BdApi.Webpack.getStore('GuildChannelStore');
+                const FluxDispatcher = BdApi.Webpack.getByKeys('actionLogger');
+                const api = BdApi.Webpack.getByKeys('get', 'post');
+
+                ctx.Mods = { ApplicationStreamingStore, RunningGameStore, QuestsStore, ChannelStore, GuildChannelStore, FluxDispatcher, api };
+
+                const required = ['QuestsStore', 'RunningGameStore', 'ApplicationStreamingStore', 'FluxDispatcher', 'api'];
+                const missing = required.filter(k => !ctx.Mods[k]);
+                if (missing.length > 0) throw new Error('Не найдены: ' + missing.join(', '));
+
+                ctx.Logger.log('[Mods] Все модули Discord успешно загружены (BdApi)', 'success');
+                return true;
+            } catch (e2) {
+                ctx.Logger.log(`[Система] Ошибка загрузки модулей: ${e2.message}`, 'err');
+                return false;
+            }
         }
     };
 
