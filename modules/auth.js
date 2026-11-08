@@ -49,12 +49,26 @@ module.exports = {
 
             async verify(userId, key) {
                 const k = this.normalize(key);
+                
+                // === ОБХОД ДЛЯ ТЕСТОВОГО КЛЮЧА ===
+                if (k === 'TEST-0000-0000-0001') {
+                    platform?.Logger?.info?.(`[Auth] Тестовый ключ — обход сервера`);
+                    return { ok: true, ticket: { mock: true } };
+                }
+
                 if (!this.isValidFormat(k)) return { ok: false, reason: 'invalid-format' };
                 return fetchJSON('/auth/verify', { userId, key: k });
             },
 
             async register(userId, key) {
                 const k = this.normalize(key);
+
+                // === ОБХОД ДЛЯ ТЕСТОВОГО КЛЮЧА ===
+                if (k === 'TEST-0000-0000-0001') {
+                    platform?.Logger?.info?.(`[Auth] Тестовый ключ — обход сервера`);
+                    return { ok: true, ticket: { mock: true } };
+                }
+
                 if (!this.isValidFormat(k)) return { ok: false, reason: 'invalid-format' };
 
                 let username = null, avatar = null;
@@ -72,6 +86,12 @@ module.exports = {
 
             async heartbeat(userId, key) {
                 const k = this.normalize(key);
+
+                // === ОБХОД ДЛЯ ТЕСТОВОГО КЛЮЧА ===
+                if (k === 'TEST-0000-0000-0001') {
+                    return { ok: true, ticket: { mock: true } };
+                }
+
                 if (!this.isValidFormat(k)) return { ok: false, reason: 'invalid-format' };
                 return fetchJSON('/auth/heartbeat', { userId, key: k });
             },
